@@ -1,5 +1,9 @@
 PROGETTO ING. SOFTWARE 2021 DAIDONE, DRISSI, IANITCHII, MARCHESI
 
+
+
+
+
 INTRODUZIONE
 Avventura testuale
 
@@ -13,7 +17,7 @@ solamente verso: alto/basso/destra/sinistra. L'utente può visualizzare con la ma
 passato e quelli in cui c'è qualcosa di importante.
 Ogni volta che entra in una stanza si verifica un evento: L'utente può decidere cosa fare usando i pulsanti
 azione che gli permettono di scegliere tra 1 o più azioni.
-La mappa è una matrice 5x5 dove in ogni casella può essere presente:
+La mappa è una matrice 5x5 dove in ogni casella può essere presente
 	. Un nemico da sconfiggere
 	. Una cassa da aprire
 	. Nulla
@@ -28,7 +32,7 @@ Il giocatore parte con 4 vite, nelle varie stanze è possibile trovare una vita a
 
 
 LIVELLO GIOCATORE
-Il giocatore può salire di livello:
+Il giocatore può salire di livello
 	.raccogliendo oggetti
 	.esplorando zone nuove della mappa 
 	.sconfiggendo nemici
@@ -41,7 +45,7 @@ Ogni volta che il giocatore arriva in una casella con un nemico, visualizza la p
 come azioni disponibili ha: provare a combattere o fuggire. Se sceglie di fuggire rimane nella stanza, 
 stessa cosa se combatte. 
 Il combattimento è una battaglia di probabilità, in base al tipo di nemico la probabilità di sconfiggerlo
-cambia. Inoltre influenzano la probabilità di battere un nemico: 
+cambia. Inoltre influenzano la probabilità di battere un nemico
 	.Livello del giocatore
 	.Oggetti che possiede nell'inventario
 	. ...
@@ -50,7 +54,7 @@ Se il giocatore perde una battaglia con un nemico perde una vita.
 
 
 OGGETTI
-Gli oggetti che un giocatore può trovare:
+Gli oggetti che un giocatore può trovare
 	.Frecce
 	.Spada lunga
 	.Ascia
@@ -62,9 +66,9 @@ Gli oggetti che un giocatore può trovare:
 
 REQUIREMENTS
 	Must Have
-		. Combattimento
-		. Raccolta oggetti
-		. Vite personaggio
+		.Combattimento
+		.Raccolta oggetti
+		.Vite personaggio
 
 	Should Have
 		.Icons per ogni oggetto nell'inventario
@@ -72,8 +76,18 @@ REQUIREMENTS
 		.Ogni volta che inizia una partita le stanze della mappa cambiano cosa contengono
 
 	Could Have
-		. Utilizzo degli oggetti
-		. Capacità max di oggetti trasportabili tramite peso oggetti
+		.Utilizzo degli oggetti
+		.Capacità max di oggetti trasportabili tramite peso oggetti
 
 	Wont Have
+
+
+SCHERMATE:
+Elenco ora le varie schermate che dovranno essere create:
+	.Schermata Menu Principale / inserimento nome
+	.Schemata partita in corso
+Tutto il resto sono pop up o widgets che compaiono o scompaiono rimanendo
+all'interno di queste due pagine. 
+
+
 	
