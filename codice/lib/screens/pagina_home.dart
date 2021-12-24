@@ -1,4 +1,7 @@
+import 'package:codice/screens/pagina_inserimento_nome.dart';
 import 'package:flutter/material.dart';
+
+// PAGINA HOME [PAG1]
 
 class PaginaHome extends StatelessWidget {
   const PaginaHome({Key? key}) : super(key: key);
@@ -40,9 +43,18 @@ class PaginaHome extends StatelessWidget {
 
                   // PULSANTE NUOVA PARTITA
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const PaginaInserimentoNome();
+                          },
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.green[900],
+                      primary: Colors.green[800],
                       minimumSize: const Size(200, 50),
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
