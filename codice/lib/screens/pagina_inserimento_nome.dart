@@ -1,3 +1,4 @@
+import 'package:codice/screens/pagina%20giocatore/pagina_giocatore.dart';
 import 'package:flutter/material.dart';
 
 class PaginaInserimentoNome extends StatefulWidget {
@@ -100,7 +101,18 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
 
                   // PULSANTE INIZIA PARTITA
                   ElevatedButton(
-                    onPressed: _editingController.text == "" ? null : () {},
+                    onPressed: _editingController.text == ""
+                        ? null
+                        : () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const PaginaGiocatore();
+                                },
+                              ),
+                            );
+                          },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.green[800],
                       minimumSize: const Size(200, 50),
