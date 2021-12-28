@@ -13,23 +13,40 @@ class PrimaColonna extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         // PULSANTE MENU
-        const PulsanteMenu(),
-
+        Container(
+          margin: EdgeInsets.all(50),
+          child: PulsanteMenu(),
+        ),
         // OVERLAY INFO GIOCATORE
         Container(
+          color: Colors.red,
+          margin: EdgeInsets.all(50),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("Nome Giocatore"),
-              Text("HP 50"),
+              Text(
+                "Nome Giocatore",
+                style: TextStyle(fontSize: 30),
+              ),
+              Text(
+                "HP 50",
+                style: TextStyle(fontSize: 30),
+              ),
             ],
           ),
         ),
 
+        Spacer(),
+
         // PULSANTE INVENTARIO
-        const PulsanteInventario()
+        Container(
+          margin: EdgeInsets.all(50),
+          child: PulsanteInventario(),
+        )
       ],
     );
   }

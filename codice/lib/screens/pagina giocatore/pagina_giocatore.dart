@@ -1,4 +1,5 @@
-import 'package:codice/screens/pagina%20giocatore/prima_colonna.dart';
+import 'package:codice/screens/pagina%20giocatore/prima%20colonna/prima_colonna.dart';
+import 'package:codice/screens/pagina%20giocatore/seconda%20colonna/seconda_colonna.dart';
 import 'package:flutter/material.dart';
 
 // STRUTTURA PAGINA
@@ -17,8 +18,12 @@ class _PaginaGiocatoreState extends State<PaginaGiocatore> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.grey,
         body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            PrimaColonna(),
+            SecondaColonna(),
             PrimaColonna(),
           ],
         ),
