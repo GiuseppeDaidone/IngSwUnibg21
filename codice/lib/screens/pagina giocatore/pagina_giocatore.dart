@@ -1,5 +1,6 @@
 import 'package:codice/screens/pagina%20giocatore/prima%20colonna/prima_colonna.dart';
 import 'package:codice/screens/pagina%20giocatore/seconda%20colonna/seconda_colonna.dart';
+import 'package:codice/screens/pagina%20giocatore/terza%20colonna/terza_colonna.dart';
 import 'package:flutter/material.dart';
 
 // STRUTTURA PAGINA
@@ -21,10 +22,17 @@ class _PaginaGiocatoreState extends State<PaginaGiocatore> {
         backgroundColor: Colors.grey,
         body: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            PrimaColonna(),
-            SecondaColonna(),
-            PrimaColonna(),
+          children: const <Widget>[
+            Expanded(
+              child: PrimaColonna(),
+            ),
+            Expanded(
+              flex: 3,
+              child: SecondaColonna(),
+            ),
+            Expanded(
+              child: TerzaColonna(),
+            ),
           ],
         ),
       ),

@@ -9,8 +9,6 @@ class PulsanteMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height / 12,
-      width: size.width / 13,
       child: ElevatedButton(
         child: const Text("Menù"),
         onPressed: () {
