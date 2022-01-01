@@ -1,4 +1,4 @@
-import 'package:codice/screens/pagina_inserimento_nome.dart';
+import 'package:codice/screens/pagina%20inserimento%20nome/pagina_inserimento_nome.dart';
 import 'package:flutter/material.dart';
 
 // PAGINA HOME [PAG1]

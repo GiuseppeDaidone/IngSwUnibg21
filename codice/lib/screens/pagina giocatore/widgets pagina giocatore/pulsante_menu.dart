@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../pagina_home.dart';
+import '../../pagina home/pagina_home.dart';
 
 class PulsanteMenu extends StatelessWidget {
   const PulsanteMenu({Key? key}) : super(key: key);
