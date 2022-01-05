@@ -8,7 +8,7 @@ class GameFonts {
       textStyle: const TextStyle(
     fontSize: 100,
     color: Colors.white,
-  ));
+  ),);
 
   final TextStyle pulsantePaginaHome = GoogleFonts.gloriaHallelujah(
     textStyle: const TextStyle(
