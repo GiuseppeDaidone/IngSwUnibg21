@@ -1,4 +1,5 @@
 import 'package:codice/screens/pagina%20inserimento%20nome/pagina_inserimento_nome.dart';
+import 'package:codice/theme/game_fonts.dart';
 import 'package:flutter/material.dart';
 
 // PAGINA HOME [PAG1]
@@ -29,12 +30,9 @@ class PaginaHome extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   // TITLE
-                  const Text(
+                  Text(
                     "Pandora Quest",
-                    style: TextStyle(
-                      fontSize: 80,
-                      color: Colors.white,
-                    ),
+                    style: GameFonts().titoloPaginaHome,
                   ),
 
                   const SizedBox(
@@ -62,7 +60,10 @@ class PaginaHome extends StatelessWidget {
                         ),
                       ),
                     ),
-                    child: const Text("Nuova Partita"),
+                    child: Text(
+                      "Nuova Partita",
+                      style: GameFonts().pulsantePaginaHome,
+                    ),
                   )
                 ],
               ),

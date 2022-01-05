@@ -2,6 +2,10 @@ import 'package:codice/screens/pagina%20finale/pagina_finale.dart';
 import 'package:codice/screens/pagina%20giocatore/pagina_giocatore.dart';
 import 'package:codice/screens/pagina%20home/pagina_home.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+// flutter run -d chrome --web-renderer html
+// flutter run --profile
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +24,7 @@ class _MyAppState extends State<MyApp> {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "ingswproject",
-      home: PaginaFinale(),
+      home: PaginaHome(),
     );
   }
 }
