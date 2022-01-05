@@ -1,5 +1,6 @@
+import 'package:codice/screens/pagina%20finale/pagina_finale.dart';
 import 'package:codice/screens/pagina%20giocatore/pagina_giocatore.dart';
-import 'package:codice/screens/pagina_home.dart';
+import 'package:codice/screens/pagina%20home/pagina_home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class _MyAppState extends State<MyApp> {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "ingswproject",
-      home: PaginaGiocatore(),
+      home: PaginaFinale(),
     );
   }
 }
