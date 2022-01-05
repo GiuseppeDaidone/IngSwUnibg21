@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "ingswproject",
-      home: PaginaFinale(),
+      home: PaginaHome(),
     );
   }
 }
