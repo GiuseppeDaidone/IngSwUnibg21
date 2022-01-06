@@ -1,5 +1,5 @@
 abstract class Oggetto {
-  static late int id = 0;
+  static int id = 0;
 
   Oggetto() {
     id = id++;

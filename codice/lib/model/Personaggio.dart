@@ -1,7 +1,7 @@
-import 'package:codice/model/Oggetto.dart';
+import 'package:codice/model/oggetto.dart';
 
 class Personaggio {
-  Personaggio(this.nome) {
+  Personaggio({required this.nome}) {
     //se voglio che una variabile possa assumere il valore null devo metter ?
     //es: String?
     salute = 100;
@@ -18,13 +18,11 @@ class Personaggio {
     salute = salute - n;
   }
 
-  //void esplora() {}
-
   int getSalute() {
     return salute;
   }
 
-  late final String nome;
+  final String nome;
   late int salute;
-  late List<Oggetto> listaOggetti = [];
+  List<Oggetto> listaOggetti = [];
 }

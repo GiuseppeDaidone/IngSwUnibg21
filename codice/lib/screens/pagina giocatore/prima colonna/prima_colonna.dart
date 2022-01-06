@@ -1,7 +1,9 @@
+import 'package:codice/model/partita.dart';
 import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_inventario.dart';
 import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_menu.dart';
 import 'package:codice/screens/pagina%20home/pagina_home.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 // CONTENUTO PRIMA COLONNA
 //
@@ -32,7 +34,7 @@ class PrimaColonna extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "NomeGiocatoreqw",
+                  "nomeGiocatore",
                   style: TextStyle(fontSize: 25),
                 ),
                 Text(

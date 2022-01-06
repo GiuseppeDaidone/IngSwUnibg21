@@ -1,5 +1,6 @@
 import 'package:codice/screens/pagina%20giocatore/pagina_giocatore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PaginaInserimentoNome extends StatefulWidget {
   const PaginaInserimentoNome({Key? key}) : super(key: key);
@@ -64,6 +65,7 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
                     child: TextField(
                       controller: _editingController,
                       focusNode: _focusNode,
+                      onSubmitted: (text) {},
                       maxLength: 20,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
