@@ -1,54 +1,35 @@
 import 'package:codice/model/stanza.dart';
+import 'package:flutter/cupertino.dart';
 
-class Partita {
-  Partita() {
-    indexStanzaCorrente = 0;
-    _oggettiUtilizzati = 0;
-    _totDomandeSbagliate = 0;
-    _totDomandeRisposte = 0;
-    mappa = [];
-  }
-
+class Partita with ChangeNotifier {
   late int _totDomandeSbagliate;
   late int _totDomandeRisposte;
   late int _oggettiUtilizzati;
   late int indexStanzaCorrente;
   final DateTime _istanteInizioPartita = DateTime.now();
-  late List<Stanza> mappa;
+  final List<Stanza> mappa = [];
 
-  void aumentaDomandeSbagliate() {
-    _totDomandeSbagliate++;
+  Partita() {
+    _totDomandeRisposte = 0;
+    _totDomandeSbagliate = 0;
+    _oggettiUtilizzati = 0;
+    indexStanzaCorrente = 0;
   }
+  void aumentaDomandeSbagliate() => _totDomandeSbagliate++;
 
-  void aumentaDomandeRisposte() {
-    _totDomandeRisposte++;
-  }
+  void aumentaDomandeRisposte() => _totDomandeRisposte++;
 
-  void aumentaOggettiUtilizzati() {
-    _oggettiUtilizzati++;
-  }
+  void aumentaOggettiUtilizzati() => _oggettiUtilizzati++;
 
-  int getTotDomandeSbagliate() {
-    return _totDomandeSbagliate;
-  }
+  int getTotDomandeSbagliate() => _totDomandeSbagliate;
 
-  DateTime getIstanteInizioPartita() {
-    return _istanteInizioPartita;
-  }
+  DateTime getIstanteInizioPartita() => _istanteInizioPartita;
 
-  int getTotDomandeRisposte() {
-    return _totDomandeRisposte;
-  }
+  int getTotDomandeRisposte() => _totDomandeRisposte;
 
-  int getOggettiUtilizzati() {
-    return _oggettiUtilizzati;
-  }
+  int getOggettiUtilizzati() => _oggettiUtilizzati;
 
-  int getIndexStanzaCorrente() {
-    return indexStanzaCorrente;
-  }
+  int getIndexStanzaCorrente() => indexStanzaCorrente;
 
-  void goStanzaSuccessiva() {
-    indexStanzaCorrente++;
-  }
+  void goStanzaSuccessiva() => indexStanzaCorrente++;
 }
