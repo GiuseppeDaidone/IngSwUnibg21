@@ -5,9 +5,7 @@ abstract class Oggetto {
     id = id++;
   }
 
-  int getId() {
-    return id;
-  }
+  int getId() => id;
 
   void usa() {}
 }

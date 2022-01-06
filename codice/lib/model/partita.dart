@@ -17,35 +17,19 @@ class Partita with ChangeNotifier {
   }
   void aumentaDomandeSbagliate() => _totDomandeSbagliate++;
 
-  void aumentaDomandeRisposte() {
-    _totDomandeRisposte++;
-  }
+  void aumentaDomandeRisposte() => _totDomandeRisposte++;
 
-  void aumentaOggettiUtilizzati() {
-    _oggettiUtilizzati++;
-  }
+  void aumentaOggettiUtilizzati() => _oggettiUtilizzati++;
 
-  int getTotDomandeSbagliate() {
-    return _totDomandeSbagliate;
-  }
+  int getTotDomandeSbagliate() => _totDomandeSbagliate;
 
-  DateTime getIstanteInizioPartita() {
-    return _istanteInizioPartita;
-  }
+  DateTime getIstanteInizioPartita() => _istanteInizioPartita;
 
-  int getTotDomandeRisposte() {
-    return _totDomandeRisposte;
-  }
+  int getTotDomandeRisposte() => _totDomandeRisposte;
 
-  int getOggettiUtilizzati() {
-    return _oggettiUtilizzati;
-  }
+  int getOggettiUtilizzati() => _oggettiUtilizzati;
 
-  int getIndexStanzaCorrente() {
-    return indexStanzaCorrente;
-  }
+  int getIndexStanzaCorrente() => indexStanzaCorrente;
 
-  void goStanzaSuccessiva() {
-    indexStanzaCorrente++;
-  }
+  void goStanzaSuccessiva() => indexStanzaCorrente++;
 }

@@ -1,8 +1,6 @@
 import 'package:codice/model/Personaggio.dart';
-import 'package:codice/model/partita.dart';
 import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_inventario.dart';
 import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_menu.dart';
-import 'package:codice/screens/pagina%20home/pagina_home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
