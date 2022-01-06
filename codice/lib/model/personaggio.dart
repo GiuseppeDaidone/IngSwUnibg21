@@ -1,6 +1,7 @@
 import 'package:codice/model/oggetto.dart';
+import 'package:flutter/cupertino.dart';
 
-class Personaggio {
+class Personaggio with ChangeNotifier {
   Personaggio({required this.nome}) {
     //se voglio che una variabile possa assumere il valore null devo metter ?
     //es: String?

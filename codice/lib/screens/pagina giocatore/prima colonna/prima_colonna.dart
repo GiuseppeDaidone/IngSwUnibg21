@@ -1,3 +1,4 @@
+import 'package:codice/model/Personaggio.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_inventario.dart';
 import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_menu.dart';
@@ -21,36 +22,41 @@ class PrimaColonna extends StatelessWidget {
         children: <Widget>[
           // PULSANTE MENU
           Container(
-            margin: EdgeInsets.all(25),
-            child: PulsanteMenu(),
+            margin: const EdgeInsets.all(25),
+            child: const PulsanteMenu(),
           ),
 
           // OVERLAY INFO GIOCATORE
           Container(
             color: Colors.red,
-            margin: EdgeInsets.all(25),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  "nomeGiocatore",
-                  style: TextStyle(fontSize: 25),
-                ),
-                Text(
-                  "HP: 50",
-                  style: TextStyle(fontSize: 25),
-                ),
-              ],
+            margin: const EdgeInsets.all(25),
+            child: Consumer<Personaggio>(
+              builder: (context, personaggio, _) => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Nome personaggio
+                  Text(
+                    personaggio.nome,
+                    style: const TextStyle(fontSize: 25),
+                  ),
+
+                  // Salute Attuale
+                  Text(
+                    personaggio.salute.toString(),
+                    style: const TextStyle(fontSize: 25),
+                  ),
+                ],
+              ),
             ),
           ),
 
-          Spacer(),
+          const Spacer(),
 
           // PULSANTE INVENTARIO
           Container(
-            margin: EdgeInsets.all(50),
-            child: PulsanteInventario(),
+            margin: const EdgeInsets.all(50),
+            child: const PulsanteInventario(),
           )
         ],
       ),

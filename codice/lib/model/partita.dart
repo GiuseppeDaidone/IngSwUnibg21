@@ -1,6 +1,7 @@
 import 'package:codice/model/stanza.dart';
+import 'package:flutter/cupertino.dart';
 
-class Partita {
+class Partita with ChangeNotifier {
   late int _totDomandeSbagliate;
   late int _totDomandeRisposte;
   late int _oggettiUtilizzati;

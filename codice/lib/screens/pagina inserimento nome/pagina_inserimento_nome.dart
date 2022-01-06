@@ -1,6 +1,9 @@
+import 'package:codice/model/Personaggio.dart';
+import 'package:codice/model/partita.dart';
 import 'package:codice/screens/pagina%20giocatore/pagina_giocatore.dart';
 import 'package:codice/theme/game_fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 // [PAG2]
 
@@ -25,6 +28,14 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
 
     _editingController = TextEditingController();
     super.initState();
+  }
+
+  // Libero la memoria
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    _editingController.dispose();
+    super.dispose();
   }
 
   @override
@@ -125,7 +136,23 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return const PaginaGiocatore();
+                                return MultiProvider(
+                                  providers: [
+                                    // Partita Provider
+                                    ChangeNotifierProvider<Partita>(
+                                      create: (_) => Partita(),
+                                      child: const PaginaGiocatore(),
+                                    ),
+
+                                    // Personaggio Provider
+                                    ChangeNotifierProvider<Personaggio>(
+                                      create: (_) => Personaggio(
+                                          nome: _editingController.text),
+                                      child: const PaginaGiocatore(),
+                                    ),
+                                  ],
+                                  child: const PaginaGiocatore(),
+                                );
                               },
                             ),
                           );
