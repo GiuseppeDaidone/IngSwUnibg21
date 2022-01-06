@@ -1,7 +1,7 @@
-import 'package:codice/model/amuletto.dart';
+import 'package:codice/model/amuleto.dart';
 
-class AmulettoSfortuna extends Amuletto {
-  AmulettoSfortuna({required incantesimo}) : super(incantesimo: incantesimo);
+class AmuletoSfortuna extends Amuleto {
+  AmuletoSfortuna({required incantesimo}) : super(incantesimo: incantesimo);
 
   @override
   void avviaIncantesimo() {
