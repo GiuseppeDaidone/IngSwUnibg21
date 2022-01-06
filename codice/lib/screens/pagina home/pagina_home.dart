@@ -32,7 +32,7 @@ class PaginaHome extends StatelessWidget {
                   // TITLE
                   Text(
                     "Pandora Quest",
-                    style: GameFonts().titoloPaginaHome,
+                    style: GameFonts().hallelujaFont(size: 100),
                   ),
 
                   const SizedBox(
@@ -62,7 +62,7 @@ class PaginaHome extends StatelessWidget {
                     ),
                     child: Text(
                       "Nuova Partita",
-                      style: GameFonts().pulsantePaginaHome,
+                      style: GameFonts().hallelujaFont(),
                     ),
                   )
                 ],
