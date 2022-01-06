@@ -141,14 +141,12 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
                                     // Partita Provider
                                     ChangeNotifierProvider<Partita>(
                                       create: (_) => Partita(),
-                                      child: const PaginaGiocatore(),
                                     ),
 
                                     // Personaggio Provider
                                     ChangeNotifierProvider<Personaggio>(
                                       create: (_) => Personaggio(
                                           nome: _editingController.text),
-                                      child: const PaginaGiocatore(),
                                     ),
                                   ],
                                   child: const PaginaGiocatore(),
