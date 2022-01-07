@@ -140,11 +140,13 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
                                   providers: [
                                     // Partita Provider
                                     ChangeNotifierProvider<Partita>(
+                                      lazy: false,
                                       create: (_) => Partita(),
                                     ),
 
                                     // Personaggio Provider
                                     ChangeNotifierProvider<Personaggio>(
+                                      lazy: false,
                                       create: (_) => Personaggio(
                                           nome: _editingController.text),
                                     ),

@@ -22,15 +22,17 @@ class Stanza {
     required this.azioniDisponibili,
     required this.dialogoStanza,
     required this.immagini,
-    required this.isCombattimentoPresente,
+    this.isCombattimentoPresente = false,
   }) {
     // prendo un oggetto a caso da quelli disponibili nel database
-    oggettoStanza = OggettiDB().listaOggetti[0];
+    print("AGGIUNGO OGGETTO");
+    oggettoStanza = OggettiDB().getOggetto();
   }
 
   // Quando una stanza viene inserita nella mappa, gli viene associato l'index della posizione e vengono creati gli eventuali
   // combattimenti
   void setIndex(int idx) {
+    print("IMPOSTO INDEX");
     _index = idx;
     if (isCombattimentoPresente) {
       combattimento.add(CreazionePartita().creaCombattimento(_index));
