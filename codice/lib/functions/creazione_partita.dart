@@ -11,17 +11,21 @@ class CreazionePartita {
     for (int i = 0; i < 10; i++) {
       // Mappa Iniziale
       if (i == 0) {
-        mappa.add(StanzeDB().stanzeIniziali[0]);
+        mappa.add(StanzeDB().getStanzaIniziale());
+        // Associo alla mappa l'index della posizione in cui si trova dentro la mappa.
+        mappa.last.setIndex(i);
       }
 
       // Mappe Combattimento
       else if (i % 3 == 0) {
-        mappa.add(StanzeDB().stanzeCombattimento[0]);
+        mappa.add(StanzeDB().getStanzaCombattimento());
+        mappa.last.setIndex(i);
       }
 
       // Mappa Esplorazione
       else {
-        mappa.add(StanzeDB().stanzeCombattimento[0]);
+        mappa.add(StanzeDB().getStanzaEsplorazione());
+        mappa.last.setIndex(i);
       }
     }
 

@@ -1,13 +1,14 @@
 import 'package:codice/database/oggettiDB.dart';
+import 'package:codice/database/oggettiDB.dart';
 import 'package:codice/functions/creazione_partita.dart';
 import 'package:codice/model/combattimento.dart';
 import 'package:codice/model/oggetto.dart';
 import 'package:flutter/material.dart';
 import 'azione.dart';
 
-abstract class Stanza {
+class Stanza {
   // L'index della stanza viene fornito quando viene creata la mappa al momento della creazine dell'istanza partita.
-  late int index;
+  late int _index;
   final List<String> dialogoStanza;
   final List<Image> immagini;
   final List<Azione> azioniDisponibili;
@@ -30,9 +31,9 @@ abstract class Stanza {
   // Quando una stanza viene inserita nella mappa, gli viene associato l'index della posizione e vengono creati gli eventuali
   // combattimenti
   void setIndex(int idx) {
-    index = idx;
+    _index = idx;
     if (isCombattimentoPresente) {
-      combattimento.add(CreazionePartita().creaCombattimento(index));
+      combattimento.add(CreazionePartita().creaCombattimento(_index));
     }
   }
 }
