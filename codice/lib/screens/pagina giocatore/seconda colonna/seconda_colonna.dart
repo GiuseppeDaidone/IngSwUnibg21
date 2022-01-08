@@ -1,6 +1,8 @@
+import 'package:codice/screens/pagina%20giocatore/seconda%20colonna/action_button.dart';
 import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_inventario.dart';
 import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_menu.dart';
 import 'package:codice/screens/pagina%20home/pagina_home.dart';
+import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 
 // CONTENUTO SECONDA COLONNA
@@ -18,14 +20,18 @@ class SecondaColonna extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      color: Colors.purple,
+      margin: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: GameTheme.primaryColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Column(
         children: <Widget>[
           // IMAGE BOX
           Expanded(
             flex: 6,
             child: Container(
-              margin: EdgeInsets.only(top: 20),
+              margin: const EdgeInsets.only(top: 20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -61,49 +67,37 @@ class SecondaColonna extends StatelessWidget {
           // ACTION BUTTONS
           Expanded(
             flex: 2,
-            child: Container(
+            child: SizedBox(
               width: size.width / 2,
               child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // Primo action button
-                    isPrimaAzioneActive
-                        ? Container(
-                            height: 70,
-                            width: size.width / 8,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: const Text("Prima Azione"),
-                            ),
-                          )
-                        : const SizedBox(),
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Primo action button
+                  isPrimaAzioneActive
+                      ? ActionButton(
+                          nomePulsante: "Prima Azione",
+                          onPressed: () {},
+                        )
+                      : const SizedBox(),
 
-                    // Secondo action button
-                    isSecondaAzioneActive
-                        ? Container(
-                            height: 70,
-                            width: size.width / 8,
-                            margin: const EdgeInsets.only(right: 20, left: 20),
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: const Text("Seconda Azione"),
-                            ),
-                          )
-                        : const SizedBox(),
+                  // Secondo action button
+                  isSecondaAzioneActive
+                      ? ActionButton(
+                          nomePulsante: "Seconda Azione",
+                          onPressed: () {},
+                        )
+                      : const SizedBox(),
 
-                    // Terzo action button
-                    isTerzaAzioneActive
-                        ? Container(
-                            height: 70,
-                            width: size.width / 8,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: const Text("Terza Azione"),
-                            ),
-                          )
-                        : const SizedBox()
-                  ]),
+                  // Terzo action button
+                  isTerzaAzioneActive
+                      ? ActionButton(
+                          nomePulsante: "Terza Azione",
+                          onPressed: () {},
+                        )
+                      : const SizedBox()
+                ],
+              ),
             ),
           )
         ],

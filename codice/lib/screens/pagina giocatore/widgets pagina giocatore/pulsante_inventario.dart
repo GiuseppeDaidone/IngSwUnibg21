@@ -12,7 +12,8 @@ class PulsanteInventario extends StatelessWidget {
       width: size.width / 13,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: GameTheme.secondaryColor,
+          elevation: 5,
+          primary: GameTheme.buttonColor,
         ),
         child: const Text("Inventario"),
         onPressed: () {

@@ -1,6 +1,7 @@
 import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_inventario.dart';
 import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_menu.dart';
 import 'package:codice/screens/pagina%20home/pagina_home.dart';
+import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:im_stepper/stepper.dart';
 
@@ -35,9 +36,13 @@ class _TerzaColonnaState extends State<TerzaColonna> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: GameTheme.primaryColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
       height: _size.height,
       width: _size.width / 6,
-      color: Colors.orange,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

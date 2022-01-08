@@ -1,6 +1,7 @@
 import 'package:codice/screens/pagina%20giocatore/prima%20colonna/prima_colonna.dart';
 import 'package:codice/screens/pagina%20giocatore/seconda%20colonna/seconda_colonna.dart';
 import 'package:codice/screens/pagina%20giocatore/terza%20colonna/terza_colonna.dart';
+import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 
 // STRUTTURA PAGINA
@@ -18,7 +19,7 @@ class _PaginaGiocatoreState extends State<PaginaGiocatore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: GameTheme.secondaryColor,
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: const <Widget>[

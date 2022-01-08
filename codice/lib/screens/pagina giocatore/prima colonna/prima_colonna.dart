@@ -15,7 +15,11 @@ class PrimaColonna extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: GameTheme.primaryColor,
+      margin: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: GameTheme.primaryColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[

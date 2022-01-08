@@ -12,7 +12,7 @@ class PulsanteMenu extends StatelessWidget {
       child: const Text("Menù"),
       style: ElevatedButton.styleFrom(
         elevation: 5,
-        primary: GameTheme.secondaryColor,
+        primary: GameTheme.buttonColor,
       ),
       onPressed: () {
         showDialog(

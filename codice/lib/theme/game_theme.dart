@@ -4,4 +4,5 @@ import 'package:flutter/material.dart';
 class GameTheme {
   static const Color primaryColor = Colors.green;
   static Color secondaryColor = Colors.green[700]!;
+  static Color buttonColor = Colors.green[900]!;
 }
