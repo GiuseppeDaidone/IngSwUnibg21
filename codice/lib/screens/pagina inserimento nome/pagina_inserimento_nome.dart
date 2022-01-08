@@ -30,6 +30,32 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
     super.initState();
   }
 
+  // Metodo chiamato per andare alla pagina giocatore
+  void changePage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return MultiProvider(
+            providers: [
+              // Partita Provider
+              ChangeNotifierProvider<Partita>(
+                lazy: false,
+                create: (_) => Partita(),
+              ),
+
+              // Personaggio Provider
+              ChangeNotifierProvider<Personaggio>(
+                create: (_) => Personaggio(nome: _editingController.text),
+              ),
+            ],
+            child: const PaginaGiocatore(),
+          );
+        },
+      ),
+    );
+  }
+
   // Libero la memoria
   @override
   void dispose() {
@@ -82,14 +108,7 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
                     // quando premo pulsante invio
                     onSubmitted: (text) {
                       if (text != "") {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return const PaginaGiocatore();
-                            },
-                          ),
-                        );
+                        changePage();
                       }
                     },
                     maxLength: 15,
@@ -132,30 +151,7 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
                   onPressed: _editingController.text == ""
                       ? null
                       : () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return MultiProvider(
-                                  providers: [
-                                    // Partita Provider
-                                    ChangeNotifierProvider<Partita>(
-                                      lazy: false,
-                                      create: (_) => Partita(),
-                                    ),
-
-                                    // Personaggio Provider
-                                    ChangeNotifierProvider<Personaggio>(
-                                      lazy: false,
-                                      create: (_) => Personaggio(
-                                          nome: _editingController.text),
-                                    ),
-                                  ],
-                                  child: const PaginaGiocatore(),
-                                );
-                              },
-                            ),
-                          );
+                          changePage();
                         },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.green[800],

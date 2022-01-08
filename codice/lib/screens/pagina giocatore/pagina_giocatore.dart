@@ -17,24 +17,22 @@ class PaginaGiocatore extends StatefulWidget {
 class _PaginaGiocatoreState extends State<PaginaGiocatore> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.grey,
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const <Widget>[
-            Expanded(
-              child: PrimaColonna(),
-            ),
-            Expanded(
-              flex: 3,
-              child: SecondaColonna(),
-            ),
-            Expanded(
-              child: TerzaColonna(),
-            ),
-          ],
-        ),
+    return Scaffold(
+      backgroundColor: Colors.grey,
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const <Widget>[
+          Expanded(
+            child: PrimaColonna(),
+          ),
+          Expanded(
+            flex: 3,
+            child: SecondaColonna(),
+          ),
+          Expanded(
+            child: TerzaColonna(),
+          ),
+        ],
       ),
     );
   }

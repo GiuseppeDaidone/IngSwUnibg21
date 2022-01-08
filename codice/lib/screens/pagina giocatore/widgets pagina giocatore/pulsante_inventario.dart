@@ -1,3 +1,4 @@
+import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 
 class PulsanteInventario extends StatelessWidget {
@@ -6,26 +7,30 @@ class PulsanteInventario extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       height: size.height / 8,
       width: size.width / 13,
       child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: GameTheme.secondaryColor,
+        ),
         child: const Text("Inventario"),
         onPressed: () {
           showDialog(
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  content: Container(
+                  content: SizedBox(
                     height: size.height / 3,
                     width: size.width / 5,
                     child: ListView.builder(
-                        itemCount: 10,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            title: Text(index.toString()),
-                          );
-                        }),
+                      itemCount: 10,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(index.toString()),
+                        );
+                      },
+                    ),
                   ),
                 );
               });
