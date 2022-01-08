@@ -25,23 +25,39 @@ class StanzeDB {
   List<Stanza> stanzeIniziali = [
     Stanza(
       azioniDisponibili: [],
-      dialogoStanza: ["stanza 1"],
-      immagini: [],
+      dialogoStanza: [
+        {"stanza1": false},
+        {"dialogo2": false},
+        {"dialogo3": true}
+      ],
+      immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
     Stanza(
       azioniDisponibili: [],
-      dialogoStanza: ["stanza 2"],
-      immagini: [],
+      dialogoStanza: [
+        {"stanza1": false},
+        {"dialogo2": false},
+        {"dialogo3": true}
+      ],
+      immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
     Stanza(
       azioniDisponibili: [],
-      dialogoStanza: ["stanza 3"],
-      immagini: [],
+      dialogoStanza: [
+        {"stanza1": false},
+        {"dialogo2": false},
+        {"dialogo3": true}
+      ],
+      immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
     Stanza(
       azioniDisponibili: [],
-      dialogoStanza: ["stanza 4"],
-      immagini: [],
+      dialogoStanza: [
+        {"stanza1": false},
+        {"dialogo2": false},
+        {"dialogo3": true}
+      ],
+      immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
   ];
 
@@ -54,8 +70,12 @@ class StanzeDB {
           f1: () => {print("Azione stanza 1")},
         )
       ],
-      dialogoStanza: ["stanza esp 1"],
-      immagini: [],
+      dialogoStanza: [
+        {"stanza1": false},
+        {"dialogo2": false},
+        {"dialogo3": true}
+      ],
+      immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
 
     // STANZA 2
@@ -65,8 +85,12 @@ class StanzeDB {
           f1: () => {print("Azione stanza 2")},
         )
       ],
-      dialogoStanza: ["stanza esp 2"],
-      immagini: [],
+      dialogoStanza: [
+        {"stanza1": false},
+        {"dialogo2": false},
+        {"dialogo3": true}
+      ],
+      immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
 
     // STANZA 3
@@ -76,8 +100,12 @@ class StanzeDB {
           f1: () => {print("Azione stanza 3")},
         )
       ],
-      dialogoStanza: ["stanza esp 3"],
-      immagini: [],
+      dialogoStanza: [
+        {"stanza1": false},
+        {"dialogo2": false},
+        {"dialogo3": true}
+      ],
+      immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
 
     // STANZA 4
@@ -87,8 +115,12 @@ class StanzeDB {
           f1: () => {print("Azione stanza 4")},
         )
       ],
-      dialogoStanza: ["stanza esp 4"],
-      immagini: [],
+      dialogoStanza: [
+        {"stanza1": false},
+        {"dialogo2": false},
+        {"dialogo3": true}
+      ],
+      immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
   ];
 
@@ -101,9 +133,13 @@ class StanzeDB {
           f1: () => {print("Azione stanza 1")},
         )
       ],
-      isCombattimentoPresente: true,
-      dialogoStanza: ["stanza esp 1"],
-      immagini: [],
+      isCombattimentoPresente: false,
+      dialogoStanza: [
+        {"stanza1": false},
+        {"dialogo2": false},
+        {"dialogo3": true}
+      ],
+      immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
 
     // STANZA 2
@@ -113,9 +149,13 @@ class StanzeDB {
           f1: () => {print("Azione stanza 2")},
         )
       ],
-      isCombattimentoPresente: true,
-      dialogoStanza: ["stanza esp 2"],
-      immagini: [],
+      isCombattimentoPresente: false,
+      dialogoStanza: [
+        {"stanza1": false},
+        {"dialogo2": false},
+        {"dialogo3": true}
+      ],
+      immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
 
     // STANZA 3
@@ -125,9 +165,13 @@ class StanzeDB {
           f1: () => {print("Azione stanza 3")},
         )
       ],
-      isCombattimentoPresente: true,
-      dialogoStanza: ["stanza esp 3"],
-      immagini: [],
+      isCombattimentoPresente: false,
+      dialogoStanza: [
+        {"stanza1": false},
+        {"dialogo2": false},
+        {"dialogo3": true}
+      ],
+      immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
 
     // STANZA 4
@@ -137,9 +181,13 @@ class StanzeDB {
           f1: () => {print("Azione stanza 4")},
         )
       ],
-      isCombattimentoPresente: true,
-      dialogoStanza: ["stanza esp 4"],
-      immagini: [],
+      isCombattimentoPresente: false,
+      dialogoStanza: [
+        {"stanza1": false},
+        {"dialogo2": false},
+        {"dialogo3": true}
+      ],
+      immagini: ["images/dun.jpg", "images/homegif.gif", "images/homegif.gif"],
     ),
   ];
 }

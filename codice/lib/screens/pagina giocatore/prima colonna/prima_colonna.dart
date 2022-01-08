@@ -39,48 +39,25 @@ class PrimaColonna extends StatelessWidget {
               ),
             ),
             margin: const EdgeInsets.all(25),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: const <Widget>[
-                // Nome personaggio
-                Text(
-                  "ZuppaSAlata97",
-                  //personaggio.nome,
-                  style: const TextStyle(fontSize: 25),
-                ),
-
-                // Salute Attuale
-                Text(
-                  "HP 100",
-                  // "HP: " + personaggio.salute.toString(),
-                  style: const TextStyle(fontSize: 15),
-                ),
-              ],
-            ),
-
-            /*  Consumer<Personaggio>(
+            child: Consumer<Personaggio>(
               builder: (context, personaggio, _) => Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
-                children: [
+                children: <Widget>[
                   // Nome personaggio
                   Text(
-                    "273",
-                    //personaggio.nome,
+                    personaggio.nome,
                     style: const TextStyle(fontSize: 25),
                   ),
 
                   // Salute Attuale
                   Text(
-                    "jkdjs1",
-                    // "HP: " + personaggio.salute.toString(),
-                    style: const TextStyle(fontSize: 25),
+                    "HP: " + personaggio.salute.toString(),
+                    style: const TextStyle(fontSize: 15),
                   ),
                 ],
               ),
             ),
- */
           ),
 
           const Spacer(),

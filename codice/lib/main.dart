@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "ingswproject",
-      home: PaginaGiocatore(),
+      home: PaginaHome(),
     );
   }
 }
