@@ -1,11 +1,11 @@
 class Domanda {
   final String testoDomanda;
   final Difficolta _difficolta;
-  final String _soluzione;
+  final String soluzione;
   // 4 risposte per ciascuna domanda
   final List<String> risposte;
 
-  Domanda(this._difficolta, this._soluzione,
+  Domanda(this._difficolta, this.soluzione,
       {required this.testoDomanda, required this.risposte});
 }
 

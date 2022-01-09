@@ -8,6 +8,20 @@ import 'domanda.dart';
 class Combattimento {
   final Nemico nemico;
   final List<Domanda> domande;
+  int indexDomandaCorrente = 0;
+  // Se bool = true allora la string è una domanda, quindi recupero in base all'index domanda le risposte disponibili da mostrare
+  final List<Map<String, bool>> dialogoCombattimento;
 
-  Combattimento({required this.nemico, required this.domande});
+  Combattimento(
+      {required this.nemico,
+      required this.domande,
+      required this.dialogoCombattimento});
+
+  void nextDomanda() {
+    indexDomandaCorrente++;
+  }
+
+  void resetIndexDomanda() {
+    indexDomandaCorrente = 0;
+  }
 }

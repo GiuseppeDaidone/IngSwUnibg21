@@ -23,7 +23,7 @@ class StanzeDB {
 
   // Lista di stanze iniziali
   List<Stanza> stanzeIniziali = [
-    Stanza(
+    /* Stanza(
       azioniDisponibili: [
         // STANZA INIZIALE 1
         Azione(
@@ -52,6 +52,15 @@ class StanzeDB {
         {"dialogo2": false},
         {"dialogo3": true}
       ],
+      immagini: ["images/dun.jpg", "images/homegif.gif"],
+    ),
+ */
+    Stanza(
+      azioniDisponibili: [
+        // STANZA INIZIALE 1
+      ],
+      isCombattimentoPresente: true,
+      dialogoStanza: [],
       immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
   ];

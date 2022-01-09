@@ -1,3 +1,4 @@
+import 'package:codice/database/domandeDB.dart';
 import 'package:codice/database/stanzeDB.dart';
 import 'package:codice/model/combattimento.dart';
 import 'package:codice/model/nemico.dart';
@@ -39,16 +40,34 @@ class CreazionePartita {
     print("CREO COMBATTIMENTO");
     if (indexStanza >= 0 && indexStanza <= 3) {
       return Combattimento(
-        domande: [],
+        dialogoCombattimento: [
+          {"Hey Come va": false},
+          {"Sei pronto alla domanda?": false},
+          {"testoDomanda": true},
+          {"ed ora?": false},
+          {"ecco un altra domanda": true},
+          {"bravo 30": false}
+        ],
+        domande: DomandeDB().listaDomande,
         nemico: Nemico(),
       );
     } else if (indexStanza >= 4 && indexStanza <= 6) {
       return Combattimento(
+        dialogoCombattimento: [
+          {"Hey Come va": false},
+          {"Sei pronto alla domanda?": false},
+          {"testoDomanda": true}
+        ],
         domande: [],
         nemico: Nemico(),
       );
     } else {
       return Combattimento(
+        dialogoCombattimento: [
+          {"Hey Come va": false},
+          {"Sei pronto alla domanda?": false},
+          {"testoDomanda": true}
+        ],
         domande: [],
         nemico: Nemico(),
       );
