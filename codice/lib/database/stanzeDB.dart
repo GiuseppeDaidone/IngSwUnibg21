@@ -24,34 +24,29 @@ class StanzeDB {
   // Lista di stanze iniziali
   List<Stanza> stanzeIniziali = [
     Stanza(
-      azioniDisponibili: [],
-      dialogoStanza: [
-        {"stanza1": false},
-        {"dialogo2": false},
-        {"dialogo3": true}
+      azioniDisponibili: [
+        // STANZA INIZIALE 1
+        Azione(
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1"),
+        Azione(
+            f1: () {
+              print("azione2");
+            },
+            titoloPulsante: "Azione2"),
+        Azione(
+            f1: () {
+              print("azione3");
+            },
+            titoloPulsante: "Azione3"),
+        Azione(
+            f1: () {
+              print("azione4");
+            },
+            titoloPulsante: "Azione4")
       ],
-      immagini: ["images/dun.jpg", "images/homegif.gif"],
-    ),
-    Stanza(
-      azioniDisponibili: [],
-      dialogoStanza: [
-        {"stanza1": false},
-        {"dialogo2": false},
-        {"dialogo3": true}
-      ],
-      immagini: ["images/dun.jpg", "images/homegif.gif"],
-    ),
-    Stanza(
-      azioniDisponibili: [],
-      dialogoStanza: [
-        {"stanza1": false},
-        {"dialogo2": false},
-        {"dialogo3": true}
-      ],
-      immagini: ["images/dun.jpg", "images/homegif.gif"],
-    ),
-    Stanza(
-      azioniDisponibili: [],
       dialogoStanza: [
         {"stanza1": false},
         {"dialogo2": false},
@@ -67,8 +62,15 @@ class StanzeDB {
     Stanza(
       azioniDisponibili: [
         Azione(
-          f1: () => {print("Azione stanza 1")},
-        )
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1"),
+        Azione(
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1")
       ],
       dialogoStanza: [
         {"stanza1": false},
@@ -82,8 +84,15 @@ class StanzeDB {
     Stanza(
       azioniDisponibili: [
         Azione(
-          f1: () => {print("Azione stanza 2")},
-        )
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1"),
+        Azione(
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1")
       ],
       dialogoStanza: [
         {"stanza1": false},
@@ -97,8 +106,15 @@ class StanzeDB {
     Stanza(
       azioniDisponibili: [
         Azione(
-          f1: () => {print("Azione stanza 3")},
-        )
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1"),
+        Azione(
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1")
       ],
       dialogoStanza: [
         {"stanza1": false},
@@ -112,8 +128,15 @@ class StanzeDB {
     Stanza(
       azioniDisponibili: [
         Azione(
-          f1: () => {print("Azione stanza 4")},
-        )
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1"),
+        Azione(
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1")
       ],
       dialogoStanza: [
         {"stanza1": false},
@@ -130,8 +153,15 @@ class StanzeDB {
     Stanza(
       azioniDisponibili: [
         Azione(
-          f1: () => {print("Azione stanza 1")},
-        )
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1"),
+        Azione(
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1")
       ],
       isCombattimentoPresente: false,
       dialogoStanza: [
@@ -146,8 +176,15 @@ class StanzeDB {
     Stanza(
       azioniDisponibili: [
         Azione(
-          f1: () => {print("Azione stanza 2")},
-        )
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1"),
+        Azione(
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1")
       ],
       isCombattimentoPresente: false,
       dialogoStanza: [
@@ -162,8 +199,15 @@ class StanzeDB {
     Stanza(
       azioniDisponibili: [
         Azione(
-          f1: () => {print("Azione stanza 3")},
-        )
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1"),
+        Azione(
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1")
       ],
       isCombattimentoPresente: false,
       dialogoStanza: [
@@ -178,8 +222,15 @@ class StanzeDB {
     Stanza(
       azioniDisponibili: [
         Azione(
-          f1: () => {print("Azione stanza 4")},
-        )
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1"),
+        Azione(
+            f1: () {
+              print("azione1");
+            },
+            titoloPulsante: "Azione1")
       ],
       isCombattimentoPresente: false,
       dialogoStanza: [

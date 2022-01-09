@@ -14,7 +14,7 @@ class Partita with ChangeNotifier {
   late int _totDomandeSbagliate;
   late int _totDomandeRisposte;
   late int _oggettiUtilizzati;
-  late int indexStanzaCorrente;
+  late int _indexStanzaCorrente;
   final DateTime _istanteInizioPartita = DateTime.now();
   final List<Stanza> mappa;
   // istanza della stanza in cui mi trovo al momento (serve per comodità)
@@ -24,7 +24,7 @@ class Partita with ChangeNotifier {
     _totDomandeRisposte = 0;
     _totDomandeSbagliate = 0;
     _oggettiUtilizzati = 0;
-    indexStanzaCorrente = 0;
+    _indexStanzaCorrente = 0;
   }
 
   void updateState() => notifyListeners();
@@ -43,17 +43,17 @@ class Partita with ChangeNotifier {
 
   int getOggettiUtilizzati() => _oggettiUtilizzati;
 
-  int getIndexStanzaCorrente() => indexStanzaCorrente;
+  int getIndexStanzaCorrente() => _indexStanzaCorrente;
 
   Stanza getStanzaCorrente() {
     // Se _stanzaCorrente è null gli assegno il valore della prima stanza
-    _stanzaCorrente ??= mappa[indexStanzaCorrente];
+    _stanzaCorrente ??= mappa[_indexStanzaCorrente];
 
     return _stanzaCorrente!;
   }
 
   void goStanzaSuccessiva() {
-    indexStanzaCorrente++;
-    _stanzaCorrente = mappa[indexStanzaCorrente];
+    _indexStanzaCorrente++;
+    _stanzaCorrente = mappa[_indexStanzaCorrente];
   }
 }

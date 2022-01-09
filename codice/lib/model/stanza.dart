@@ -12,6 +12,7 @@ class Stanza {
   // Ogni volta che il bool = true, significa che bisogna mostrare l'immagine successiva sulla pagina.
   final List<Map<String, bool>> dialogoStanza;
   final List<String> immagini;
+  // Ogni azione corrisponde ad un bottone
   final List<Azione> azioniDisponibili;
   late Oggetto oggettoStanza;
   // Se la stanza non ha un combattimento la lista è vuota
@@ -32,11 +33,11 @@ class Stanza {
   // combattimenti
   void setIndex(int idx) {
     // prendo un oggetto a caso da quelli disponibili nel database
-    print("AGGIUNGO OGGETTO");
-    oggettoStanza = OggettiDB().getOggetto();
+    print("AGGIUNGO OGGETTO + INDEX ALLA STANZA");
 
-    print("IMPOSTO INDEX");
+    oggettoStanza = OggettiDB().getOggetto();
     _index = idx;
+
     if (isCombattimentoPresente) {
       combattimento.add(CreazionePartita().creaCombattimento(_index));
     }
@@ -44,12 +45,13 @@ class Stanza {
 
   void increaseDialogoIndex() {
     print(dialogoStanza.length);
-    if (++currentDialogoIndex >= dialogoStanza.length) {
+
+    if ((currentDialogoIndex + 1) >= dialogoStanza.length) {
       print("DIALOGO STANZA FINITO");
-      // riporto l'index corrente all'ultimo (se non sottraggo vado in out of bound)
-      currentDialogoIndex--;
     } else {
+      currentDialogoIndex++;
       print("CAMBIO DIALOGO");
+
       // Controllo se devo cambiare immagine
       if (dialogoStanza[currentDialogoIndex].values.single) {
         currentImageIndex++;

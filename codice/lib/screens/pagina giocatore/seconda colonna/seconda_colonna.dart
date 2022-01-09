@@ -103,41 +103,44 @@ class _SecondaColonnaState extends State<SecondaColonna> {
             ),
 
             // ACTION BUTTONS
-            Expanded(
-              flex: 2,
-              child: SizedBox(
-                width: size.width / 2,
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // Primo action button
-                    isPrimaAzioneActive
-                        ? ActionButton(
-                            nomePulsante: "Prima Azione",
-                            onPressed: () {},
-                          )
-                        : const SizedBox(),
-
-                    // Secondo action button
-                    isSecondaAzioneActive
-                        ? ActionButton(
-                            nomePulsante: "Seconda Azione",
-                            onPressed: () {},
-                          )
-                        : const SizedBox(),
-
-                    // Terzo action button
-                    isTerzaAzioneActive
-                        ? ActionButton(
-                            nomePulsante: "Terza Azione",
-                            onPressed: () {},
-                          )
-                        : const SizedBox()
-                  ],
+            Consumer<Partita>(builder: (context, partita, _) {
+              return Expanded(
+                flex: 2,
+                child: SizedBox(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        // Lista Pulsanti
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: partita
+                              .getStanzaCorrente()
+                              .azioniDisponibili
+                              .length,
+                          itemBuilder: (context, index) {
+                            return isPrimaAzioneActive
+                                ? ActionButton(
+                                    nomePulsante: partita
+                                        .getStanzaCorrente()
+                                        .azioniDisponibili[index]
+                                        .titoloPulsante,
+                                    onPressed: partita
+                                        .getStanzaCorrente()
+                                        .azioniDisponibili[index]
+                                        .f1,
+                                  )
+                                : const SizedBox();
+                          },
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            )
+              );
+            })
           ],
         ),
       ),

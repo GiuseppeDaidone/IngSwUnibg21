@@ -14,7 +14,6 @@ class ActionButton extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
       height: 70,
-      width: size.width / 8,
       margin: const EdgeInsets.only(right: 20, left: 20),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
