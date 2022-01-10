@@ -8,7 +8,9 @@ class CreazionePartita {
   // Genero la mappa pescando in modo random le stanze dal database: stanzeDB
   List<Stanza> creaMappa() {
     List<Stanza> mappa = [];
+
     print("INZIO CREAZIONE MAPPA");
+
     for (int i = 0; i < 10; i++) {
       // Mappa Iniziale
       if (i == 0) {
@@ -38,6 +40,8 @@ class CreazionePartita {
     // In base all'index della stanza, verrà creato un combattimento più o meno difficile. Si andrà quindi a controllare l'index
     // ed in base a quello si decide da quale lista domande pescare, quante pescarne e quale nemico associare al combattimento
     print("CREO COMBATTIMENTO");
+
+    // I dialoghi rimarranno sempre gli stessi per gli stessi nemici, ma le domande saranno prese a caso dal database
     if (indexStanza >= 0 && indexStanza <= 3) {
       return Combattimento(
         dialogoCombattimento: [
@@ -48,6 +52,7 @@ class CreazionePartita {
           {"ecco un altra domanda": true},
           {"bravo 30": false}
         ],
+        // Prendo domande dal database !! stare attenti che ci sia coerenza con il numero di domande indicato nel dialogoCombattimento!!
         domande: DomandeDB().listaDomande,
         nemico: Nemico(),
       );

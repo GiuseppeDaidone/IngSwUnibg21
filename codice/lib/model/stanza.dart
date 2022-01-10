@@ -1,12 +1,8 @@
 import 'package:codice/database/oggettiDB.dart';
-import 'package:codice/database/oggettiDB.dart';
 import 'package:codice/functions/creazione_partita.dart';
 import 'package:codice/model/combattimento.dart';
 import 'package:codice/model/domanda.dart';
 import 'package:codice/model/oggetto.dart';
-import 'package:codice/model/partita.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'azione.dart';
 
 class Stanza {
@@ -68,6 +64,7 @@ class Stanza {
     }
   }
 
+  // Metodo per scorrere il dialogo chiamato quando NON CI SONO combattimenti
   void increaseDialogoIndex() {
     print(dialogoStanza.length);
 
@@ -85,22 +82,26 @@ class Stanza {
     }
   }
 
+  // Metodo per scorrere il dialogo chiamato quando CI SONO combattimenti
   void increaseDialogoCombattimento(bool isPulsanteRisposta) {
-    // Se sono dentro una domanda, posso andare avanti solamente rispondendo con i pulsanti
+    // Se sono dentro una domanda e viene premuto il gestureDetector non vado avanti! avanzo solo se viene risposta la domanda!
     if (dialogoStanza[currentDialogoIndex].values.first &&
         !isPulsanteRisposta) {
       print("Rispondere usando i pulsanti!");
     }
-    // Se non è presente il testo di una domanda permetto di skippare dialogo cliccando
+
+    // Se viene risposto ad una domanda oppure non c'è una domanda a cui rispondere procedo con il dialogo anche con gestureDetector
     else {
       if ((currentDialogoIndex + 1) >= dialogoStanza.length) {
         print("DIALOGO STANZA FINITO");
       } else {
         currentDialogoIndex++;
+
         // Se il nuovo dialogo mostrato è una domanda faccio apparire i pulsanti delle risposte
         if (dialogoStanza[currentDialogoIndex].values.first) {
           creazioneDomande();
         }
+
         // altrimeni pulisco la lista delle azioni
         else {
           azioniDisponibili.clear();
@@ -111,14 +112,13 @@ class Stanza {
     }
   }
 
+  // Trasformo le risposte delle domande in Azioni e li aggiungo alla lista azioni disponibili
   void creazioneDomande() {
     // recupero domanda corrente
     Domanda domandaCorrente =
         combattimento!.domande[combattimento!.indexDomandaCorrente];
 
-    dialogoStanza.add({});
-
-    // Creo pulsanti risposte
+    // Creo Azioni Risposte
     for (int i = 0; i < domandaCorrente.risposte.length; i++) {
       azioniDisponibili.add(
         Azione(
@@ -135,6 +135,7 @@ class Stanza {
             titoloPulsante: domandaCorrente.risposte[i]),
       );
     }
+    // TODO: ?????
     combattimento!.nextDomanda();
   }
 }

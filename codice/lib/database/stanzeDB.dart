@@ -4,6 +4,7 @@ import 'package:codice/model/azione.dart';
 import 'package:codice/model/stanza.dart';
 
 // Questa classe simula la presente di un database dove sono contenuti tutti i modelli delle classi disponibili del gioco
+// NB: per le stanze che hanno un combattimento, azioniDisponibili[] e dialogoStanza[] devono essere vuoti!!
 
 class StanzeDB {
   Stanza getStanzaIniziale() {
@@ -56,9 +57,7 @@ class StanzeDB {
     ),
  */
     Stanza(
-      azioniDisponibili: [
-        // STANZA INIZIALE 1
-      ],
+      azioniDisponibili: [],
       isCombattimentoPresente: true,
       dialogoStanza: [],
       immagini: ["images/dun.jpg", "images/homegif.gif"],

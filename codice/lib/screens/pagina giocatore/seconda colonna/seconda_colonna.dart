@@ -141,7 +141,7 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                                             .azioniDisponibili[index]
                                             .f1();
 
-                                        // Ogni volta che un pulsante viene premuto vado al dialogo successivo
+                                        // Ogni volta che un pulsante risposta viene premuto vado al dialogo successivo
                                         Provider.of<Partita>(context,
                                                 listen: false)
                                             .getStanzaCorrente()

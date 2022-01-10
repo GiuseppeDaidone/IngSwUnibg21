@@ -17,10 +17,12 @@ class Combattimento {
       required this.domande,
       required this.dialogoCombattimento});
 
+  //vado alla domanda successiva
   void nextDomanda() {
     indexDomandaCorrente++;
   }
 
+  // resetto l'index
   void resetIndexDomanda() {
     indexDomandaCorrente = 0;
   }

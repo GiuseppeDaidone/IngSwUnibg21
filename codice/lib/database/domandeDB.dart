@@ -1,5 +1,7 @@
 import 'package:codice/model/domanda.dart';
 
+// Liste da cui vengono pescate le domande
+
 class DomandeDB {
   List<Domanda> listaDomande = [
     Domanda(

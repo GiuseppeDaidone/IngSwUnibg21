@@ -52,6 +52,7 @@ class Partita with ChangeNotifier {
     return _stanzaCorrente!;
   }
 
+  // Aggiorno l'index alla stanza successiva e aggiorno l'istanza di _stanzaCorrente
   void goStanzaSuccessiva() {
     _indexStanzaCorrente++;
     _stanzaCorrente = mappa[_indexStanzaCorrente];
