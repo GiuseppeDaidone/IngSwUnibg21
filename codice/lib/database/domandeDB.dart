@@ -1,6 +1,7 @@
 import 'package:codice/model/domanda.dart';
 
 // Liste da cui vengono pescate le domande
+// le risposte vanno da 2 a 4
 
 class DomandeDB {
   List<Domanda> listaDomande = [
@@ -8,7 +9,7 @@ class DomandeDB {
       Difficolta.FACILE,
       "Rosso",
       testoDomanda: "Di che colore è il cavallo bianco di napoleone?",
-      risposte: ["Bianco", "Rosso", "Blu", "Verde"],
+      risposte: ["Bianco", "Blu", "Verde"],
     ),
     Domanda(
       Difficolta.FACILE,

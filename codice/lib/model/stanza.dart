@@ -1,23 +1,26 @@
 import 'package:codice/database/oggettiDB.dart';
 import 'package:codice/functions/creazione_partita.dart';
-import 'package:codice/model/combattimento.dart';
 import 'package:codice/model/domanda.dart';
+import 'package:codice/model/nemico.dart';
 import 'package:codice/model/oggetto.dart';
 import 'azione.dart';
 
 class Stanza {
-  // L'index della stanza viene fornito quando viene creata la mappa al momento della creazine dell'istanza partita.
+  // L'index della stanza viene fornito quando viene creata la mappa
   late int _index;
-  // Ogni volta che il bool = true, significa che bisogna mostrare l'immagine successiva sulla pagina.
+
+  // Se bool = true allora:
+  // se sono in combattimento -> la stringa associata è il testo di una domanda
+  // se non sono in combattimento -> devo cambiare l'immagine mostrata nella pagina
   final List<Map<String, bool>> dialogoStanza;
   final List<String> immagini;
-  // Ogni azione corrisponde ad un bottone
   final List<Azione> azioniDisponibili;
   late Oggetto oggettoStanza;
-  // Se la stanza non ha un combattimento, esso è null
-  Combattimento? combattimento;
-  // Quando la stanza viene creata viene deciso se ci saranno combattimenti o meno
-  final bool isCombattimentoPresente;
+
+  // Se la stanza non ha un nemico l'attributo è null
+  Nemico? nemico;
+
+  // Index dell'immagine e del dialogo attualmente mostrati nella UI
   int currentImageIndex = 0;
   int currentDialogoIndex = 0;
 
@@ -25,45 +28,49 @@ class Stanza {
     required this.azioniDisponibili,
     required this.dialogoStanza,
     required this.immagini,
-    this.isCombattimentoPresente = false,
   });
 
-  // Quando una stanza viene inserita nella mappa, gli viene associato l'index della posizione e vengono creati gli eventuali
-  // combattimenti
+  // Questo metodo viene chiamato quando la stanza è inserita dento una mappa
+  // In questo metodo:
+  // - Viene associato un index alla stanza in base alla posizione nella mappa
+  // - Viene aggiunto un oggetto alla stanza
+  // - Viene creato un nemico (se dialogoStanza e azioniDisponibili sono vuoti)
   void setIndex(int idx) {
-    // prendo un oggetto a caso da quelli disponibili nel database
-    print("AGGIUNGO OGGETTO + INDEX ALLA STANZA");
-    oggettoStanza = OggettiDB().getOggetto();
-
     // Imposto l'index della pagina in base dove essa si trova nella mappa della partita corrente
     _index = idx;
 
-    if (isCombattimentoPresente) {
-      combattimento ??= CreazionePartita().creaCombattimento(_index);
+    // Aggiungo oggetto
+    oggettoStanza = OggettiDB().getOggetto();
+
+    // Se ho un nemico lo creo, poi aggiungo il suo dialogo al dialogo stanza
+    if (dialogoStanza.isEmpty && azioniDisponibili.isEmpty) {
+      nemico = CreazionePartita().creaNemico(_index);
+
       // Scorro il dialogo del combattimento, lo aggiungo al dialogo della pagina e inoltre aggiungo anche il testo delle domande e i
       // booleani che indicano quando devono essere mostrate le domande
-      for (int i = 0; i < combattimento!.dialogoCombattimento.length; i++) {
+      for (int i = 0; i < nemico!.dialogoCombattimento.length; i++) {
         // Se ho un bool = true, allora ho una domanda. Aggiungo il testo domanda al dialogo e pongo bool = true
-        if (combattimento!.dialogoCombattimento[i].values.first) {
+        if (nemico!.dialogoCombattimento[i].values.first) {
           dialogoStanza.add({
-            combattimento!
-                .domande[combattimento!.indexDomandaCorrente].testoDomanda: true
+            nemico!.listaDomande[nemico!.indexDomandaCorrente].testoDomanda:
+                true
           });
           // aggiorno index domanda
-          combattimento!.nextDomanda();
+          nemico!.nextDomanda();
         }
-        // Se invece non ho una domanda allora aggiungo il testo del dialogo con il nemico al dialogo della stanza e metto bool = false
+        // Se invece non ho una domanda allora aggiungo il testo del dialogo al dialogo della stanza e metto bool = false
         else {
           dialogoStanza.add(
-            {combattimento!.dialogoCombattimento[i].keys.first: false},
+            {nemico!.dialogoCombattimento[i].keys.first: false},
           );
         }
       }
       // riporto index domanda a zero, in questo modo quando ci ritorno per prendere la lista azioni sono sincronizzato
-      combattimento!.resetIndexDomanda();
+      nemico!.resetIndexDomanda();
     }
   }
 
+  //TODO: capire se posso integrare questo metodo con increaseDialogoCOmbattimento()
   // Metodo per scorrere il dialogo chiamato quando NON CI SONO combattimenti
   void increaseDialogoIndex() {
     print(dialogoStanza.length);
@@ -99,7 +106,7 @@ class Stanza {
 
         // Se il nuovo dialogo mostrato è una domanda faccio apparire i pulsanti delle risposte
         if (dialogoStanza[currentDialogoIndex].values.first) {
-          creazioneDomande();
+          creazioneAzioni();
         }
 
         // altrimeni pulisco la lista delle azioni
@@ -112,11 +119,11 @@ class Stanza {
     }
   }
 
-  // Trasformo le risposte delle domande in Azioni e li aggiungo alla lista azioni disponibili
-  void creazioneDomande() {
+  // Trasformo le risposte delle domande in Azioni e li aggiungo alla lista azioniDisponibili
+  void creazioneAzioni() {
     // recupero domanda corrente
     Domanda domandaCorrente =
-        combattimento!.domande[combattimento!.indexDomandaCorrente];
+        nemico!.listaDomande[nemico!.indexDomandaCorrente];
 
     // Creo Azioni Risposte
     for (int i = 0; i < domandaCorrente.risposte.length; i++) {
@@ -135,7 +142,7 @@ class Stanza {
             titoloPulsante: domandaCorrente.risposte[i]),
       );
     }
-    // TODO: ?????
-    combattimento!.nextDomanda();
+    // aggiorno index domanda corrente
+    nemico!.nextDomanda();
   }
 }

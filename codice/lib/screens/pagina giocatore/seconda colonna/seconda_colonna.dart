@@ -19,12 +19,6 @@ class SecondaColonna extends StatefulWidget {
 }
 
 class _SecondaColonnaState extends State<SecondaColonna> {
-  final bool isPrimaAzioneActive = true;
-
-  final bool isSecondaAzioneActive = true;
-
-  final bool isTerzaAzioneActive = true;
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -45,7 +39,7 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                   child: GestureDetector(
                     onTap: () {
                       // quando premo sulla parte centrale dello schermo avanzo con il dialogo, a meno che io non sia in un combattimento
-                      if (partita.getStanzaCorrente().isCombattimentoPresente) {
+                      if (partita.getStanzaCorrente().nemico != null) {
                         partita
                             .getStanzaCorrente()
                             .increaseDialogoCombattimento(false);

@@ -58,7 +58,6 @@ class StanzeDB {
  */
     Stanza(
       azioniDisponibili: [],
-      isCombattimentoPresente: true,
       dialogoStanza: [],
       immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
@@ -171,7 +170,6 @@ class StanzeDB {
             },
             titoloPulsante: "Azione1")
       ],
-      isCombattimentoPresente: false,
       dialogoStanza: [
         {"stanza1": false},
         {"dialogo2": false},
@@ -194,7 +192,6 @@ class StanzeDB {
             },
             titoloPulsante: "Azione1")
       ],
-      isCombattimentoPresente: false,
       dialogoStanza: [
         {"stanza1": false},
         {"dialogo2": false},
@@ -217,7 +214,6 @@ class StanzeDB {
             },
             titoloPulsante: "Azione1")
       ],
-      isCombattimentoPresente: false,
       dialogoStanza: [
         {"stanza1": false},
         {"dialogo2": false},
@@ -240,7 +236,6 @@ class StanzeDB {
             },
             titoloPulsante: "Azione1")
       ],
-      isCombattimentoPresente: false,
       dialogoStanza: [
         {"stanza1": false},
         {"dialogo2": false},
