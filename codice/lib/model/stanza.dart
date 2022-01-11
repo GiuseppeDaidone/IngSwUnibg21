@@ -7,7 +7,7 @@ import 'azione.dart';
 
 class Stanza {
   // L'index della stanza viene fornito quando viene creata la mappa
-  late int _index;
+  late int index;
 
   // Se bool = true allora:
   // se sono in combattimento -> la stringa associata è il testo di una domanda
@@ -37,14 +37,14 @@ class Stanza {
   // - Viene creato un nemico (se dialogoStanza e azioniDisponibili sono vuoti)
   void setIndex(int idx) {
     // Imposto l'index della pagina in base dove essa si trova nella mappa della partita corrente
-    _index = idx;
+    index = idx;
 
     // Aggiungo oggetto
     oggettoStanza = OggettiDB().getOggetto();
 
     // Se ho un nemico lo creo, poi aggiungo il suo dialogo al dialogo stanza
     if (dialogoStanza.isEmpty && azioniDisponibili.isEmpty) {
-      nemico = CreazionePartita().creaNemico(_index);
+      nemico = CreazionePartita().creaNemico(index);
 
       // Scorro il dialogo del combattimento, lo aggiungo al dialogo della pagina e inoltre aggiungo anche il testo delle domande e i
       // booleani che indicano quando devono essere mostrate le domande

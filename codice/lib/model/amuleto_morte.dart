@@ -1,6 +1,3 @@
-import 'dart:html';
-
-import 'package:codice/model/amuleto.dart';
 import 'package:codice/model/amuleto.dart';
 
 class AmuletoMorte extends Amuleto {
