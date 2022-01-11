@@ -3,6 +3,7 @@ import 'package:codice/functions/creazione_partita.dart';
 import 'package:codice/model/domanda.dart';
 import 'package:codice/model/nemico.dart';
 import 'package:codice/model/oggetto.dart';
+import 'package:codice/model/partita.dart';
 import 'azione.dart';
 
 class Stanza {
@@ -72,11 +73,18 @@ class Stanza {
 
   //TODO: capire se posso integrare questo metodo con increaseDialogoCOmbattimento()
   // Metodo per scorrere il dialogo chiamato quando NON CI SONO combattimenti
-  void increaseDialogoIndex() {
-    print(dialogoStanza.length);
-
+  // Se viene ritornato true allora devo passare alla stanza dopo
+  bool increaseDialogoIndex(bool isPulsanteRisposta, Partita partita) {
+    if (dialogoStanza[currentDialogoIndex].values.first &&
+        !isPulsanteRisposta) {
+      print("Rispondere usando i pulsanti!");
+      return false;
+    }
     if ((currentDialogoIndex + 1) >= dialogoStanza.length) {
       print("DIALOGO STANZA FINITO");
+
+      partita.goStanzaSuccessiva();
+      return true;
     } else {
       currentDialogoIndex++;
       print("CAMBIO DIALOGO");
@@ -86,21 +94,25 @@ class Stanza {
         currentImageIndex++;
         print("CAMBIO IMMAGINE");
       }
+      return false;
     }
   }
 
   // Metodo per scorrere il dialogo chiamato quando CI SONO combattimenti
-  void increaseDialogoCombattimento(bool isPulsanteRisposta) {
+  bool increaseDialogoCombattimento(bool isPulsanteRisposta, Partita partita) {
     // Se sono dentro una domanda e viene premuto il gestureDetector non vado avanti! avanzo solo se viene risposta la domanda!
     if (dialogoStanza[currentDialogoIndex].values.first &&
         !isPulsanteRisposta) {
       print("Rispondere usando i pulsanti!");
+      return false;
     }
 
     // Se viene risposto ad una domanda oppure non c'è una domanda a cui rispondere procedo con il dialogo anche con gestureDetector
     else {
       if ((currentDialogoIndex + 1) >= dialogoStanza.length) {
         print("DIALOGO STANZA FINITO");
+        partita.goStanzaSuccessiva();
+        return true;
       } else {
         currentDialogoIndex++;
 
@@ -116,6 +128,7 @@ class Stanza {
 
         print("CAMBIO DIALOGO");
       }
+      return false;
     }
   }
 

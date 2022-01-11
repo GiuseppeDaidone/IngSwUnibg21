@@ -56,5 +56,6 @@ class Partita with ChangeNotifier {
   void goStanzaSuccessiva() {
     _indexStanzaCorrente++;
     _stanzaCorrente = mappa[_indexStanzaCorrente];
+    print("NUOVA STANZA");
   }
 }

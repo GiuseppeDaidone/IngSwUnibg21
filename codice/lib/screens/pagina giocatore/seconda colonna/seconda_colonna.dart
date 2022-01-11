@@ -1,8 +1,5 @@
 import 'package:codice/model/partita.dart';
 import 'package:codice/screens/pagina%20giocatore/seconda%20colonna/action_button.dart';
-import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_inventario.dart';
-import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_menu.dart';
-import 'package:codice/screens/pagina%20home/pagina_home.dart';
 import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -40,11 +37,17 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                     onTap: () {
                       // quando premo sulla parte centrale dello schermo avanzo con il dialogo, a meno che io non sia in un combattimento
                       if (partita.getStanzaCorrente().nemico != null) {
-                        partita
+                        if (partita
                             .getStanzaCorrente()
-                            .increaseDialogoCombattimento(false);
+                            .increaseDialogoCombattimento(false, partita)) {
+                          partita.goStanzaSuccessiva();
+                        }
                       } else {
-                        partita.getStanzaCorrente().increaseDialogoIndex();
+                        if (partita
+                            .getStanzaCorrente()
+                            .increaseDialogoIndex(false, partita)) {
+                          partita.goStanzaSuccessiva();
+                        }
                       }
 
                       // Aggiorno lo stato di partita, dato che se aggiorno l'istanza Stanza non trigghera il notifylisteners di Partita da solo
@@ -112,47 +115,56 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                       children: [
                         Expanded(
                           // Lista Pulsanti
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: partita
-                                .getStanzaCorrente()
-                                .azioniDisponibili
-                                .length,
-                            itemBuilder: (context, index) {
-                              return partita
+                          child: partita
+                                  .getStanzaCorrente()
+                                  .dialogoStanza[partita
+                                      .getStanzaCorrente()
+                                      .currentDialogoIndex]
+                                  .values
+                                  .first
+                              ? ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  itemCount: partita
                                       .getStanzaCorrente()
                                       .azioniDisponibili
-                                      .isNotEmpty
-                                  ? ActionButton(
-                                      nomePulsante: partita
-                                          .getStanzaCorrente()
-                                          .azioniDisponibili[index]
-                                          .titoloPulsante,
-                                      onPressed: () {
-                                        partita
+                                      .length,
+                                  itemBuilder: (context, index) {
+                                    return partita
                                             .getStanzaCorrente()
-                                            .azioniDisponibili[index]
-                                            .f1();
+                                            .azioniDisponibili
+                                            .isNotEmpty
+                                        ? ActionButton(
+                                            nomePulsante: partita
+                                                .getStanzaCorrente()
+                                                .azioniDisponibili[index]
+                                                .titoloPulsante,
+                                            onPressed: () {
+                                              partita
+                                                  .getStanzaCorrente()
+                                                  .azioniDisponibili[index]
+                                                  .f1();
 
-                                        // Ogni volta che un pulsante risposta viene premuto vado al dialogo successivo
-                                        Provider.of<Partita>(context,
-                                                listen: false)
-                                            .getStanzaCorrente()
-                                            .increaseDialogoCombattimento(true);
+                                              // Ogni volta che un pulsante risposta viene premuto vado al dialogo successivo
+                                              Provider.of<Partita>(context,
+                                                      listen: false)
+                                                  .getStanzaCorrente()
+                                                  .increaseDialogoCombattimento(
+                                                      true, partita);
 
-                                        // Aggiorno la pagina
-                                        Provider.of<Partita>(context,
-                                                listen: false)
-                                            .updateState();
-                                      },
-                                    )
-                                  : const SizedBox(
-                                      height: 30,
-                                      width: 20,
-                                    );
-                            },
-                          ),
+                                              // Aggiorno la pagina
+                                              Provider.of<Partita>(context,
+                                                      listen: false)
+                                                  .updateState();
+                                            },
+                                          )
+                                        : const SizedBox(
+                                            height: 30,
+                                            width: 20,
+                                          );
+                                  },
+                                )
+                              : SizedBox(),
                         )
                       ],
                     ),

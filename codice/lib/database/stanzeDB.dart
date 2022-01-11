@@ -13,20 +13,17 @@ class StanzeDB {
   }
 
   Stanza getStanzaCombattimento() {
-    //TODO: Ritorno una stanza casuale tra quelle combattimento
     return stanzeCombattimento[Random().nextInt(stanzeCombattimento.length)];
   }
 
   Stanza getStanzaEsplorazione() {
-    //TODO: Ritorno una stanza casuale tra quelle esplorazione
     return stanzeEsplorazione[Random().nextInt(stanzeEsplorazione.length)];
   }
 
   // Lista di stanze iniziali
   List<Stanza> stanzeIniziali = [
-    /* Stanza(
+    Stanza(
       azioniDisponibili: [
-        // STANZA INIZIALE 1
         Azione(
             f1: () {
               print("azione1");
@@ -37,28 +34,12 @@ class StanzeDB {
               print("azione2");
             },
             titoloPulsante: "Azione2"),
-        Azione(
-            f1: () {
-              print("azione3");
-            },
-            titoloPulsante: "Azione3"),
-        Azione(
-            f1: () {
-              print("azione4");
-            },
-            titoloPulsante: "Azione4")
       ],
       dialogoStanza: [
-        {"stanza1": false},
+        {"Stanza iniziale dialogo": false},
         {"dialogo2": false},
         {"dialogo3": true}
       ],
-      immagini: ["images/dun.jpg", "images/homegif.gif"],
-    ),
- */
-    Stanza(
-      azioniDisponibili: [],
-      dialogoStanza: [],
       immagini: ["images/dun.jpg", "images/homegif.gif"],
     ),
   ];
@@ -80,73 +61,7 @@ class StanzeDB {
             titoloPulsante: "Azione1")
       ],
       dialogoStanza: [
-        {"stanza1": false},
-        {"dialogo2": false},
-        {"dialogo3": true}
-      ],
-      immagini: ["images/dun.jpg", "images/homegif.gif"],
-    ),
-
-    // STANZA 2
-    Stanza(
-      azioniDisponibili: [
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1"),
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1")
-      ],
-      dialogoStanza: [
-        {"stanza1": false},
-        {"dialogo2": false},
-        {"dialogo3": true}
-      ],
-      immagini: ["images/dun.jpg", "images/homegif.gif"],
-    ),
-
-    // STANZA 3
-    Stanza(
-      azioniDisponibili: [
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1"),
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1")
-      ],
-      dialogoStanza: [
-        {"stanza1": false},
-        {"dialogo2": false},
-        {"dialogo3": true}
-      ],
-      immagini: ["images/dun.jpg", "images/homegif.gif"],
-    ),
-
-    // STANZA 4
-    Stanza(
-      azioniDisponibili: [
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1"),
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1")
-      ],
-      dialogoStanza: [
-        {"stanza1": false},
+        {"stanza esplorazione dialogo": false},
         {"dialogo2": false},
         {"dialogo3": true}
       ],
@@ -158,90 +73,9 @@ class StanzeDB {
   List<Stanza> stanzeCombattimento = [
     // STANZA 1
     Stanza(
-      azioniDisponibili: [
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1"),
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1")
-      ],
-      dialogoStanza: [
-        {"stanza1": false},
-        {"dialogo2": false},
-        {"dialogo3": true}
-      ],
+      azioniDisponibili: [],
+      dialogoStanza: [],
       immagini: ["images/dun.jpg", "images/homegif.gif"],
-    ),
-
-    // STANZA 2
-    Stanza(
-      azioniDisponibili: [
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1"),
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1")
-      ],
-      dialogoStanza: [
-        {"stanza1": false},
-        {"dialogo2": false},
-        {"dialogo3": true}
-      ],
-      immagini: ["images/dun.jpg", "images/homegif.gif"],
-    ),
-
-    // STANZA 3
-    Stanza(
-      azioniDisponibili: [
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1"),
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1")
-      ],
-      dialogoStanza: [
-        {"stanza1": false},
-        {"dialogo2": false},
-        {"dialogo3": true}
-      ],
-      immagini: ["images/dun.jpg", "images/homegif.gif"],
-    ),
-
-    // STANZA 4
-    Stanza(
-      azioniDisponibili: [
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1"),
-        Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1")
-      ],
-      dialogoStanza: [
-        {"stanza1": false},
-        {"dialogo2": false},
-        {"dialogo3": true}
-      ],
-      immagini: ["images/dun.jpg", "images/homegif.gif", "images/homegif.gif"],
     ),
   ];
 }
