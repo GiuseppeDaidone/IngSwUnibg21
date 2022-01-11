@@ -1,9 +1,8 @@
-import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_inventario.dart';
-import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_menu.dart';
-import 'package:codice/screens/pagina%20home/pagina_home.dart';
+import 'package:codice/model/partita.dart';
 import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:im_stepper/stepper.dart';
+import 'package:provider/provider.dart';
 
 // CONTENUTO TERZA COLONNA
 //
@@ -43,33 +42,33 @@ class _TerzaColonnaState extends State<TerzaColonna> {
       ),
       height: _size.height,
       width: _size.width / 6,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            child: ImageStepper(
-              enableNextPreviousButtons: false,
-              activeStepBorderWidth: 5,
-              direction: Axis.vertical,
-              images: [
-                AssetImage("images/homegif.gif"),
-                AssetImage("images/dun.jpg"),
-                AssetImage("images/dun.jpg"),
-                AssetImage("images/dun.jpg"),
-                AssetImage("images/dun.jpg"),
-                AssetImage("images/dun.jpg"),
-                AssetImage("images/dun.jpg"),
-                AssetImage("images/homegif.gif")
-              ],
-              activeStep: _activeStep,
-              onStepReached: (index) {
-                setState(() {
-                  _activeStep = index;
-                });
-              },
-            ),
-          ),
-        ],
+      child: Consumer<Partita>(
+        builder: (context, partita, _) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                child: ImageStepper(
+                  stepReachedAnimationEffect: Curves.decelerate,
+                  stepReachedAnimationDuration: Duration(seconds: 2),
+                  enableNextPreviousButtons: false,
+                  activeStepBorderWidth: 5,
+                  direction: Axis.vertical,
+                  images: [
+                    for (int i = 0; i < partita.mappa.length; i++)
+                      AssetImage(partita.mappa[i].immagini[0]),
+                  ],
+                  activeStep: partita.getStanzaCorrente().index,
+                  onStepReached: (index) {
+                    setState(() {
+                      _activeStep = index;
+                    });
+                  },
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
