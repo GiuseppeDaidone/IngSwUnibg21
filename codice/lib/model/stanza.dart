@@ -77,6 +77,7 @@ class Stanza {
         !isPulsanteRisposta) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
+          duration: Duration(milliseconds: 1000),
           content:
               Text("Per avanzare rispondere usando i pulsanti disponibili"),
         ),

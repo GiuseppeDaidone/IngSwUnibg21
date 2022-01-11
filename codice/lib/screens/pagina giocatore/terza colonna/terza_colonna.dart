@@ -16,15 +16,7 @@ class TerzaColonna extends StatefulWidget {
 }
 
 class _TerzaColonnaState extends State<TerzaColonna> {
-  // Step su cui mi trovo al momento
-  late int _activeStep;
   late Size _size;
-
-  @override
-  void initState() {
-    _activeStep = 0;
-    super.initState();
-  }
 
   @override
   void didChangeDependencies() {
@@ -50,20 +42,15 @@ class _TerzaColonnaState extends State<TerzaColonna> {
               Expanded(
                 child: ImageStepper(
                   stepReachedAnimationEffect: Curves.decelerate,
-                  stepReachedAnimationDuration: Duration(seconds: 2),
                   enableNextPreviousButtons: false,
-                  activeStepBorderWidth: 5,
+                  activeStepBorderColor: GameTheme.buttonColor,
+                  activeStepBorderWidth: 10,
                   direction: Axis.vertical,
                   images: [
                     for (int i = 0; i < partita.mappa.length; i++)
                       AssetImage(partita.mappa[i].immagini[0]),
                   ],
                   activeStep: partita.getStanzaCorrente().index,
-                  onStepReached: (index) {
-                    setState(() {
-                      _activeStep = index;
-                    });
-                  },
                 ),
               ),
             ],
