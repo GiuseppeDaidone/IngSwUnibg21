@@ -4,15 +4,14 @@ import 'package:codice/model/domanda.dart';
 import 'package:codice/model/nemico.dart';
 import 'package:codice/model/oggetto.dart';
 import 'package:codice/model/partita.dart';
+import 'package:flutter/material.dart';
 import 'azione.dart';
 
 class Stanza {
   // L'index della stanza viene fornito quando viene creata la mappa
   late int index;
 
-  // Se bool = true allora:
-  // se sono in combattimento -> la stringa associata è il testo di una domanda
-  // se non sono in combattimento -> devo cambiare l'immagine mostrata nella pagina
+  // Se bool = true allora significa che devo mostrare i pulsanti delle azioni nella UI e cambiare l'immagine mostrata
   final List<Map<String, bool>> dialogoStanza;
   final List<String> immagini;
   final List<Azione> azioniDisponibili;
@@ -31,7 +30,7 @@ class Stanza {
     required this.immagini,
   });
 
-  // Questo metodo viene chiamato quando la stanza è inserita dento una mappa
+  // Questo metodo viene chiamato quando la stanza è inserita dentro una mappa
   // In questo metodo:
   // - Viene associato un index alla stanza in base alla posizione nella mappa
   // - Viene aggiunto un oggetto alla stanza
@@ -47,8 +46,7 @@ class Stanza {
     if (dialogoStanza.isEmpty && azioniDisponibili.isEmpty) {
       nemico = CreazionePartita().creaNemico(index);
 
-      // Scorro il dialogo del combattimento, lo aggiungo al dialogo della pagina e inoltre aggiungo anche il testo delle domande e i
-      // booleani che indicano quando devono essere mostrate le domande
+      // Scorro il dialogo del combattimento, aggiungo dialogo e testo domande al dialogo della stanza
       for (int i = 0; i < nemico!.dialogoCombattimento.length; i++) {
         // Se ho un bool = true, allora ho una domanda. Aggiungo il testo domanda al dialogo e pongo bool = true
         if (nemico!.dialogoCombattimento[i].values.first) {
@@ -71,62 +69,40 @@ class Stanza {
     }
   }
 
-  //TODO: capire se posso integrare questo metodo con increaseDialogoCOmbattimento()
-  // Metodo per scorrere il dialogo chiamato quando NON CI SONO combattimenti
+  // Metodo per scorrere il dialogo
   // Se viene ritornato true allora devo passare alla stanza dopo
-  bool increaseDialogoIndex(bool isPulsanteRisposta, Partita partita) {
+  bool increaseDialogoIndex(bool isPulsanteRisposta, Partita partita, context) {
+    // Se è presente un pulsante azione e viene premuto il gestureDetector non vado avanti! avanzo solo se viene premuto uno dei pulsanti
     if (dialogoStanza[currentDialogoIndex].values.first &&
         !isPulsanteRisposta) {
-      print("Rispondere usando i pulsanti!");
-      return false;
-    }
-    if ((currentDialogoIndex + 1) >= dialogoStanza.length) {
-      print("DIALOGO STANZA FINITO");
-
-      partita.goStanzaSuccessiva();
-      return true;
-    } else {
-      currentDialogoIndex++;
-      print("CAMBIO DIALOGO");
-
-      // Controllo se devo cambiare immagine
-      if (dialogoStanza[currentDialogoIndex].values.single) {
-        currentImageIndex++;
-        print("CAMBIO IMMAGINE");
-      }
-      return false;
-    }
-  }
-
-  // Metodo per scorrere il dialogo chiamato quando CI SONO combattimenti
-  bool increaseDialogoCombattimento(bool isPulsanteRisposta, Partita partita) {
-    // Se sono dentro una domanda e viene premuto il gestureDetector non vado avanti! avanzo solo se viene risposta la domanda!
-    if (dialogoStanza[currentDialogoIndex].values.first &&
-        !isPulsanteRisposta) {
-      print("Rispondere usando i pulsanti!");
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content:
+              Text("Per avanzare rispondere usando i pulsanti disponibili"),
+        ),
+      );
       return false;
     }
 
-    // Se viene risposto ad una domanda oppure non c'è una domanda a cui rispondere procedo con il dialogo anche con gestureDetector
+    // Se cliccato un pulsante azione oppure non c'è una domanda a cui rispondere procedo con il dialogo o vado alla stanza successiva
     else {
       if ((currentDialogoIndex + 1) >= dialogoStanza.length) {
-        print("DIALOGO STANZA FINITO");
-        partita.goStanzaSuccessiva();
+        partita.goStanzaSuccessiva(context);
         return true;
       } else {
         currentDialogoIndex++;
 
-        // Se il nuovo dialogo mostrato è una domanda faccio apparire i pulsanti delle risposte
-        if (dialogoStanza[currentDialogoIndex].values.first) {
-          creazioneAzioni();
-        }
+        if (nemico != null) {
+          // Se il nuovo dialogo mostrato è una domanda faccio apparire i pulsanti delle risposte
+          if (dialogoStanza[currentDialogoIndex].values.first) {
+            creazioneAzioni();
+          }
 
-        // altrimeni pulisco la lista delle azioni
-        else {
-          azioniDisponibili.clear();
+          // altrimeni pulisco la lista delle azioni
+          else {
+            azioniDisponibili.clear();
+          }
         }
-
-        print("CAMBIO DIALOGO");
       }
       return false;
     }

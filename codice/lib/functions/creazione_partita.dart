@@ -9,7 +9,7 @@ class CreazionePartita {
   List<Stanza> creaMappa() {
     List<Stanza> mappa = [];
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 4; i++) {
       // Mappa Iniziale
       if (i == 0) {
         mappa.add(StanzeDB().getStanzaIniziale());

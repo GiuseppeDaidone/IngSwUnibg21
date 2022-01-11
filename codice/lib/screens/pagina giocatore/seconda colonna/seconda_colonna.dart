@@ -35,19 +35,12 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                   flex: 6,
                   child: GestureDetector(
                     onTap: () {
-                      // quando premo sulla parte centrale dello schermo avanzo con il dialogo, a meno che io non sia in un combattimento
-                      if (partita.getStanzaCorrente().nemico != null) {
-                        if (partita
-                            .getStanzaCorrente()
-                            .increaseDialogoCombattimento(false, partita)) {
-                          partita.goStanzaSuccessiva();
-                        }
-                      } else {
-                        if (partita
-                            .getStanzaCorrente()
-                            .increaseDialogoIndex(false, partita)) {
-                          partita.goStanzaSuccessiva();
-                        }
+                      // Quando premo sulla parte centrale dello schermo vado avanti con il dialogo. A meno che non siano presenti delle
+                      // azioni. Inoltre se il dialogo della stanza è finito vado alla stanza successiva
+                      if (partita
+                          .getStanzaCorrente()
+                          .increaseDialogoIndex(false, partita, context)) {
+                        partita.goStanzaSuccessiva(context);
                       }
 
                       // Aggiorno lo stato di partita, dato che se aggiorno l'istanza Stanza non trigghera il notifylisteners di Partita da solo
@@ -115,56 +108,58 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                       children: [
                         Expanded(
                           // Lista Pulsanti
-                          child: partita
-                                  .getStanzaCorrente()
-                                  .dialogoStanza[partita
+                          child:
+                              // mostro i pulsanti per le azioni solamente quando serve
+                              partita
                                       .getStanzaCorrente()
-                                      .currentDialogoIndex]
-                                  .values
-                                  .first
-                              ? ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  itemCount: partita
-                                      .getStanzaCorrente()
-                                      .azioniDisponibili
-                                      .length,
-                                  itemBuilder: (context, index) {
-                                    return partita
-                                            .getStanzaCorrente()
-                                            .azioniDisponibili
-                                            .isNotEmpty
-                                        ? ActionButton(
-                                            nomePulsante: partita
+                                      .dialogoStanza[partita
+                                          .getStanzaCorrente()
+                                          .currentDialogoIndex]
+                                      .values
+                                      .first
+                                  ? ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
+                                      itemCount: partita
+                                          .getStanzaCorrente()
+                                          .azioniDisponibili
+                                          .length,
+                                      itemBuilder: (context, index) {
+                                        return partita
                                                 .getStanzaCorrente()
-                                                .azioniDisponibili[index]
-                                                .titoloPulsante,
-                                            onPressed: () {
-                                              partita
-                                                  .getStanzaCorrente()
-                                                  .azioniDisponibili[index]
-                                                  .f1();
+                                                .azioniDisponibili
+                                                .isNotEmpty
+                                            ? ActionButton(
+                                                nomePulsante: partita
+                                                    .getStanzaCorrente()
+                                                    .azioniDisponibili[index]
+                                                    .titoloPulsante,
+                                                onPressed: () {
+                                                  partita
+                                                      .getStanzaCorrente()
+                                                      .azioniDisponibili[index]
+                                                      .f1();
 
-                                              // Ogni volta che un pulsante risposta viene premuto vado al dialogo successivo
-                                              Provider.of<Partita>(context,
-                                                      listen: false)
-                                                  .getStanzaCorrente()
-                                                  .increaseDialogoCombattimento(
-                                                      true, partita);
+                                                  // Ogni volta che un pulsante risposta viene premuto vado al dialogo successivo
+                                                  partita
+                                                      .getStanzaCorrente()
+                                                      .increaseDialogoIndex(
+                                                          true,
+                                                          partita,
+                                                          context);
 
-                                              // Aggiorno la pagina
-                                              Provider.of<Partita>(context,
-                                                      listen: false)
-                                                  .updateState();
-                                            },
-                                          )
-                                        : const SizedBox(
-                                            height: 30,
-                                            width: 20,
-                                          );
-                                  },
-                                )
-                              : SizedBox(),
+                                                  // Aggiorno la pagina
+                                                  partita.updateState();
+                                                },
+                                              )
+                                            : const SizedBox(
+                                                height: 30,
+                                                width: 20,
+                                              );
+                                      },
+                                    )
+                                  : const SizedBox(),
                         )
                       ],
                     ),
