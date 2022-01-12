@@ -53,6 +53,6 @@ Quali sono le fasi di progettazione di un DB?
 
 Ogni istanza della 1° entità si può associare ad una o più istanza della 2° entità e viceversa
 	Associazione 1:1
-	Associazione N:M
+	Associazione N:M X
 	Associazione 1:N
 	Associazione N:1
