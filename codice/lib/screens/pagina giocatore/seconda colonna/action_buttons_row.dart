@@ -38,7 +38,10 @@ class _ActionButtonsRowState extends State<ActionButtonsRow> {
                   child: ActionButton(
                     nomePulsante: widget.azioniDisponibili[i].titoloPulsante,
                     onPressed: () {
-                      widget.azioniDisponibili[i].f1();
+                      widget.azioniDisponibili[i].f1(
+                        s: widget.stanzaCorrente,
+                        p: Provider.of<Personaggio>(context, listen: false),
+                      );
 
                       // Ogni volta che un pulsante risposta viene premuto vado al dialogo successivo
                       widget.stanzaCorrente.increaseDialogoIndex(

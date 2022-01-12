@@ -132,7 +132,7 @@ class Stanza {
     for (int i = 0; i < domandaCorrente.risposte.length; i++) {
       azioniDisponibili.add(
         Azione(
-            f1: () {
+            f1: ({Stanza? s, Personaggio? p}) {
               // Se la risposta è quella corretta:
               if (domandaCorrente.soluzione == domandaCorrente.risposte[i]) {
                 print("SOLUZIONE CORRETTA");

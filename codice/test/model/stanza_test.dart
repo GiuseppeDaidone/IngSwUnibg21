@@ -1,12 +1,16 @@
 import 'package:codice/model/azione.dart';
 import 'package:codice/model/partita.dart';
+import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group("stanza esoplorazione", () {
     Stanza stanza = Stanza(
-      azioniDisponibili: [Azione(f1: () {}, titoloPulsante: "testAzione")],
+      azioniDisponibili: [
+        Azione(
+            f1: ({Stanza? s, Personaggio? p}) {}, titoloPulsante: "testAzione")
+      ],
       dialogoStanza: [
         {"dialogoTest": true}
       ],

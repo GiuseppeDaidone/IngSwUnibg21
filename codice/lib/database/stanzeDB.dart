@@ -1,10 +1,12 @@
 import 'dart:math';
 
 import 'package:codice/model/azione.dart';
+import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
 
 // Questa classe simula la presente di un database dove sono contenuti tutti i modelli delle classi disponibili del gioco
 // NB: per le stanze che hanno un combattimento, azioniDisponibili[] e dialogoStanza[] devono essere vuoti!!
+// NB: "p" ed "s" sono le nostre istanze future di Personaggio e della stanza corrente in cui si trova
 
 class StanzeDB {
   Stanza getStanzaIniziale() {
@@ -24,14 +26,20 @@ class StanzeDB {
   List<Stanza> stanzeIniziali = [
     Stanza(
       azioniDisponibili: [
+        // AZIONE 1
         Azione(
-            f1: () {
-              print("azione1");
-            },
-            titoloPulsante: "Azione1"),
+          f1: ({Stanza? s, Personaggio? p}) {
+            p!.addOggetto(s!.oggettoStanza);
+            return;
+          },
+          titoloPulsante: "Raccogli l'oggetto",
+        ),
+
+        // AZIONE 2
         Azione(
-            f1: () {
+            f1: ({Stanza? s, Personaggio? p}) {
               print("azione2");
+              return;
             },
             titoloPulsante: "Azione2"),
       ],
@@ -50,13 +58,15 @@ class StanzeDB {
     Stanza(
       azioniDisponibili: [
         Azione(
-            f1: () {
+            f1: ({Stanza? s, Personaggio? p}) {
               print("azione1");
+              return;
             },
             titoloPulsante: "Azione1"),
         Azione(
-            f1: () {
+            f1: ({Stanza? s, Personaggio? p}) {
               print("azione1");
+              return;
             },
             titoloPulsante: "Azione1")
       ],
