@@ -71,7 +71,8 @@ class Stanza {
 
   // Metodo per scorrere il dialogo
   // Se viene ritornato true allora devo passare alla stanza dopo
-  bool increaseDialogoIndex(bool isPulsanteRisposta, Partita partita, context) {
+  bool increaseDialogoIndex(bool isPulsanteRisposta, Partita partita,
+      {context}) {
     // Se è presente un pulsante azione e viene premuto il gestureDetector non vado avanti! avanzo solo se viene premuto uno dei pulsanti
     if (dialogoStanza[currentDialogoIndex].values.first &&
         !isPulsanteRisposta) {
@@ -88,7 +89,7 @@ class Stanza {
     // Se cliccato un pulsante azione oppure non c'è una domanda a cui rispondere procedo con il dialogo o vado alla stanza successiva
     else {
       if ((currentDialogoIndex + 1) >= dialogoStanza.length) {
-        partita.goStanzaSuccessiva(context);
+        partita.goStanzaSuccessiva(context: context);
         return true;
       } else {
         currentDialogoIndex++;

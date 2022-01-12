@@ -44,9 +44,9 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                       onTap: () {
                         // Quando premo sulla parte centrale dello schermo vado avanti con il dialogo. A meno che non siano presenti delle
                         // azioni. Inoltre se il dialogo della stanza è finito vado alla stanza successiva
-                        if (_stanzaCorrente.increaseDialogoIndex(
-                            false, partita, context)) {
-                          partita.goStanzaSuccessiva(context);
+                        if (_stanzaCorrente.increaseDialogoIndex(false, partita,
+                            context: context)) {
+                          partita.goStanzaSuccessiva(context: context);
                         }
 
                         // Aggiorno lo stato di partita, dato che se aggiorno l'istanza Stanza non trigghera il notifylisteners di Partita da solo

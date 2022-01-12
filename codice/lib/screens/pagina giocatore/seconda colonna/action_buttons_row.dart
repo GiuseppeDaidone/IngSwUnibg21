@@ -39,8 +39,9 @@ class _ActionButtonsRowState extends State<ActionButtonsRow> {
                       widget.azioniDisponibili[i].f1;
 
                       // Ogni volta che un pulsante risposta viene premuto vado al dialogo successivo
-                      widget.stanzaCorrente
-                          .increaseDialogoIndex(true, widget.partita, context);
+                      widget.stanzaCorrente.increaseDialogoIndex(
+                          true, widget.partita,
+                          context: context);
 
                       // Aggiorno la pagina
                       widget.partita.updateState();

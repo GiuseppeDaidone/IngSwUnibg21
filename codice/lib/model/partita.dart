@@ -27,6 +27,8 @@ class Partita with ChangeNotifier {
 
   void aumentaOggettiUtilizzati() => _oggettiUtilizzati++;
 
+  int getIndexStanzaCorrente() => _indexStanzaCorrente;
+
   // Recupero l'istanza della Stanza in cui mi trovo attualmente. Se è null allora la prendo dalla mappa
   Stanza getStanzaCorrente() {
     _stanzaCorrente ??= mappa[_indexStanzaCorrente];
@@ -35,7 +37,7 @@ class Partita with ChangeNotifier {
 
   // Aggiorno l'index alla stanza successiva e aggiorno l'istanza di _stanzaCorrente
   // Se non esiste una stanza successiva allora sono a fondo mappa e quindi mostro la pagina finale
-  void goStanzaSuccessiva(context) {
+  void goStanzaSuccessiva({context}) {
     if (++_indexStanzaCorrente == mappa.length) {
       Navigator.push(
         context,
