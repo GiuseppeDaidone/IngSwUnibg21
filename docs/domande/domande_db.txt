@@ -1,0 +1,58 @@
+Cosa vuol dire DBMS?
+	Database Management System X
+	Data Boss Main Sector
+	Databse Main System
+	Database Main Sector
+
+La chiave primaria...
+	identifica una tabella in modo univoco
+	identifica più record di una stessa tabella
+	identifica un record in modo univoco X
+	non può essere composta
+
+La chiave primaria di una tabella può essere NULL?
+	Si
+	Si, solo se composta
+	No, solo quando la chiave è anche secondaria
+	No X
+
+Quali caratteristiche un DBMS deve avere per garantire la realizzazione di un DB EFFICACE?
+	Efficacia, autonomia, persistenza, sicurezza
+	Efficienza, persistenza, sicurezza, integrità X
+	Economicità, efficienza, produttività, sicurezza
+	Velocità, rendimento, sicurezza, integrità
+
+Se un DB è PERSISTENTE, vuol dire che il DBMS permette di
+	Impedire la cancellazione dei dati
+	Conservare i dati non più utili
+	Conservare i dati a lungo X
+	Recuperare i dati precedentemente eliminati
+
+Se un DB è SICURO, vuol dire che il DBMS impedisce...
+	l'accesso al DB da parte di personale non autorizzato
+	la perdita dei dati, in seguito ad un guasto
+	entrambe le precedenti X
+
+Se un DB è INTEGRO, vuol dire che il DBMS provvede affinché...
+	i dati abbiano sempre un significato coerente X
+	i dati siano interamente conservati dopo l'inserimento
+	i dati non siano modificabili
+	non ci siano campi vuoti nella tabella
+
+Per impedire la perdita dei dati, in seguito ad un guasto, il DBMS deve prevedere...
+	personale tecnico specializzato per la manitenzione
+	autenticazione con password
+	backup e ripristino X
+	un antivirus sempre aggiornato
+
+Quali sono le fasi di progettazione di un DB?
+	Concettuale, strutturale, implementazione
+	Concettuale, logica, implementazione X
+	Relazionale, logica, implementazione
+	Concettuale, logica, strutturale
+
+Ogni istanza della 1° entità si può associare ad una o più istanza della 2° entità e viceversa
+	Associazione 1:1
+	Associazione N:M X
+	Associazione 1:N
+	Associazione N:1

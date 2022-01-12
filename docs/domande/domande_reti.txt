@@ -1,0 +1,57 @@
+Qual'è la TIPOLOGIA di rete più adatta ad una rete scolastica?
+	WAN
+	LAN X
+	WMAN
+	Nessuna delle precedenti
+
+In una rete con TOPOLOGIA a BUS...
+	se si guasta un computer, la rete continua a funzionare X
+	se si interrompe il BUS, la rete è comunque funzionante
+	nessuna delle precedenti
+	sono entrambe vere
+
+Nella topologia a STELLA...
+	se un computer è guasto la rete non funziona
+	se il computer centrale non è funzionante la rete è inutilizzabile X
+	se un client si disconnette la rete non è funzionante
+	nessuna delle precedenti
+
+Una rete informatica...
+	consente di mettere in condivisione risorse solo hardware
+	consente di mettere in condivisione risorse solo software
+	permette di condividere risorse hardware e software X
+	nessuna delle precedenti
+
+Gli apparati HW di una rete sono:
+	Switch, Hub e Modem
+	Hub, Router e Switch
+	Bridge, Hub, Router e Switch X
+	Solo il Router
+
+La connessione Bluetooth è Wireless
+	Vero X
+	Falso
+
+Un indirizzo IP serve a:
+	navigare in Internet
+	individuare un computer nella rete X
+	è utile anche se si può fare a meno
+	stabilire una connessione con il server
+
+Un esempio corretto di IP address
+	12.3456.78.9
+	www.google.com
+	192.68.45.23 X
+	123.78.56.34.90
+
+Il DNS...
+	è un dispositivo che si collega al modem
+	trasferisce i file su Internet
+	trasforma i nomi di dominio in indirizzi IP X
+	aumenta la velocità di navigazione
+
+TCP/IP è...
+	un tipo di servizio di Internet
+	un tipo di rete
+	un protocollo utilizzato da Internet X
+	un indirizzo
