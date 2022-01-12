@@ -4,7 +4,9 @@ import 'package:codice/model/domanda.dart';
 import 'package:codice/model/nemico.dart';
 import 'package:codice/model/oggetto.dart';
 import 'package:codice/model/partita.dart';
+import 'package:codice/model/personaggio.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'azione.dart';
 
 class Stanza {
@@ -21,6 +23,7 @@ class Stanza {
   Nemico? nemico;
 
   // Index dell'immagine e del dialogo attualmente mostrati nella UI
+  // NB: le immagini avanzano solamente quando appaiono dei pulsanti per un'azione sullo schermo
   int currentImageIndex = 0;
   int currentDialogoIndex = 0;
 
@@ -95,14 +98,23 @@ class Stanza {
         currentDialogoIndex++;
 
         if (nemico != null) {
-          // Se il nuovo dialogo mostrato è una domanda faccio apparire i pulsanti delle risposte
+          // Se il nuovo dialogo mostrato è una domanda faccio apparire i pulsanti delle risposte e cambio immagine
           if (dialogoStanza[currentDialogoIndex].values.first) {
-            creazioneAzioni();
+            if (currentImageIndex + 1 < immagini.length) {
+              currentImageIndex++;
+            }
+            creazioneAzioni(context: context);
           }
 
           // altrimeni pulisco la lista delle azioni
           else {
             azioniDisponibili.clear();
+          }
+        } else {
+          if (dialogoStanza[currentDialogoIndex].values.first) {
+            if (currentImageIndex + 1 < immagini.length) {
+              currentImageIndex++;
+            }
           }
         }
       }
@@ -111,7 +123,7 @@ class Stanza {
   }
 
   // Trasformo le risposte delle domande in Azioni e li aggiungo alla lista azioniDisponibili
-  void creazioneAzioni() {
+  void creazioneAzioni({context}) {
     // recupero domanda corrente
     Domanda domandaCorrente =
         nemico!.listaDomande[nemico!.indexDomandaCorrente];
@@ -128,6 +140,8 @@ class Stanza {
               // Se la risposta è quella errata:
               else {
                 print("SOLUZIONE ERRATA");
+                Provider.of<Personaggio>(context, listen: false)
+                    .decrSalute(nemico!.danno);
               }
             },
             titoloPulsante: domandaCorrente.risposte[i]),

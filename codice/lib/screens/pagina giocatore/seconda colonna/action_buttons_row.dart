@@ -1,7 +1,9 @@
 import 'package:codice/model/azione.dart';
 import 'package:codice/model/partita.dart';
+import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'action_button.dart';
 
 class ActionButtonsRow extends StatefulWidget {
@@ -36,7 +38,7 @@ class _ActionButtonsRowState extends State<ActionButtonsRow> {
                   child: ActionButton(
                     nomePulsante: widget.azioniDisponibili[i].titoloPulsante,
                     onPressed: () {
-                      widget.azioniDisponibili[i].f1;
+                      widget.azioniDisponibili[i].f1();
 
                       // Ogni volta che un pulsante risposta viene premuto vado al dialogo successivo
                       widget.stanzaCorrente.increaseDialogoIndex(

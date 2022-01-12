@@ -24,7 +24,7 @@ class Nemico {
   // Index della domanda attualmente visualizzata
   int indexDomandaCorrente = 0;
   // Danno che il nemico infligge in caso di domanda sbagliata
-  //int danno;
+  int danno = 10;
 
   void nextDomanda() {
     indexDomandaCorrente++;

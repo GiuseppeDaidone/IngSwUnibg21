@@ -22,6 +22,7 @@ class Personaggio with ChangeNotifier {
   //test: valor eminimo 1 do l'aggiornamento
   void decrSalute(int n) {
     salute -= n;
+    print(salute);
     notifyListeners();
   }
 

@@ -1,5 +1,7 @@
+import 'package:codice/model/personaggio.dart';
 import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PulsanteInventario extends StatelessWidget {
   const PulsanteInventario({Key? key}) : super(key: key);
