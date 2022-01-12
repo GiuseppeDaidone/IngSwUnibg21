@@ -23,51 +23,32 @@ class ActionButtonsRow extends StatefulWidget {
 class _ActionButtonsRowState extends State<ActionButtonsRow> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Expanded(
-            // Lista Pulsanti
-            child:
-                // mostro i pulsanti per le azioni solamente quando serve
-                widget
-                        .stanzaCorrente
-                        .dialogoStanza[
-                            widget.stanzaCorrente.currentDialogoIndex]
-                        .values
-                        .first
-                    ? ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: widget.azioniDisponibili.length,
-                        itemBuilder: (context, index) {
-                          return widget.azioniDisponibili.isNotEmpty
-                              ? ActionButton(
-                                  nomePulsante: widget
-                                      .azioniDisponibili[index].titoloPulsante,
-                                  onPressed: () {
-                                    widget.azioniDisponibili[index].f1();
+    return widget
+            .stanzaCorrente
+            .dialogoStanza[widget.stanzaCorrente.currentDialogoIndex]
+            .values
+            .first
+        ? Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              for (int i = 0; i < widget.azioniDisponibili.length; i++)
+                Expanded(
+                  child: ActionButton(
+                    nomePulsante: widget.azioniDisponibili[i].titoloPulsante,
+                    onPressed: () {
+                      widget.azioniDisponibili[i].f1;
 
-                                    // Ogni volta che un pulsante risposta viene premuto vado al dialogo successivo
-                                    widget.stanzaCorrente.increaseDialogoIndex(
-                                        true, widget.partita, context);
+                      // Ogni volta che un pulsante risposta viene premuto vado al dialogo successivo
+                      widget.stanzaCorrente
+                          .increaseDialogoIndex(true, widget.partita, context);
 
-                                    // Aggiorno la pagina
-                                    widget.partita.updateState();
-                                  },
-                                )
-                              : const SizedBox(
-                                  height: 30,
-                                  width: 20,
-                                );
-                        },
-                      )
-                    : const SizedBox(),
+                      // Aggiorno la pagina
+                      widget.partita.updateState();
+                    },
+                  ),
+                )
+            ],
           )
-        ],
-      ),
-    );
+        : const SizedBox();
   }
 }

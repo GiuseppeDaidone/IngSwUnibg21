@@ -54,8 +54,7 @@ class CreazionePartita {
         dialogoCombattimento: [
           {"Hey Come va": false},
           {"Sei pronto alla domanda?": false},
-          // TODO: HA SENSO FARLO ??
-          {DomandeDB().listaDomande[0].testoDomanda: true},
+          {"testo domanda": true},
           {"ed ora?": false},
           {"ecco un altra domanda": true},
           {"bravo 30": false}

@@ -107,10 +107,13 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                   // ACTION BUTTONS
                   Flexible(
                     flex: 2,
-                    child: ActionButtonsRow(
-                      azioniDisponibili: _azioniDisponibili,
-                      partita: partita,
-                      stanzaCorrente: _stanzaCorrente,
+                    child: Container(
+                      margin: const EdgeInsets.all(30),
+                      child: ActionButtonsRow(
+                        azioniDisponibili: _azioniDisponibili,
+                        partita: partita,
+                        stanzaCorrente: _stanzaCorrente,
+                      ),
                     ),
                   )
                 ],
