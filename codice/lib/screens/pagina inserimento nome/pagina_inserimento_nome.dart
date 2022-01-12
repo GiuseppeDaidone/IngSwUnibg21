@@ -1,5 +1,5 @@
-import 'package:codice/model/Personaggio.dart';
 import 'package:codice/model/partita.dart';
+import 'package:codice/model/personaggio.dart';
 import 'package:codice/screens/pagina%20giocatore/pagina_giocatore.dart';
 import 'package:codice/theme/game_fonts.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +46,7 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
 
               // Personaggio Provider
               ChangeNotifierProvider<Personaggio>(
+                lazy: false,
                 create: (_) => Personaggio(nome: _editingController.text),
               ),
             ],

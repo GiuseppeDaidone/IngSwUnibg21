@@ -1,4 +1,4 @@
-import 'package:codice/model/Personaggio.dart';
+import 'package:codice/model/personaggio.dart';
 import 'package:codice/screens/pagina%20giocatore/prima%20colonna/pulsante_inventario.dart';
 import 'package:codice/screens/pagina%20giocatore/prima%20colonna/pulsante_menu.dart';
 import 'package:codice/theme/game_theme.dart';

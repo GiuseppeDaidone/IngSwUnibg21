@@ -1,5 +1,6 @@
 import 'package:codice/model/azione.dart';
 import 'package:codice/model/partita.dart';
+import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
 import 'package:codice/screens/pagina%20giocatore/seconda%20colonna/action_buttons_row.dart';
 import 'package:codice/theme/game_theme.dart';
@@ -23,8 +24,8 @@ class _SecondaColonnaState extends State<SecondaColonna> {
     Size size = MediaQuery.of(context).size;
     List<Azione> _azioniDisponibili;
     Stanza _stanzaCorrente;
-    return Consumer<Partita>(
-      builder: (context, partita, _) {
+    return Consumer2<Partita, Personaggio>(
+      builder: (context, partita, personaggio, _) {
         _stanzaCorrente = partita.getStanzaCorrente();
         _azioniDisponibili = _stanzaCorrente.azioniDisponibili;
         return Stack(
@@ -103,6 +104,7 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                       ),
                     ),
                   ),
+                  Text(personaggio.salute.toString()),
 
                   // ACTION BUTTONS
                   Flexible(

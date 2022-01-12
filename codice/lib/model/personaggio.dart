@@ -14,10 +14,16 @@ class Personaggio with ChangeNotifier {
 
   //TODO: fare test sul valore di n, deve essere un valore positivo e non maggiore di un tot
   //test 2 la salute dopo il cambio può avere valore massimo 110
-  void incrSalute(int n) => salute += n;
+  void incrSalute(int n) {
+    salute += n;
+    notifyListeners();
+  }
 
   //test: valor eminimo 1 do l'aggiornamento
-  void decrSalute(int n) => salute -= n;
+  void decrSalute(int n) {
+    salute -= n;
+    notifyListeners();
+  }
 
   int getSalute() => salute;
 }
