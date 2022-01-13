@@ -85,7 +85,7 @@ class StanzeDB {
     Stanza(
       azioniDisponibili: [],
       dialogoStanza: [],
-      immagini: ["images/dun.jpg", "images/homegif.gif"],
+      immagini: ["images/dun.jpg", "images/m.gif"],
     ),
   ];
 }

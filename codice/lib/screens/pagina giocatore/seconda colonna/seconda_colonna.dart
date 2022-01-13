@@ -1,4 +1,5 @@
 import 'package:codice/model/azione.dart';
+import 'package:codice/model/nemico.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
@@ -24,10 +25,12 @@ class _SecondaColonnaState extends State<SecondaColonna> {
     Size size = MediaQuery.of(context).size;
     List<Azione> _azioniDisponibili;
     Stanza _stanzaCorrente;
+    Nemico? _nemico;
     return Consumer<Partita>(
       builder: (context, partita, _) {
         _stanzaCorrente = partita.getStanzaCorrente();
         _azioniDisponibili = _stanzaCorrente.azioniDisponibili;
+        _nemico = _stanzaCorrente.nemico;
         return Stack(
           children: [
             Container(
@@ -58,24 +61,57 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                           // IMAGE BOX
                           Expanded(
                             flex: 6,
-                            child: Container(
-                              margin: const EdgeInsets.only(top: 20),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              // dimensioni immagine
-                              width: size.width / 2,
-                              height: size.height / 2,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(12),
-                                child: FittedBox(
-                                  child: Image.asset(
-                                    _stanzaCorrente.immagini[
-                                        _stanzaCorrente.currentImageIndex],
+                            child: Stack(
+                              children: [
+                                // IMMAGINE SFONDO
+                                Container(
+                                  margin: const EdgeInsets.only(top: 20),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
                                   ),
-                                  fit: BoxFit.fill,
+                                  // dimensioni immagine
+                                  width: size.width / 2,
+                                  height: size.height / 2,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(12),
+                                    child: FittedBox(
+                                      child: Image.asset(
+                                        _stanzaCorrente.immagini[
+                                            _stanzaCorrente.currentImageIndex],
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
                                 ),
-                              ),
+
+                                // GIF NEMICO
+                                _nemico != null
+                                    ? Positioned(
+                                        bottom: 0,
+                                        left: 50,
+                                        child: Container(
+                                          margin:
+                                              const EdgeInsets.only(top: 20),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            image: DecorationImage(
+                                              fit: BoxFit.fill,
+                                              image: AssetImage(
+                                                _stanzaCorrente
+                                                        .nemico!.immagine[
+                                                    _stanzaCorrente.nemico!
+                                                        .indexImmagineCorrente],
+                                              ),
+                                            ),
+                                          ),
+                                          // dimensioni immagine
+                                          width: size.width / 4,
+                                          height: size.height / 4,
+                                        ),
+                                      )
+                                    : const SizedBox(),
+                              ],
                             ),
                           ),
 

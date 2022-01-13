@@ -1,4 +1,5 @@
 import 'package:codice/model/personaggio.dart';
+import 'package:codice/theme/game_fonts.dart';
 import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,36 +10,59 @@ class PulsanteInventario extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SizedBox(
-      height: size.height / 8,
-      width: size.width / 13,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          elevation: 5,
-          primary: GameTheme.buttonColor,
-        ),
-        child: const Text("Inventario"),
-        onPressed: () {
-          showDialog(
+    return Consumer<Personaggio>(builder: (context, personaggio, _) {
+      return SizedBox(
+        // dimensioni pulsante
+        height: size.height / 8,
+        width: size.width / 13,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            elevation: 5,
+            primary: GameTheme.buttonColor,
+          ),
+          child: const Text("Inventario"),
+          onPressed: () {
+            showDialog(
               context: context,
               builder: (context) {
                 return AlertDialog(
                   content: SizedBox(
-                    height: size.height / 3,
-                    width: size.width / 5,
-                    child: ListView.builder(
-                      itemCount: 10,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(index.toString()),
-                        );
-                      },
-                    ),
-                  ),
+                      // Dimensioni Dialog
+                      height: size.height / 3,
+                      width: size.width / 5,
+                      child: Column(
+                        children: [
+                          Flexible(
+                            child: Text(
+                              "Il tuo Inventario",
+                              style: GameFonts().hallelujaFont(),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 5,
+                            child: ListView.builder(
+                              itemCount: personaggio.listaOggetti.length,
+                              itemBuilder: (context, index) {
+                                return ListTile(
+                                  title: Center(
+                                    child: Text(
+                                      personaggio.listaOggetti[index]
+                                          .getId()
+                                          .toString(),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      )),
                 );
-              });
-        },
-      ),
-    );
+              },
+            );
+          },
+        ),
+      );
+    });
   }
 }

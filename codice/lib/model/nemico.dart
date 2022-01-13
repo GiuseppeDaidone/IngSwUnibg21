@@ -12,7 +12,7 @@ class Nemico {
             CreazionePartita().creaDomandeNemico(livello, disciplina);
 
   final String nome;
-  final String immagine;
+  final List<String> immagine;
   // Livello indica la difficoltà del nemico
   final LivelloNemico livello;
   final Disciplina disciplina;
@@ -25,9 +25,17 @@ class Nemico {
   int indexDomandaCorrente = 0;
   // Danno che il nemico infligge in caso di domanda sbagliata
   int danno = 10;
+  int indexImmagineCorrente = 0;
 
   void nextDomanda() {
+    if (indexDomandaCorrente + 1 < listaDomande.length) {}
     indexDomandaCorrente++;
+  }
+
+  void nextImmagineNemico() {
+    if (indexImmagineCorrente + 1 < immagine.length) {
+      indexImmagineCorrente++;
+    }
   }
 
   void resetIndexDomanda() {

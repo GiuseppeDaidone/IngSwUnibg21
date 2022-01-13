@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:codice/database/domandeDB.dart';
+import 'package:codice/database/nemicoDB.dart';
 import 'package:codice/database/stanzeDB.dart';
 import 'package:codice/model/domanda.dart';
 import 'package:codice/model/nemico.dart';
@@ -47,55 +50,14 @@ class CreazionePartita {
 
     // I dialoghi rimarranno sempre gli stessi per gli stessi nemici, ma le domande saranno prese a caso dal database
     if (indexStanza >= 0 && indexStanza <= 3) {
-      return Nemico(
-        disciplina: Disciplina.DATABASE,
-        immagine: "images/dun.jpg",
-        livello: LivelloNemico.BASSO,
-        dialogoCombattimento: [
-          {"Hey Come va": false},
-          {"Sei pronto alla domanda?": false},
-          {"testo domanda": true},
-          {"ed ora?": false},
-          {"ecco un altra domanda": true},
-          {"bravo 30": false}
-        ],
-        // Prendo domande dal database !! stare attenti che ci sia coerenza con il numero di domande indicato nel dialogoCombattimento!!
-        nome: "Luca",
-      );
+      return NemicoDB()
+          .listaNemici[Random().nextInt(NemicoDB().listaNemici.length)];
     } else if (indexStanza >= 4 && indexStanza <= 6) {
-      return Nemico(
-        disciplina: Disciplina.MATEMATICA,
-        immagine: "images/dun.jpg",
-        livello: LivelloNemico.MEDIO,
-        dialogoCombattimento: [
-          {"Hey Come va": false},
-          {"Sei pronto alla domanda?": false},
-          // TODO: HA SENSO FARLO ??
-          {DomandeDB().listaDomande[0].testoDomanda: true},
-          {"ed ora?": false},
-          {"ecco un altra domanda": true},
-          {"bravo 30": false}
-        ],
-        // Prendo domande dal database !! stare attenti che ci sia coerenza con il numero di domande indicato nel dialogoCombattimento!!
-        nome: "Giorgio",
-      );
+      return NemicoDB()
+          .listaNemici[Random().nextInt(NemicoDB().listaNemici.length)];
     } else {
-      return Nemico(
-        disciplina: Disciplina.EMBEDDED,
-        immagine: "images/dun.jpg",
-        livello: LivelloNemico.ALTO,
-        dialogoCombattimento: [
-          {"Hey Come va": false},
-          {"Sei pronto alla domanda?": false},
-          // TODO: HA SENSO FARLO ??
-          {DomandeDB().listaDomande[0].testoDomanda: true},
-          {"ed ora?": false},
-          {"ecco un altra domanda": true},
-          {"bravo 30": false}
-        ],
-        // Prendo domande dal database !! stare attenti che ci sia coerenza con il numero di domande indicato nel dialogoCombattimento!!
-        nome: "Gino",
-      );
+      return NemicoDB()
+          .listaNemici[Random().nextInt(NemicoDB().listaNemici.length)];
     }
   }
 }

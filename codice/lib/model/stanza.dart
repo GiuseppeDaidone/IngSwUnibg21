@@ -15,6 +15,8 @@ class Stanza {
 
   // Se bool = true allora significa che devo mostrare i pulsanti delle azioni nella UI e cambiare l'immagine mostrata
   final List<Map<String, bool>> dialogoStanza;
+  // NB: nelle stanze esplorazione ho più immagini che cambiano quando viene eseguita un azione
+  // nei combattimenti invece ho solo un immagine di sfondo e quello che cambia è il nemico
   final List<String> immagini;
   final List<Azione> azioniDisponibili;
   late Oggetto oggettoStanza;
@@ -100,9 +102,11 @@ class Stanza {
         if (nemico != null) {
           // Se il nuovo dialogo mostrato è una domanda faccio apparire i pulsanti delle risposte e cambio immagine
           if (dialogoStanza[currentDialogoIndex].values.first) {
-            if (currentImageIndex + 1 < immagini.length) {
+            /* if (currentImageIndex + 1 < immagini.length) {
               currentImageIndex++;
             }
+           */
+            nemico!.nextImmagineNemico();
             creazioneAzioni(context: context);
           }
 
@@ -110,7 +114,10 @@ class Stanza {
           else {
             azioniDisponibili.clear();
           }
-        } else {
+        }
+
+        // Se non ho un nemico ma ho comunque un azione da svolgere avanzo con le immagini
+        else {
           if (dialogoStanza[currentDialogoIndex].values.first) {
             if (currentImageIndex + 1 < immagini.length) {
               currentImageIndex++;
