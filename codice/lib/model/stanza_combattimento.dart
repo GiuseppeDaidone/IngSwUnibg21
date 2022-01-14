@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'nemico.dart';
 
 class StanzaCombattimento extends Stanza {
-  String immagineNemico = "";
-
   StanzaCombattimento()
       : super(
           azioniDisponibili: [],
@@ -19,7 +17,6 @@ class StanzaCombattimento extends Stanza {
     nemico = CreazionePartita().creaNemico(index);
     // setto come stato iniziale quello in cui dialoga con il giocatore
     nemico!.changeStatoNemico(StatoNemico.DIALOGO);
-    immagineNemico = nemico!.immaginiNemico[nemico!.indexImmagineCorrente];
     immagineCorrente = nemico!.immagineSfondo;
     dialogoCorrente = nemico!.dialogoCorrente;
     azioniDisponibili = nemico!.azioniDisponibili;
@@ -28,7 +25,6 @@ class StanzaCombattimento extends Stanza {
   @override
   void increaseDialogoIndex(bool isPulsanteRisposta, Partita partita,
       {context}) {
-    print(nemico!.statoNemico);
     if (!isPulsanteRisposta && nemico!.statoNemico == StatoNemico.DOMANDA) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -38,15 +34,17 @@ class StanzaCombattimento extends Stanza {
         ),
       );
       return;
-    } else if (isPulsanteRisposta &&
+    }
+
+    // Se ho appena risposto ad una domanda mostro la risata/tristezza del nemico
+    else if (isPulsanteRisposta &&
         (nemico!.statoNemico == StatoNemico.TRISTE ||
             nemico!.statoNemico == StatoNemico.RISATA)) {
       dialogoCorrente = nemico!.dialogoCorrente;
-      print("sp");
     } else {
       nemico!.prossimoDialogo(partita, context);
-      immagineNemico = nemico!.immaginiNemico[nemico!.indexImmagineCorrente];
       dialogoCorrente = nemico!.dialogoCorrente;
+      // mostro le azioni per rispondere alla domanda se ho una domanda
       if (nemico!.statoNemico == StatoNemico.DOMANDA) {
         azioniDisponibili = nemico!.azioniDisponibili;
       } else {
@@ -54,39 +52,4 @@ class StanzaCombattimento extends Stanza {
       }
     }
   }
-
-  /* // Trasformo le risposte delle domande in Azioni e li aggiungo alla lista azioniDisponibili
-  void creazioneAzioni({context}) {
-    // recupero domanda corrente
-    Domanda domandaCorrente =
-        nemico!.listaDomande[nemico!.indexDomandaCorrente];
-
-    // Creo Azioni Risposte
-    for (int i = 0; i < domandaCorrente.risposte.length; i++) {
-      azioniDisponibili.add(
-        Azione(
-            f1: ({Stanza? s, Personaggio? p}) {
-              // Se la risposta è quella corretta:
-              if (domandaCorrente.soluzione == domandaCorrente.risposte[i]) {
-                print("SOLUZIONE CORRETTA");
-                nemico!.changeStatoNemico(StatoNemico.TRISTE);
-
-                dialogoCorrente = "SOLUZIONE CORRETTA!";
-                azioniDisponibili.clear();
-              }
-              // Se la risposta è quella errata:
-              else {
-                print("SOLUZIONE ERRATA");
-                nemico!.changeStatoNemico(StatoNemico.RISATA);
-                dialogoCorrente = "SOLUZIONE SBAGLIATA!";
-                azioniDisponibili.clear();
-
-                Provider.of<Personaggio>(context, listen: false)
-                    .decrSalute(nemico!.danno);
-              }
-            },
-            titoloPulsante: domandaCorrente.risposte[i]),
-      );
-    }
-  } */
 }

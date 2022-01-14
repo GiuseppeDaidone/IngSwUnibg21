@@ -4,7 +4,6 @@ import 'package:codice/model/partita.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
 import 'package:provider/provider.dart';
-
 import 'azione.dart';
 
 class Nemico {
@@ -82,7 +81,6 @@ class Nemico {
       // Se il dialogo nuovo deve mostrare anche domanda, mostro creo le azioni, le mostro e cambio l'immagine nemico
       if (dialogoCombattimento[indexDialogoCorrente].values.first) {
         changeStatoNemico(StatoNemico.DOMANDA, context: context);
-        print("aasdasdasd");
         indexDomandaCorrente++;
       }
       // Cambio solo il dialogo
@@ -97,7 +95,6 @@ class Nemico {
   void creazioneAzioni(Domanda domanda, {context}) {
     // Creo Azioni Risposte
     for (int i = 0; i < domanda.risposte.length; i++) {
-      print("creo azioen");
       azioniDisponibili.add(
         Azione(
             f1: ({Stanza? s, Personaggio? p}) {

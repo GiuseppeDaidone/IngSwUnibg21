@@ -5,6 +5,8 @@ import 'package:codice/model/esplorazione.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
 
+// NB: nel dialogo esplorazione metto true quando voglio cambiare immagine e mostrare un'azione all'utente
+
 class EsplorazioneDB {
   Esplorazione getEsplorazione() {
     return listaEsplorazioni[Random().nextInt(listaEsplorazioni.length)];

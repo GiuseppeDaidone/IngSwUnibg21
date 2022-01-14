@@ -1,5 +1,4 @@
 import 'package:codice/model/partita.dart';
-
 import 'azione.dart';
 
 class Esplorazione {
@@ -17,7 +16,6 @@ class Esplorazione {
   String dialogoCorrente = "";
 
   int indexImmagineCorrente = 0;
-  int _indexDialogoCorrente = 0;
   int indexDialogoCorrente = 0;
 
   void changeStatoEsplorazione(StatoEsplorazione st) {

@@ -48,7 +48,7 @@ class StanzeDB {
     ),
   ];
 
-  // Lista di stanze in cui si può solo esplorare
+  // Lista di stanze in cui si può solo esplorare (passo come parametro l'azione da svolgere)
   List<StanzaEsplorazione> stanzeEsplorazione = [
     // STANZA 1
     StanzaEsplorazione(
@@ -73,91 +73,9 @@ class StanzeDB {
     ),
   ];
 
-  // Lista di stanze in cui è presente un combattimento
+  // Lista di stanze in cui è presente un combattimento (non devo passare nessun parametro)
   List<StanzaCombattimento> stanzeCombattimento = [
     // STANZA 1
     StanzaCombattimento(),
   ];
 }
-
-/* class StanzeDB {
-StanzaCombattimento getStanzaIniziale() {
-    // Ritorno una stanza casuale tra quelle iniziali
-    return stanzeIniziali[Random().nextInt(stanzeIniziali.length)];
-  }
-
-StanzaCombattimento getStanzaCombattimento() {
-    return stanzeCombattimento[Random().nextInt(stanzeCombattimento.length)];
-  }
-
-StanzaCombattimento getStanzaEsplorazione() {
-    return stanzeEsplorazione[Random().nextInt(stanzeEsplorazione.length)];
-  }
-
-  // Lista di stanze iniziali
-  List<StanzaCombattimento> stanzeIniziali = [
-  StanzaCombattimento(
-      azioniDisponibili: [
-        // AZIONE 1
-        Azione(
-          f1: ({StanzaCombattimento? s, Personaggio? p}) {
-            p!.addOggetto(s!.oggettoStanza);
-            return;
-          },
-          titoloPulsante: "Raccogli l'oggetto",
-        ),
-
-        // AZIONE 2
-        Azione(
-            f1: ({StanzaCombattimento? s, Personaggio? p}) {
-              print("azione2");
-              return;
-            },
-            titoloPulsante: "Azione2"),
-      ],
-      dialogoStanza: [
-        {"StanzaCombattimento iniziale dialogo": false},
-        {"dialogo2": false},
-        {"dialogo3": true}
-      ],
-      immagini: ["images/dun.jpg", "images/homegif.gif"],
-    ),
-  ];
-
-  // Lista di stanze in cui si può solo esplorare
-  List<StanzaCombattimento> stanzeEsplorazione = [
-    // STANZA 1
-  StanzaCombattimento(
-      azioniDisponibili: [
-        Azione(
-            f1: ({StanzaCombattimento? s, Personaggio? p}) {
-              print("azione1");
-              return;
-            },
-            titoloPulsante: "Azione1"),
-        Azione(
-            f1: ({StanzaCombattimento? s, Personaggio? p}) {
-              print("azione1");
-              return;
-            },
-            titoloPulsante: "Azione1")
-      ],
-      dialogoStanza: [
-        {"stanza esplorazione dialogo": false},
-        {"dialogo2": false},
-        {"dialogo3": true}
-      ],
-      immagini: ["images/dun.jpg", "images/homegif.gif"],
-    ),
-  ];
-
-  // Lista di stanze in cui è presente un combattimento
-  List<StanzaCombattimento> stanzeCombattimento = [
-    // STANZA 1
-  StanzaCombattimento(
-      azioniDisponibili: [],
-      dialogoStanza: [],
-      immagini: ["images/dun.jpg", "images/m.gif"],
-    ),
-  ];
-} */

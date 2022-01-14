@@ -19,17 +19,22 @@ class StanzaEsplorazione extends Stanza {
   @override
   void setIndex(int idx) {
     index = idx;
+    // imposto il primo dialogo
     dialogoCorrente = esplorazione!
         .dialogoEsplorazione[esplorazione!.indexDialogoCorrente].keys.first;
+    // imposto la prima immagine
     immagineCorrente =
         esplorazione!.immaginiSfondo[esplorazione!.indexImmagineCorrente];
+    // creo l'oggetto
     oggetto = OggettiDB().getOggetto();
-    esplorazione!.statoEsplorazione = StatoEsplorazione.DIALOGO;
+    // imposto lo stato
+    esplorazione!.changeStatoEsplorazione(StatoEsplorazione.DIALOGO);
   }
 
   @override
   void increaseDialogoIndex(bool isPulsanteRisposta, Partita partita,
       {context}) {
+    // Se viene premuto il gesture detector quando un'azione è già presente
     if (!isPulsanteRisposta &&
         esplorazione!.statoEsplorazione == StatoEsplorazione.AZIONE) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -41,11 +46,12 @@ class StanzaEsplorazione extends Stanza {
       );
       return;
     } else {
+      // passo al prossimo dialogo
       esplorazione!.prossimoDialogo(partita);
       immagineCorrente =
           esplorazione!.immaginiSfondo[esplorazione!.indexImmagineCorrente];
       dialogoCorrente = esplorazione!.dialogoCorrente;
-      // Se ho un azione da mostrare
+      // Se ho uno stato azione mostro le azioni disponibili
       if (esplorazione!.statoEsplorazione == StatoEsplorazione.AZIONE) {
         azioniDisponibili = esplorazione!.azioniDisponibili;
       } else {

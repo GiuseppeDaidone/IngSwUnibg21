@@ -22,6 +22,7 @@ abstract class Stanza {
   // - altre funzioni in base al tipo di stanza
   void setIndex(int idx) {}
 
+  // metodo per far avanzare il testo dentro la textbox
   void increaseDialogoIndex(bool isPulsanteRisposta, Partita partita,
       {context}) {}
 }
