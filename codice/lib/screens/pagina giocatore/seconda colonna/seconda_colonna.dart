@@ -1,8 +1,10 @@
 import 'package:codice/model/azione.dart';
+import 'package:codice/model/esplorazione.dart';
 import 'package:codice/model/nemico.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
+import 'package:codice/model/stanza_combattimento.dart';
 import 'package:codice/screens/pagina%20giocatore/seconda%20colonna/action_buttons_row.dart';
 import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
@@ -26,11 +28,13 @@ class _SecondaColonnaState extends State<SecondaColonna> {
     List<Azione> _azioniDisponibili;
     Stanza _stanzaCorrente;
     Nemico? _nemico;
+    Esplorazione? _esplorazione;
     return Consumer<Partita>(
       builder: (context, partita, _) {
         _stanzaCorrente = partita.getStanzaCorrente();
         _azioniDisponibili = _stanzaCorrente.azioniDisponibili;
         _nemico = _stanzaCorrente.nemico;
+        _esplorazione = _stanzaCorrente.esplorazione;
         return Stack(
           children: [
             Container(
@@ -48,10 +52,8 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                       onTap: () {
                         // Quando premo sulla parte centrale dello schermo vado avanti con il dialogo. A meno che non siano presenti delle
                         // azioni. Inoltre se il dialogo della stanza è finito vado alla stanza successiva
-                        if (_stanzaCorrente.increaseDialogoIndex(false, partita,
-                            context: context)) {
-                          partita.goStanzaSuccessiva(context: context);
-                        }
+                        _stanzaCorrente.increaseDialogoIndex(false, partita,
+                            context: context);
 
                         // Aggiorno lo stato di partita, dato che se aggiorno l'istanza Stanza non trigghera il notifylisteners di Partita da solo
                         partita.updateState();
@@ -76,8 +78,7 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                                     borderRadius: BorderRadius.circular(12),
                                     child: FittedBox(
                                       child: Image.asset(
-                                        _stanzaCorrente.immagini[
-                                            _stanzaCorrente.currentImageIndex],
+                                        _stanzaCorrente.immagineCorrente,
                                       ),
                                       fit: BoxFit.fill,
                                     ),
@@ -98,10 +99,8 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                                             image: DecorationImage(
                                               fit: BoxFit.fill,
                                               image: AssetImage(
-                                                _stanzaCorrente
-                                                        .nemico!.immagine[
-                                                    _stanzaCorrente.nemico!
-                                                        .indexImmagineCorrente],
+                                                _nemico!.immaginiNemico[_nemico!
+                                                    .indexImmagineCorrente],
                                               ),
                                             ),
                                           ),
@@ -127,13 +126,7 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                               ),
                               width: size.width / 2,
                               height: size.height / 5,
-                              child: Text(
-                                _stanzaCorrente
-                                    .dialogoStanza[
-                                        _stanzaCorrente.currentDialogoIndex]
-                                    .keys
-                                    .single,
-                              ),
+                              child: Text(_stanzaCorrente.dialogoCorrente),
                             ),
                           ),
                         ],

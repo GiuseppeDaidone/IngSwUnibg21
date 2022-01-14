@@ -38,7 +38,7 @@ class Partita with ChangeNotifier {
   // Aggiorno l'index alla stanza successiva e aggiorno l'istanza di _stanzaCorrente
   // Se non esiste una stanza successiva allora sono a fondo mappa e quindi mostro la pagina finale
   void goStanzaSuccessiva({context}) {
-    if (++_indexStanzaCorrente == mappa.length) {
+    if (_indexStanzaCorrente + 1 == mappa.length) {
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -48,6 +48,7 @@ class Partita with ChangeNotifier {
         ),
       );
     } else {
+      _indexStanzaCorrente++;
       _stanzaCorrente = mappa[_indexStanzaCorrente];
     }
   }

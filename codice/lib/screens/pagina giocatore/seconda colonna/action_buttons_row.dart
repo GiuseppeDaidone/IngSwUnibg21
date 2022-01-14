@@ -1,4 +1,6 @@
 import 'package:codice/model/azione.dart';
+import 'package:codice/model/esplorazione.dart';
+import 'package:codice/model/nemico.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
@@ -25,11 +27,18 @@ class ActionButtonsRow extends StatefulWidget {
 class _ActionButtonsRowState extends State<ActionButtonsRow> {
   @override
   Widget build(BuildContext context) {
-    return widget
-            .stanzaCorrente
-            .dialogoStanza[widget.stanzaCorrente.currentDialogoIndex]
-            .values
-            .first
+    bool flag = false;
+    if (widget.stanzaCorrente.nemico == null) {
+      if (widget.stanzaCorrente.esplorazione!.statoEsplorazione ==
+          StatoEsplorazione.AZIONE) {
+        flag = true;
+      }
+    } else {
+      if (widget.stanzaCorrente.nemico!.statoNemico == StatoNemico.DOMANDA) {
+        flag = true;
+      }
+    }
+    return flag
         ? Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

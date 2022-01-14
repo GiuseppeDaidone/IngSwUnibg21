@@ -1,11 +1,14 @@
 import 'dart:math';
 
 import 'package:codice/database/domandeDB.dart';
+import 'package:codice/database/esplorazioneDB.dart';
 import 'package:codice/database/nemicoDB.dart';
 import 'package:codice/database/stanzeDB.dart';
 import 'package:codice/model/domanda.dart';
+import 'package:codice/model/esplorazione.dart';
 import 'package:codice/model/nemico.dart';
 import 'package:codice/model/stanza.dart';
+import 'package:codice/model/stanza_combattimento.dart';
 
 class CreazionePartita {
   // Genero la mappa pescando in modo random le stanze dal database: stanzeDB
@@ -32,7 +35,6 @@ class CreazionePartita {
         mappa.last.setIndex(i);
       }
     }
-
     return mappa;
   }
 
@@ -59,5 +61,9 @@ class CreazionePartita {
       return NemicoDB()
           .listaNemici[Random().nextInt(NemicoDB().listaNemici.length)];
     }
+  }
+
+  Esplorazione creaEsplorazione() {
+    return EsplorazioneDB().getEsplorazione();
   }
 }

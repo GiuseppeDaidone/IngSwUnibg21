@@ -7,7 +7,7 @@ class DomandeDB {
   List<Domanda> listaDomande = [
     Domanda(
       Difficolta.FACILE,
-      "Rosso",
+      "Blu",
       testoDomanda: "Di che colore è il cavallo bianco di napoleone?",
       risposte: ["Bianco", "Blu", "Verde"],
     ),

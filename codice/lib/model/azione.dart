@@ -3,13 +3,14 @@
 
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
+import 'package:codice/model/stanza_combattimento.dart';
 import 'package:flutter/cupertino.dart';
 
 class Azione {
   // Funzione da eseguire quando il giocatore sceglie questa azione
   // La stanza ed il personaggio passati come parametri corrispondono al player e la stanza corrente in cui si trova. Servono per poter accedere ai loro metodi
   // e campi per poter creare più varietà di azioni dentro le stanze esplorazione
-  final Function({Stanza s, Personaggio p}) f1;
+  final void Function({Stanza s, Personaggio p}) f1;
   final String titoloPulsante;
 
   Azione({required this.f1, required this.titoloPulsante});

@@ -48,7 +48,7 @@ class _TerzaColonnaState extends State<TerzaColonna> {
                   direction: Axis.vertical,
                   images: [
                     for (int i = 0; i < partita.mappa.length; i++)
-                      AssetImage(partita.mappa[i].immagini[0]),
+                      AssetImage(partita.mappa[i].immagineCorrente),
                   ],
                   activeStep: partita.getStanzaCorrente().index,
                 ),
