@@ -19,6 +19,7 @@ class Partita with ChangeNotifier {
     _indexStanzaCorrente = 0;
   }
 
+  // SETTERS
   void updateState() => notifyListeners();
 
   void aumentaDomandeSbagliate() => _totDomandeSbagliate++;
@@ -27,6 +28,11 @@ class Partita with ChangeNotifier {
 
   void aumentaOggettiUtilizzati() => _oggettiUtilizzati++;
 
+  // GETTERS
+  DateTime getIstanteInizioPartita() => _istanteInizioPartita;
+  int getDomandeSbagliate() => _totDomandeSbagliate;
+  int getDomandeRisposte() => _totDomandeRisposte;
+  int getOggettiUtilizzati() => _oggettiUtilizzati;
   int getIndexStanzaCorrente() => _indexStanzaCorrente;
 
   // Recupero l'istanza della Stanza in cui mi trovo attualmente. Se è null allora la prendo dalla mappa

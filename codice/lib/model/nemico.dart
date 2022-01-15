@@ -53,6 +53,7 @@ class Nemico {
         indexImmagineCorrente = 1;
         dialogoCorrente = listaDomande[indexDomandaCorrente].testoDomanda;
         creazioneAzioni(listaDomande[indexDomandaCorrente], context: context);
+        Provider.of<Partita>(context, listen: false).aumentaDomandeRisposte();
         break;
 
       case StatoNemico.SCONFITTO:
@@ -65,6 +66,7 @@ class Nemico {
         statoNemico = st;
         indexImmagineCorrente = 2;
         dialogoCorrente = "RISPOSTA ERRATA!";
+        Provider.of<Partita>(context, listen: false).aumentaDomandeSbagliate();
         break;
 
       case StatoNemico.DIALOGO:
@@ -101,12 +103,13 @@ class Nemico {
               // Se la risposta è quella corretta:
               if (domanda.soluzione == domanda.risposte[i]) {
                 print("SOLUZIONE CORRETTA");
-                changeStatoNemico(StatoNemico.TRISTE);
+
+                changeStatoNemico(StatoNemico.TRISTE, context: context);
               }
               // Se la risposta è quella errata:
               else {
                 print("SOLUZIONE ERRATA");
-                changeStatoNemico(StatoNemico.RISATA);
+                changeStatoNemico(StatoNemico.RISATA, context: context);
 
                 Provider.of<Personaggio>(context, listen: false)
                     .decrSalute(danno);
