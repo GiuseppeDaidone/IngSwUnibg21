@@ -36,21 +36,13 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
       context,
       MaterialPageRoute(
         builder: (context) {
-          return MultiProvider(
-            providers: [
-              // Partita Provider
-              ChangeNotifierProvider<Partita>(
-                lazy: false,
-                create: (_) => Partita(),
-              ),
-
-              // Personaggio Provider
-              ChangeNotifierProvider<Personaggio>(
-                lazy: false,
-                create: (_) => Personaggio(nome: _editingController.text),
-              ),
-            ],
-            child: const PaginaGiocatore(),
+          // Personaggio Provider
+          return ChangeNotifierProvider<Personaggio>(
+            lazy: false,
+            create: (_) => Personaggio(nome: _editingController.text),
+            builder: (context, personaggio) {
+              return const PaginaGiocatore();
+            },
           );
         },
       ),
