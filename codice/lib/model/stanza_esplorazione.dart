@@ -1,14 +1,11 @@
 import 'package:codice/database/oggettiDB.dart';
 import 'package:codice/functions/creazione_partita.dart';
 import 'package:codice/model/esplorazione.dart';
-import 'package:codice/model/oggetto.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/model/stanza.dart';
 import 'package:flutter/material.dart';
 
 class StanzaEsplorazione extends Stanza {
-  late final Oggetto oggetto;
-
   StanzaEsplorazione({
     required azioniDisponibili,
   }) : super(

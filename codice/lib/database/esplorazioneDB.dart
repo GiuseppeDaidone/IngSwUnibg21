@@ -17,7 +17,7 @@ class EsplorazioneDB {
       azioniDisponibili: [
         Azione(
           f1: ({Stanza? s, Personaggio? p}) {
-            print("azione0");
+            p!.addOggetto(s!.oggetto);
           },
           titoloPulsante: "Azione 0",
         )

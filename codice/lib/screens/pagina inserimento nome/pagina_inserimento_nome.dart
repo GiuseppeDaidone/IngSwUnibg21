@@ -32,7 +32,7 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
 
   // Metodo chiamato per andare alla pagina giocatore
   void changePage() {
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(
         builder: (context) {

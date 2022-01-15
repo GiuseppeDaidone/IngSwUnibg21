@@ -7,7 +7,9 @@ import 'package:provider/provider.dart';
 // PAGINA FINALE [PAG4]
 
 class PaginaFinale extends StatelessWidget {
-  const PaginaFinale({Key? key}) : super(key: key);
+  const PaginaFinale({Key? key, required this.isDead}) : super(key: key);
+
+  final bool isDead;
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +22,19 @@ class PaginaFinale extends StatelessWidget {
           ),
 
           // TITOLO
-          const Expanded(
-            child: Text(
-              "Congratulazioni Per Aver Completato Il Gioco",
-              style: TextStyle(fontSize: 50),
-            ),
-          ),
+          isDead
+              ? const Expanded(
+                  child: Text(
+                    "GAME OVER",
+                    style: TextStyle(fontSize: 50),
+                  ),
+                )
+              : const Expanded(
+                  child: Text(
+                    "Congratulazioni Per Aver Completato Il Gioco",
+                    style: TextStyle(fontSize: 50),
+                  ),
+                ),
 
           // BOX STATISTICHE
           Consumer<Partita>(

@@ -60,6 +60,18 @@ class PrimaColonna extends StatelessWidget {
             ),
           ),
 
+          // ITEM EQUIPAGGIATO
+          Provider.of<Personaggio>(context).oggettoEquipaggiato != null
+              ? Container(
+                  child: ImageIcon(
+                    AssetImage(
+                      Provider.of<Personaggio>(context)
+                          .oggettoEquipaggiato!
+                          .icon,
+                    ),
+                  ),
+                )
+              : const SizedBox(),
           const Spacer(),
 
           // PULSANTE INVENTARIO

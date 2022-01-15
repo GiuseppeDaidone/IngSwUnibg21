@@ -2,6 +2,7 @@ import 'package:codice/functions/creazione_partita.dart';
 import 'package:codice/model/domanda.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/model/personaggio.dart';
+import 'package:codice/model/scudo.dart';
 import 'package:codice/model/stanza.dart';
 import 'package:provider/provider.dart';
 import 'azione.dart';
@@ -111,8 +112,12 @@ class Nemico {
                 print("SOLUZIONE ERRATA");
                 changeStatoNemico(StatoNemico.RISATA, context: context);
 
-                Provider.of<Personaggio>(context, listen: false)
-                    .decrSalute(danno);
+                if (p!.oggettoEquipaggiato is Scudo) {
+                  p.eliminaOggetto(p.oggettoEquipaggiato);
+                  p.equipaggiaOggetto(null);
+                } else {
+                  p.decrSalute(danno, context);
+                }
               }
             },
             titoloPulsante: domanda.risposte[i]),

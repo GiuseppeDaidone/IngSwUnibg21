@@ -49,7 +49,9 @@ class Partita with ChangeNotifier {
         context,
         MaterialPageRoute(
           builder: (context) {
-            return const PaginaFinale();
+            return const PaginaFinale(
+              isDead: false,
+            );
           },
         ),
       );

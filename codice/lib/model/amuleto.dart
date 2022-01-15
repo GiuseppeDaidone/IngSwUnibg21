@@ -1,10 +1,15 @@
 import 'package:codice/model/oggetto.dart';
 
-abstract class Amuleto extends Oggetto {
-  late String incantesimo;
+class Amuleto extends Oggetto {
+  Amuleto(
+      {required String name, required bool isMalefico, required int effetto})
+      : super(
+            name: name,
+            effetto: effetto,
+            isMalefico: isMalefico,
+            icon: "images/amuletoIcon.png",
+            tipoOggetto: TipoOggetto.AMULETO);
 
-  Amuleto({required incantesimo}) : super();
-
-  // TODO: ovverride implementando la logica e il funzionamento del amuletto specifico
-  void avviaIncantesimo() {}
+  @override
+  int getEffetto() => effetto!;
 }

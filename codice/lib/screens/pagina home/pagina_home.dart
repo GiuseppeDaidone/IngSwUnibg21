@@ -42,7 +42,7 @@ class PaginaHome extends StatelessWidget {
                   // PULSANTE NUOVA PARTITA
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) {

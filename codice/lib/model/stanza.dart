@@ -1,10 +1,12 @@
 import 'package:codice/model/esplorazione.dart';
 import 'package:codice/model/nemico.dart';
+import 'package:codice/model/oggetto.dart';
 import 'package:codice/model/partita.dart';
 import 'azione.dart';
 
 abstract class Stanza {
   late int index;
+  late final Oggetto oggetto;
 
   String immagineCorrente = "";
   String dialogoCorrente = "";

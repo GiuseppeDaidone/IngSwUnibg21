@@ -56,7 +56,7 @@ class StanzeDB {
         // AZIONE 1
         Azione(
           f1: ({Stanza? s, Personaggio? p}) {
-            print("Azione 1");
+            p!.addOggetto(s!.oggetto);
             return;
           },
           titoloPulsante: "Raccogli l'oggetto",
