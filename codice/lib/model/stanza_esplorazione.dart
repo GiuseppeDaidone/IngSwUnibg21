@@ -10,13 +10,13 @@ class StanzaEsplorazione extends Stanza {
     required azioniDisponibili,
   }) : super(
           azioniDisponibili: azioniDisponibili,
-          esplorazione: CreazionePartita().creaEsplorazione(),
         );
 
   @override
   void setIndex(int idx) {
     index = idx;
     // imposto il primo dialogo
+    esplorazione = CreazionePartita().creaEsplorazione();
     dialogoCorrente = esplorazione!
         .dialogoEsplorazione[esplorazione!.indexDialogoCorrente].keys.first;
     // imposto la prima immagine

@@ -28,13 +28,11 @@ class _SecondaColonnaState extends State<SecondaColonna> {
     List<Azione> _azioniDisponibili;
     Stanza _stanzaCorrente;
     Nemico? _nemico;
-    Esplorazione? _esplorazione;
     return Consumer<Partita>(
       builder: (context, partita, _) {
         _stanzaCorrente = partita.getStanzaCorrente();
         _azioniDisponibili = _stanzaCorrente.azioniDisponibili;
         _nemico = _stanzaCorrente.nemico;
-        _esplorazione = _stanzaCorrente.esplorazione;
         return Stack(
           children: [
             Container(
