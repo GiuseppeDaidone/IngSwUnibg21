@@ -1,11 +1,6 @@
 import 'package:codice/model/personaggio.dart';
-<<<<<<< HEAD
-import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_inventario.dart';
-import 'package:codice/screens/pagina%20giocatore/widgets%20pagina%20giocatore/pulsante_menu.dart';
-=======
 import 'package:codice/screens/pagina%20giocatore/prima%20colonna/pulsante_inventario.dart';
 import 'package:codice/screens/pagina%20giocatore/prima%20colonna/pulsante_menu.dart';
->>>>>>> e94691ca023d1b2b4a34916df194437b781af652
 import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

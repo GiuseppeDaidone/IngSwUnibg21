@@ -100,7 +100,6 @@ class OggettoListTile extends StatelessWidget {
 
 
 
-// TODO: spada funziona come scudo, ma se si sbaglia la domanda viene contata come giusta 
 // TODO: rendere funzionamento stanze esplorazione come quelle combattimento. Posso eseguire più di un azione in una stanza
 // quindi devo creare una funzione creaAzine() anche per esplorazione. Il dialogo di esplorazione deve essere costruito come dialogo combatitmento
 // TODO: rendere nemico abstract e creare sottoclassi nemico standard e Boss

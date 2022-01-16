@@ -4,6 +4,7 @@ import 'package:codice/model/domanda.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/scudo.dart';
+import 'package:codice/model/spada.dart';
 import 'package:codice/model/stanza.dart';
 import 'package:provider/provider.dart';
 import 'azione.dart';
@@ -110,28 +111,38 @@ class Nemico {
     for (int i = 0; i < domanda.risposte.length; i++) {
       azioniDisponibili.add(
         Azione(
-            f1: ({Stanza? s, Personaggio? p}) {
-              // Se la risposta è quella corretta:
-              if (domanda.soluzione == domanda.risposte[i]) {
-                print("SOLUZIONE CORRETTA");
-                changeStatoNemico(StatoNemico.TRISTE, context: context);
-              }
-              // Se la risposta è quella errata:
-              else {
-                print("SOLUZIONE ERRATA");
-                changeStatoNemico(StatoNemico.RISATA, context: context);
+          f1: ({Stanza? s, Personaggio? p}) {
+            // RISPOSTA CORRETTA
+            if (domanda.soluzione == domanda.risposte[i]) {
+              changeStatoNemico(StatoNemico.TRISTE, context: context);
+            }
+
+            // RISPOSTA ERRATA
+            else {
+              changeStatoNemico(StatoNemico.RISATA, context: context);
+
+              // Se ho uno scudo non perdo salute ma non avanzo con le domande
+              if (p!.oggettoEquipaggiato is Scudo) {
+                p.eliminaOggetto(p.oggettoEquipaggiato);
+                p.equipaggiaOggetto(null);
+
                 // Se sbaglio risposta aggiunto una nuova domanda alla lista
                 listaDomande.add(DomandeDB().getDomanda());
-
-                if (p!.oggettoEquipaggiato is Scudo) {
-                  p.eliminaOggetto(p.oggettoEquipaggiato);
-                  p.equipaggiaOggetto(null);
-                } else {
-                  p.decrSalute(danno, context);
-                }
               }
-            },
-            titoloPulsante: domanda.risposte[i]),
+
+              // Se ho una spada equipaggiata, subisco danni ma non devo ripetere la domanda
+              else if (p.oggettoEquipaggiato is Spada) {
+                p.eliminaOggetto(p.oggettoEquipaggiato);
+                p.equipaggiaOggetto(null);
+                p.decrSalute(danno, context);
+              } else {
+                p.decrSalute(danno, context);
+                listaDomande.add(DomandeDB().getDomanda());
+              }
+            }
+          },
+          titoloPulsante: domanda.risposte[i],
+        ),
       );
     }
   }
