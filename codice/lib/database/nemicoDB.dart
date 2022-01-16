@@ -1,9 +1,10 @@
+import 'package:codice/model/boss.dart';
 import 'package:codice/model/nemico.dart';
 
 class NemicoDB {
   List<Nemico> listaNemici = [
     // NEMICO 1
-    Nemico(
+    Boss(
       immagineSfondo: "images/dun.jpg",
       disciplina: Disciplina.MATEMATICA,
       // Immagini del nemico che cambiano in base all'azione svolta

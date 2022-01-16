@@ -9,7 +9,9 @@ import 'package:codice/model/stanza.dart';
 import 'package:provider/provider.dart';
 import 'azione.dart';
 
-class Nemico {
+// In questa classe sono contenute le informazioni sul nemico e le sue azioni disponibili
+
+abstract class Nemico {
   Nemico(
       {required this.nome,
       required this.immaginiNemico,
@@ -26,13 +28,13 @@ class Nemico {
   // Livello indica la difficoltà del nemico
   final LivelloNemico livello;
   final Disciplina disciplina;
-  // La lista viene creata dal costruttore, che pesca domande con stessa disciplina e difficoltà del nemico, dal database.
+  // Domande con stessa disciplina e difficoltà del nemico, pescate dal database.
   final List<Domanda> listaDomande;
   // Se bool = true allora la string è una domanda
   // NB: Il dialogo è fisso per ogni nemico. Le domande invece cambiano da partita a partita
   final List<Map<String, bool>> dialogoCombattimento;
   // Danno che il nemico infligge in caso di domanda sbagliata
-  int danno = 10;
+  late final int danno;
   late StatoNemico statoNemico;
   String dialogoCorrente = "";
 
@@ -43,12 +45,17 @@ class Nemico {
   int indexImmagineCorrente = 0;
   int indexDialogoCorrente = 0;
 
+  // Questa funzione definisce il danno del nemico basato sul suo livello. E' differente per boss e scagnozzi
+  void setDannoNemico() {}
+
+  // Questa funzione gestisce il cambiamento di stato del nemico
   void changeStatoNemico(StatoNemico st, {context}) {
     switch (st) {
       case StatoNemico.TRISTE:
         statoNemico = st;
         indexImmagineCorrente = 3;
         dialogoCorrente = "RISPOSTA CORRETTA!";
+        // pulisco lista azioni disponibili
         azioniDisponibili.clear();
         break;
 
@@ -64,7 +71,6 @@ class Nemico {
         statoNemico = st;
         indexImmagineCorrente = 4;
         dialogoCorrente = "MI HAI SCONFITTO MALEDETTO!";
-
         break;
 
       case StatoNemico.RISATA:
@@ -82,8 +88,9 @@ class Nemico {
     }
   }
 
+  // Questa funzione vine chiamata quando voglio avanzare con lo stato del nemico
   void prossimoDialogo(Partita partita, context) {
-    // Se ho sbagliato la domanda precedente ne chiedo un'altra al nemico
+    // Se ho sbagliato la domanda precedente il nemico ne chiede un'altra
     if (statoNemico == StatoNemico.RISATA) {
       changeStatoNemico(StatoNemico.DOMANDA, context: context);
       indexDomandaCorrente++;
@@ -106,8 +113,8 @@ class Nemico {
     }
   }
 
+  // Questa funzione trasforma le risposte alle domande in pulsanti premibili. Ad ogni pulsante associa anche l'evento per quando viene premuto
   void creazioneAzioni(Domanda domanda, {context}) {
-    // Creo Azioni Risposte
     for (int i = 0; i < domanda.risposte.length; i++) {
       azioniDisponibili.add(
         Azione(
@@ -119,23 +126,24 @@ class Nemico {
 
             // RISPOSTA ERRATA
             else {
-              changeStatoNemico(StatoNemico.RISATA, context: context);
-
               // Se ho uno scudo non perdo salute ma non avanzo con le domande
               if (p!.oggettoEquipaggiato is Scudo) {
                 p.eliminaOggetto(p.oggettoEquipaggiato);
                 p.equipaggiaOggetto(null);
 
+                changeStatoNemico(StatoNemico.RISATA, context: context);
                 // Se sbaglio risposta aggiunto una nuova domanda alla lista
                 listaDomande.add(DomandeDB().getDomanda());
               }
 
-              // Se ho una spada equipaggiata, subisco danni ma non devo ripetere la domanda
+              // Se ho una spada equipaggiata, subisco danni, ma la domanda viene contata corretta e non devo ripeterla
               else if (p.oggettoEquipaggiato is Spada) {
                 p.eliminaOggetto(p.oggettoEquipaggiato);
                 p.equipaggiaOggetto(null);
+                changeStatoNemico(StatoNemico.TRISTE, context: context);
                 p.decrSalute(danno, context);
               } else {
+                changeStatoNemico(StatoNemico.RISATA, context: context);
                 p.decrSalute(danno, context);
                 listaDomande.add(DomandeDB().getDomanda());
               }

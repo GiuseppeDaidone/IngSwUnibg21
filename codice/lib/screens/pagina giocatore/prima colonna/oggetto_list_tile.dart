@@ -6,22 +6,21 @@ import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/scudo.dart';
 import 'package:codice/model/spada.dart';
 import 'package:codice/theme/game_theme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OggettoListTile extends StatelessWidget {
-  OggettoListTile({Key? key, required this.oggetto, required this.personaggio})
+  const OggettoListTile(
+      {Key? key, required this.oggetto, required this.personaggio})
       : super(key: key);
 
   final Oggetto oggetto;
-  Personaggio personaggio;
+  final Personaggio personaggio;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       // Gestisco logica per quando un item viene cliccato
       onTap: () {
-        print(oggetto.getId());
         // AMULETO
         if (oggetto is Amuleto) {
           if (!oggetto.isMalefico) {
@@ -39,7 +38,6 @@ class OggettoListTile extends StatelessWidget {
           if (personaggio.oggettoEquipaggiato != null &&
               personaggio.oggettoEquipaggiato!.getId() == oggetto.getId()) {
             personaggio.disequipaggiaOggetto();
-            print("sos");
           } else {
             personaggio.equipaggiaOggetto(oggetto);
           }
@@ -69,7 +67,7 @@ class OggettoListTile extends StatelessWidget {
       child: Card(
         elevation: 3,
         child: Container(
-          padding: EdgeInsets.only(left: 20, right: 20),
+          padding: const EdgeInsets.only(left: 20, right: 20),
           height: 60,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
@@ -84,7 +82,7 @@ class OggettoListTile extends StatelessWidget {
                   size: 20,
                 ),
 
-                SizedBox(width: 30),
+                const SizedBox(width: 30),
 
                 // NOME OGGETTO
                 Text(oggetto.name)
@@ -102,4 +100,3 @@ class OggettoListTile extends StatelessWidget {
 
 // TODO: rendere funzionamento stanze esplorazione come quelle combattimento. Posso eseguire più di un azione in una stanza
 // quindi devo creare una funzione creaAzine() anche per esplorazione. Il dialogo di esplorazione deve essere costruito come dialogo combatitmento
-// TODO: rendere nemico abstract e creare sottoclassi nemico standard e Boss

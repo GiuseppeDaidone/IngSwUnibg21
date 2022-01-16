@@ -17,6 +17,7 @@ class StanzaCombattimento extends Stanza {
     nemico = CreazionePartita().creaNemico(index);
     // setto come stato iniziale quello in cui dialoga con il giocatore
     nemico!.changeStatoNemico(StatoNemico.DIALOGO);
+    nemico!.setDannoNemico();
     immagineCorrente = nemico!.immagineSfondo;
     dialogoCorrente = nemico!.dialogoCorrente;
     azioniDisponibili = nemico!.azioniDisponibili;
