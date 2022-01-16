@@ -1,9 +1,15 @@
+import 'dart:math';
+
 import 'package:codice/model/domanda.dart';
 
 // Liste da cui vengono pescate le domande
 // le risposte vanno da 2 a 4
 
 class DomandeDB {
+  Domanda getDomanda() {
+    return listaDomande[Random().nextInt(listaDomande.length)];
+  }
+
   List<Domanda> listaDomande = [
     Domanda(
       Difficolta.FACILE,

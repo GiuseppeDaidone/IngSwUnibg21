@@ -22,7 +22,7 @@ class NemicoDB {
         {"Sei pronto alla domanda?": false},
         {"testo domanda": true},
         {"ed ora?": false},
-        {"ecco un altra domanda": true},
+        {"testo domanda 2": true},
         {"bravo 30": false}
       ],
       // Prendo domande dal database !! stare attenti che ci sia coerenza con il numero di domande indicato nel dialogoCombattimento!!

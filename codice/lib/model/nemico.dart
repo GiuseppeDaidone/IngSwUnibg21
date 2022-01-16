@@ -1,3 +1,4 @@
+import 'package:codice/database/domandeDB.dart';
 import 'package:codice/functions/creazione_partita.dart';
 import 'package:codice/model/domanda.dart';
 import 'package:codice/model/partita.dart';
@@ -47,6 +48,7 @@ class Nemico {
         statoNemico = st;
         indexImmagineCorrente = 3;
         dialogoCorrente = "RISPOSTA CORRETTA!";
+        azioniDisponibili.clear();
         break;
 
       case StatoNemico.DOMANDA:
@@ -61,6 +63,7 @@ class Nemico {
         statoNemico = st;
         indexImmagineCorrente = 4;
         dialogoCorrente = "MI HAI SCONFITTO MALEDETTO!";
+
         break;
 
       case StatoNemico.RISATA:
@@ -68,6 +71,7 @@ class Nemico {
         indexImmagineCorrente = 2;
         dialogoCorrente = "RISPOSTA ERRATA!";
         Provider.of<Partita>(context, listen: false).aumentaDomandeSbagliate();
+        azioniDisponibili.clear();
         break;
 
       case StatoNemico.DIALOGO:
@@ -78,20 +82,26 @@ class Nemico {
   }
 
   void prossimoDialogo(Partita partita, context) {
-    // Controllo che ci sia ancora del dialogo
-    if (indexDialogoCorrente + 1 < dialogoCombattimento.length) {
-      indexDialogoCorrente++;
-      // Se il dialogo nuovo deve mostrare anche domanda, mostro creo le azioni, le mostro e cambio l'immagine nemico
-      if (dialogoCombattimento[indexDialogoCorrente].values.first) {
-        changeStatoNemico(StatoNemico.DOMANDA, context: context);
-        indexDomandaCorrente++;
-      }
-      // Cambio solo il dialogo
-      else {
-        changeStatoNemico(StatoNemico.DIALOGO);
-      }
+    // Se ho sbagliato la domanda precedente ne chiedo un'altra al nemico
+    if (statoNemico == StatoNemico.RISATA) {
+      changeStatoNemico(StatoNemico.DOMANDA, context: context);
+      indexDomandaCorrente++;
     } else {
-      partita.goStanzaSuccessiva(context: context);
+      // Controllo che ci sia ancora del dialogo
+      if (indexDialogoCorrente + 1 < dialogoCombattimento.length) {
+        indexDialogoCorrente++;
+        // Se il dialogo nuovo deve mostrare anche domanda, mostro creo le azioni, le mostro e cambio l'immagine nemico
+        if (dialogoCombattimento[indexDialogoCorrente].values.first) {
+          changeStatoNemico(StatoNemico.DOMANDA, context: context);
+          indexDomandaCorrente++;
+        }
+        // Cambio solo il dialogo
+        else {
+          changeStatoNemico(StatoNemico.DIALOGO);
+        }
+      } else {
+        partita.goStanzaSuccessiva(context: context);
+      }
     }
   }
 
@@ -104,13 +114,14 @@ class Nemico {
               // Se la risposta è quella corretta:
               if (domanda.soluzione == domanda.risposte[i]) {
                 print("SOLUZIONE CORRETTA");
-
                 changeStatoNemico(StatoNemico.TRISTE, context: context);
               }
               // Se la risposta è quella errata:
               else {
                 print("SOLUZIONE ERRATA");
                 changeStatoNemico(StatoNemico.RISATA, context: context);
+                // Se sbaglio risposta aggiunto una nuova domanda alla lista
+                listaDomande.add(DomandeDB().getDomanda());
 
                 if (p!.oggettoEquipaggiato is Scudo) {
                   p.eliminaOggetto(p.oggettoEquipaggiato);

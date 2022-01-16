@@ -23,8 +23,8 @@ class EsplorazioneDB {
         )
       ],
       dialogoEsplorazione: [
-        {"Primo dialogo": false},
-        {"Secondo Dialogo": true}
+        {"Vedi un baule in fondo alla stanza lo vuoi aprire ?": false},
+        {"Secondo Dialogo": true},
       ],
       immaginiSfondo: ["images/dun.jpg", "images/homegif.gif"],
     )
