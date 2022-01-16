@@ -1,11 +1,26 @@
+import 'package:codice/model/partita.dart';
+import 'package:uuid/uuid.dart';
+
 abstract class Oggetto {
-  static int id = 0;
+  var id = const Uuid().v1();
+  late String icon;
+  final String name;
+  final bool isMalefico;
+  final int? effetto;
+  final TipoOggetto tipoOggetto;
 
-  Oggetto() {
-    id = id++;
+  Oggetto(
+      {required this.name,
+      this.isMalefico = false,
+      this.effetto,
+      required this.tipoOggetto,
+      required this.icon});
+
+  getId() => id;
+
+  int? getEffetto() {
+    return effetto;
   }
-
-  int getId() => id;
-
-  void usa() {}
 }
+
+enum TipoOggetto { SPADA, SCUDO, AMULETO, ARCO }

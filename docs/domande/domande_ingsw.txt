@@ -1,0 +1,53 @@
+L'ingegneria del software...
+	è un approccio sistematico allo sviluppo e manutenzione del SW X
+	può essere utilizzata solamente per progetti software piccoli
+	non comporta un grande costo
+	si occupa solamente della programmazione di un software
+
+La fase di manutenzione del software inizia prima della consegna al cliente
+	Vero
+	Falso X
+
+Aggiungere persone ad un progetto software porta sempre a velocizzarlo
+	Vero
+	Falso X
+
+I classici modelli di sviluppo software sono ..........-driven
+	software
+	test
+	requirements
+	document X
+
+Le attività di V&V del modello waterfall servono per verificare...
+	che il sistema rispetti i requisiti di sistema e delle richieste dell'utente X
+	solamente che il sistema sia costruito nel modo corretto
+	solamente il rispetto delle richieste dell'utente
+	nessuna delle precedenti
+
+Agile considera importante l'interazione con il cliente
+	Vero X
+	Falso
+
+Quando si sviluppa un software in parallelo...
+	tutti possono lavorare sulla stessa versione del codice
+	è necessario creare più branch del progetto X
+	non è possibile lavorare in parallelo
+	è indifferente la modalità di coordinamento scelta
+
+L'interazione tra team nei progetti SCRUM è...
+	sempre di basso livello, con poche comunicazioni
+	molto frequente X
+	quasi del tutto assente
+	inutile, perchè i team lavorano con ritmi diversi
+
+Nella definizione di qualità del software è necessario considerare fattori...
+	interni e del cliente
+	di utilizzo e di costo
+	interni ed esterni X
+	esterni e del cliente
+
+Quali sono i 4 step di un processo di Requirements Engineering?
+	Definition, Specification, Verification, Internchange
+	Definition, Documentation, Validation, Negotiation
+	Elicitation, Specification, Validation, Negotiation X
+	Nessuna delle precedenti

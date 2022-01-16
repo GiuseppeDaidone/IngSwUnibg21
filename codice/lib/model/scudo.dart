@@ -1,8 +1,9 @@
 import 'package:codice/model/oggetto.dart';
 
 class Scudo extends Oggetto {
-  Scudo() : super();
-
-  //se trovo una domanda difficile posso diffendermi, cambia la domanda con una più facile
-  void usaScudo() {}
+  Scudo({required String name})
+      : super(
+            name: name,
+            icon: "images/scudoIcon.png",
+            tipoOggetto: TipoOggetto.SCUDO);
 }

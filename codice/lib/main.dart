@@ -1,13 +1,23 @@
 import 'package:codice/screens/pagina%20giocatore/pagina_giocatore.dart';
 import 'package:codice/screens/pagina%20home/pagina_home.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'model/partita.dart';
 
 // flutter run -d chrome --web-renderer html
 // flutter run --profile
 
 void main() {
   runApp(
-    const MyApp(),
+    // Partita Provider
+    ChangeNotifierProvider<Partita>(
+      lazy: false,
+      create: (_) => Partita(),
+      builder: (context, partita) {
+        return const MyApp();
+      },
+    ),
   );
 }
 

@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import 'package:codice/model/personaggio.dart';
+=======
+>>>>>>> e94691ca023d1b2b4a34916df194437b781af652
 import 'package:codice/model/partita.dart';
+import 'package:codice/model/personaggio.dart';
 import 'package:codice/screens/pagina%20giocatore/pagina_giocatore.dart';
 import 'package:codice/theme/game_fonts.dart';
 import 'package:flutter/material.dart';
@@ -32,24 +36,17 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
 
   // Metodo chiamato per andare alla pagina giocatore
   void changePage() {
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(
         builder: (context) {
-          return MultiProvider(
-            providers: [
-              // Partita Provider
-              ChangeNotifierProvider<Partita>(
-                lazy: false,
-                create: (_) => Partita(),
-              ),
-
-              // Personaggio Provider
-              ChangeNotifierProvider<Personaggio>(
-                create: (_) => Personaggio(nome: _editingController.text),
-              ),
-            ],
-            child: const PaginaGiocatore(),
+          // Personaggio Provider
+          return ChangeNotifierProvider<Personaggio>(
+            lazy: false,
+            create: (_) => Personaggio(nome: _editingController.text),
+            builder: (context, personaggio) {
+              return const PaginaGiocatore();
+            },
           );
         },
       ),
