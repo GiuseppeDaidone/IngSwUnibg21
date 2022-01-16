@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import 'package:codice/model/personaggio.dart';
+=======
+>>>>>>> e94691ca023d1b2b4a34916df194437b781af652
 import 'package:codice/model/partita.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/screens/pagina%20giocatore/pagina_giocatore.dart';
