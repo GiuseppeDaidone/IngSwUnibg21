@@ -13,7 +13,8 @@ class PaginaFinale extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return WillPopScope(
+      onWillPop: () async => false,
       child: Scaffold(
         backgroundColor: Colors.green[300],
         body: Column(

@@ -18,22 +18,25 @@ class PaginaGiocatore extends StatefulWidget {
 class _PaginaGiocatoreState extends State<PaginaGiocatore> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: GameTheme.secondaryColor,
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const <Widget>[
-          Expanded(
-            child: PrimaColonna(),
-          ),
-          Expanded(
-            flex: 3,
-            child: SecondaColonna(),
-          ),
-          Expanded(
-            child: TerzaColonna(),
-          ),
-        ],
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        backgroundColor: GameTheme.secondaryColor,
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const <Widget>[
+            Expanded(
+              child: PrimaColonna(),
+            ),
+            Expanded(
+              flex: 3,
+              child: SecondaColonna(),
+            ),
+            Expanded(
+              child: TerzaColonna(),
+            ),
+          ],
+        ),
       ),
     );
   }
