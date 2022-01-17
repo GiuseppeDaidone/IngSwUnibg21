@@ -1,17 +1,122 @@
+------ BASE
+La fase di manutenzione del software inizia prima della consegna al cliente
+	Vero
+	Falso X
+
+Agile considera importante l'interazione con il cliente
+	Vero X
+	Falso
+
+Nella definizione di qualità del software è necessario considerare fattori...
+	interni e del cliente
+	di utilizzo e di costo
+	interni ed esterni X
+	esterni e del cliente
+
+La validazione dei requisiti risponde alla domanda “come lo deve risolvere il sistema?
+	vero
+	falso X
+
+La specifica dei requisiti risponde alla domanda “che cosa deve fare il sistema?”
+	vero X
+	falso
+
+Gli attori in un progetto vengono chiamati anche
+	holder
+	process
+	stakeholder X
+	step
+
+Il primo modello di ingegneria del software nel 1970 era...
+	ciclico
+	a spirale
+	waterfall X
+	incrementale
+
+Il modello a spirale ha ___ fasi che si ripetono
+	4 X
+	3
+	2
+	5
+
+Il modello attualmente più utilizzato in azienda è
+	SPIRALE
+	INCREMENTALE
+	AGILE X
+	WATERFALL
+
+La manutenzione evolutiva consiste nel:
+	correggere le anomalie che il software presenta
+	sostituire software obsoleti con software evoluti
+	modificare o aggiungere funzionalità ad un software esistente X
+	nessuna delle risposte
+
+Quale consorzio gestisce lo standard Uml?
+	Object Management Group (OMG) X
+	Intel
+	MontaVista Software
+	Tutte le opzioni precedenti sono corrette
+
+------ MEDIO
 L'ingegneria del software...
 	è un approccio sistematico allo sviluppo e manutenzione del SW X
 	può essere utilizzata solamente per progetti software piccoli
 	non comporta un grande costo
 	si occupa solamente della programmazione di un software
 
-La fase di manutenzione del software inizia prima della consegna al cliente
-	Vero
-	Falso X
-
 Aggiungere persone ad un progetto software porta sempre a velocizzarlo
 	Vero
 	Falso X
 
+Quando si sviluppa un software in parallelo...
+	tutti possono lavorare sulla stessa versione del codice
+	è necessario creare più branch del progetto X
+	non è possibile lavorare in parallelo
+	è indifferente la modalità di coordinamento scelta
+
+Secondo il livello di dettaglio i requisiti software possono essere classificati in:
+	requisiti funzionali
+	requisiti di sistema X
+	requisiti 
+	requisiti non funzionali
+
+La prima fase dello sviluppo di un progetto in genere è
+	avviamento
+	test
+	L'analisi dei requisiti X
+	rilascio
+
+La fase che accompagna il software dal rilascio alla sua fine viene detta
+	integrazione
+	test
+	avviamento
+	manutenzione X
+
+Cosa si intende per ciclo di vita del software ?
+	una misura della durata di un progetto un software
+	una misura per la valutazione dei costi di un progetto
+	insieme di azioni e attività da evitare nella realizzazione di un software
+	insieme di attività e azioni per realizzare un software X
+
+Cosa significa sviluppo incrementale ?
+	applicare il modello di sviluppo a cascata
+	sviluppare il software senza effettuare il testing
+	il software viene realizzato in versioni successive X
+	altro
+
+Cosa sono le metodologie agili ?
+	forme di sviluppo sw molto strutturate
+	forme di sviluppo sw meno strutturate X
+	forme di sviluppo sw senza errori
+	forme di sviluppo sw che cambiano velocemente
+
+Gli "unit test" si utilizzano per:
+	Testare le singole funzionalità del software X
+	Testare le prestazioni del software nel caso di un solo utilizzatore
+	Testare l'integrazione fra più componenti software
+	Testare le funzioni legate alla comunicazione in rete
+
+------ DIFFICILE
 I classici modelli di sviluppo software sono ..........-driven
 	software
 	test
@@ -24,27 +129,41 @@ Le attività di V&V del modello waterfall servono per verificare...
 	solamente il rispetto delle richieste dell'utente
 	nessuna delle precedenti
 
-Agile considera importante l'interazione con il cliente
-	Vero X
-	Falso
-
-Quando si sviluppa un software in parallelo...
-	tutti possono lavorare sulla stessa versione del codice
-	è necessario creare più branch del progetto X
-	non è possibile lavorare in parallelo
-	è indifferente la modalità di coordinamento scelta
-
 L'interazione tra team nei progetti SCRUM è...
 	sempre di basso livello, con poche comunicazioni
 	molto frequente X
 	quasi del tutto assente
 	inutile, perchè i team lavorano con ritmi diversi
 
-Nella definizione di qualità del software è necessario considerare fattori...
-	interni e del cliente
-	di utilizzo e di costo
-	interni ed esterni X
-	esterni e del cliente
+Nella fase di specifica dei requisiti possiamo riconoscere le attività (indica quella errata):
+	analisi del problema
+	definizione delle funzionalità
+	definizione del preventivo X
+	redazione di un documento SRS
+
+Descrivi la fase di Analisi
+	indagine che viene fatta dopo la realizzazione del progetto
+	indagine che viene fatta prima della realizzazione del progetto X
+	fase di realizzazione del software
+	fare delle migliorie al software attraverso delle patch
+
+Descrivi la fase di Implementazione
+	E' la fase di controllo del software
+	E' la fase di manutenzione del software
+	E' la fase di realizzazione del software X
+	Nessuna delle precedenti
+
+Descrivi la fase di Progettazione
+	viene stabilito il budget di un progetto
+	viene stabilita l'architettura software X
+	viene realizzata l'architettura dell'hardware
+	viene realizzata l'architettura software
+
+Descrivi la fase di Verifica
+	viene progettato il software
+	viene implementato il software
+	viene sperimentato il software X
+	altro
 
 Quali sono i 4 step di un processo di Requirements Engineering?
 	Definition, Specification, Verification, Internchange
