@@ -6,17 +6,14 @@ import 'package:codice/model/stanza.dart';
 import 'package:flutter/material.dart';
 
 class StanzaEsplorazione extends Stanza {
-  StanzaEsplorazione({
-    required azioniDisponibili,
-  }) : super(
-          azioniDisponibili: azioniDisponibili,
-        );
+  StanzaEsplorazione() : super();
 
   @override
   void setIndex(int idx) {
     index = idx;
     // imposto il primo dialogo
     esplorazione = CreazionePartita().creaEsplorazione();
+    azioniDisponibili = esplorazione!.azioniDisponibili;
     dialogoCorrente = esplorazione!
         .dialogoEsplorazione[esplorazione!.indexDialogoCorrente].keys.first;
     // imposto la prima immagine

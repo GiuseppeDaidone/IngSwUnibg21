@@ -3,12 +3,12 @@ import 'dart:math';
 import 'package:codice/database/domandeDB.dart';
 import 'package:codice/database/esplorazioneDB.dart';
 import 'package:codice/database/nemicoDB.dart';
-import 'package:codice/database/stanzeDB.dart';
 import 'package:codice/model/domanda.dart';
 import 'package:codice/model/esplorazione.dart';
 import 'package:codice/model/nemico.dart';
 import 'package:codice/model/stanza.dart';
 import 'package:codice/model/stanza_combattimento.dart';
+import 'package:codice/model/stanza_esplorazione.dart';
 
 class CreazionePartita {
   // Genero la mappa pescando in modo random le stanze dal database: stanzeDB
@@ -18,20 +18,19 @@ class CreazionePartita {
     for (int i = 0; i < 4; i++) {
       // Mappa Iniziale
       if (i == 0) {
-        mappa.add(StanzeDB().getStanzaIniziale());
-        // Associo alla mappa l'index della posizione in cui si trova dentro la mappa.
+        mappa.add(StanzaEsplorazione());
         mappa.last.setIndex(i);
       }
 
       // Mappe Combattimento
       else if (i % 3 == 0) {
-        mappa.add(StanzeDB().getStanzaCombattimento());
+        mappa.add(StanzaCombattimento());
         mappa.last.setIndex(i);
       }
 
       // Mappa Esplorazione
       else {
-        mappa.add(StanzeDB().getStanzaEsplorazione());
+        mappa.add(StanzaEsplorazione());
         mappa.last.setIndex(i);
       }
     }

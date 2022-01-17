@@ -15,7 +15,7 @@ class NemicoDB {
         "images/ca.gif",
         "images/kekw.png",
         "images/kekwait.jpg",
-        "images/woolo.png"
+        "images/b1.gif"
       ],
       livello: LivelloNemico.MEDIO,
       dialogoCombattimento: [
@@ -24,7 +24,6 @@ class NemicoDB {
         {"testo domanda": true},
         {"ed ora?": false},
         {"testo domanda 2": true},
-        {"bravo 30": false}
       ],
       // Prendo domande dal database !! stare attenti che ci sia coerenza con il numero di domande indicato nel dialogoCombattimento!!
       nome: "Giorgio",

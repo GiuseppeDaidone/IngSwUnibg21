@@ -5,10 +5,7 @@ import 'package:flutter/material.dart';
 import 'nemico.dart';
 
 class StanzaCombattimento extends Stanza {
-  StanzaCombattimento()
-      : super(
-          azioniDisponibili: [],
-        );
+  StanzaCombattimento() : super();
 
   @override
   void setIndex(int idx) {

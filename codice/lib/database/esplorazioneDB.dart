@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:codice/model/azione.dart';
 import 'package:codice/model/esplorazione.dart';
 import 'package:codice/model/personaggio.dart';
@@ -15,6 +14,25 @@ class EsplorazioneDB {
   List<Esplorazione> listaEsplorazioni = [
     Esplorazione(
       azioniDisponibili: [
+        // AZIONE 1
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            print("Azione 1");
+            return;
+          },
+          titoloPulsante: "Raccogli l'oggetto",
+        ),
+
+        // AZIONE 2
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            print("azione2");
+            return;
+          },
+          titoloPulsante: "Azione2",
+        ),
+
+        // AZIONE 3
         Azione(
           f1: ({Stanza? s, Personaggio? p}) {
             p!.addOggetto(s!.oggetto);
