@@ -1,7 +1,9 @@
 import 'package:codice/model/oggetto.dart';
+import 'package:codice/model/partita.dart';
 import 'package:codice/screens/pagina%20finale/pagina_finale.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Personaggio with ChangeNotifier {
   Personaggio({required this.nome}) {
@@ -28,8 +30,13 @@ class Personaggio with ChangeNotifier {
         context,
         MaterialPageRoute(
           builder: (context) {
-            return const PaginaFinale(
-              isDead: true,
+            return ChangeNotifierProvider<Partita>(
+              create: (_) => Provider.of<Partita>(context),
+              builder: (context, partita) {
+                return const PaginaFinale(
+                  isDead: true,
+                );
+              },
             );
           },
         ),

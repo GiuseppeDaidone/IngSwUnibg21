@@ -9,13 +9,15 @@ import 'model/partita.dart';
 void main() {
   runApp(
     // Partita Provider
-    ChangeNotifierProvider<Partita>(
+    /* ChangeNotifierProvider<Partita>(
+      key: const ObjectKey("chiaveReset"),
       lazy: false,
       create: (_) => Partita(),
       builder: (context, partita) {
         return const MyApp();
       },
-    ),
+    ), */
+    const MyApp(),
   );
 }
 

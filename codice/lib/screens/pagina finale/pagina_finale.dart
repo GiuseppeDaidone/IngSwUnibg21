@@ -1,6 +1,7 @@
 import 'package:codice/model/partita.dart';
 import 'package:codice/screens/pagina%20home/pagina_home.dart';
 import 'package:codice/screens/pagina%20inserimento%20nome/pagina_inserimento_nome.dart';
+import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,6 +14,7 @@ class PaginaFinale extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -122,9 +124,9 @@ class PaginaFinale extends StatelessWidget {
                                   Text(partita.getDomandeRisposte().toString()),
 
                                   // Oggetti Utilizzati
-                                  Text(partita
-                                      .getOggettiUtilizzati()
-                                      .toString()),
+                                  Text(
+                                    partita.getOggettiUtilizzati().toString(),
+                                  ),
                                 ],
                               ),
                             ],
@@ -145,28 +147,58 @@ class PaginaFinale extends StatelessWidget {
                 children: <Widget>[
                   // PULSANTE TORNA ALLA HOME
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: GameTheme.buttonColor,
+                    ),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) {
-                          return const PaginaHome();
-                        }),
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const PaginaHome();
+                          },
+                        ),
                       );
                     },
-                    child: const Text("Torna alla home"),
+                    child: SizedBox(
+                      height: size.height / 15,
+                      width: size.width / 10,
+                      child: const Center(
+                        child: Text("Torna alla home"),
+                      ),
+                    ),
                   ),
 
                   // PULSANTE GIOCA ANCORA
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: GameTheme.buttonColor,
+                    ),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) {
-                          return const PaginaInserimentoNome();
-                        }),
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const PaginaInserimentoNome();
+
+                            /* ChangeNotifierProvider<Partita>(
+                              create: (_) => Provider.of<Partita>(context),
+                              builder: (context, partita) {
+                                return const PaginaInserimentoNome();
+                              },
+                            );
+ */
+                          },
+                        ),
                       );
                     },
-                    child: const Text("Gioca Ancora"),
+                    child: SizedBox(
+                      height: size.height / 15,
+                      width: size.width / 10,
+                      child: const Center(
+                        child: Text("Gioca Ancora"),
+                      ),
+                    ),
                   )
                 ],
               ),

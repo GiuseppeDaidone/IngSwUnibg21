@@ -17,10 +17,12 @@ class PaginaInserimentoNome extends StatefulWidget {
 class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
   late FocusNode _focusNode;
   late TextEditingController _editingController;
+  late DateTime reset;
 
   @override
   void initState() {
     _focusNode = FocusNode();
+    reset = DateTime.now();
     // Quando l'uente clicca sulla textfield resfresho la pagina
     _focusNode.addListener(() {
       setState(() {});
@@ -37,9 +39,17 @@ class _PaginaInserimentoNomeState extends State<PaginaInserimentoNome> {
       MaterialPageRoute(
         builder: (context) {
           // Personaggio Provider
-          return ChangeNotifierProvider<Personaggio>(
-            lazy: false,
-            create: (_) => Personaggio(nome: _editingController.text),
+          return MultiProvider(
+            providers: [
+              ChangeNotifierProvider<Partita>(
+                lazy: false,
+                create: (_) => Partita(),
+              ),
+              ChangeNotifierProvider<Personaggio>(
+                lazy: false,
+                create: (_) => Personaggio(nome: _editingController.text),
+              )
+            ],
             builder: (context, personaggio) {
               return const PaginaGiocatore();
             },
