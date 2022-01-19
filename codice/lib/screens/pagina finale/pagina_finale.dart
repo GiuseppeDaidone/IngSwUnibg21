@@ -9,10 +9,9 @@ import 'package:provider/provider.dart';
 // PAGINA FINALE [PAG4]
 
 class PaginaFinale extends StatelessWidget {
-  PaginaFinale({Key? key, required this.isDead}) : super(key: key);
+  const PaginaFinale({Key? key, required this.isDead}) : super(key: key);
 
   final bool isDead;
-  final TextStyle textStyle = GameFonts().hallelujaFont();
 
   @override
   Widget build(BuildContext context) {
