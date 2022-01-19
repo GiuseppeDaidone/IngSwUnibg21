@@ -1,3 +1,4 @@
+import 'package:codice/model/partita.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/screens/pagina%20giocatore/prima%20colonna/oggetto_list_tile.dart';
 import 'package:codice/theme/game_fonts.dart';
@@ -26,6 +27,7 @@ class PulsanteInventario extends StatelessWidget {
             style: GameFonts().hallelujaFont(size: 20),
           ),
           onPressed: () {
+            Partita p1 = Provider.of<Partita>(context, listen: false);
             showDialog(
               context: context,
               builder: (context) {
@@ -49,6 +51,7 @@ class PulsanteInventario extends StatelessWidget {
                             itemCount: personaggio.listaOggetti.length,
                             itemBuilder: (context, index) {
                               return OggettoListTile(
+                                partita: p1,
                                 oggetto: personaggio.listaOggetti[index],
                                 personaggio: personaggio,
                               );
