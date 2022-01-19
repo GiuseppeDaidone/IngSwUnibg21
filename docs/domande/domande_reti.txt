@@ -1,3 +1,4 @@
+------ BASE
 Qual'è la TIPOLOGIA di rete più adatta ad una rete scolastica?
 	WAN
 	LAN X
@@ -22,6 +23,7 @@ Una rete informatica...
 	permette di condividere risorse hardware e software X
 	nessuna delle precedenti
 
+------ MEDIO
 Gli apparati HW di una rete sono:
 	Switch, Hub e Modem
 	Hub, Router e Switch
@@ -38,12 +40,19 @@ Un indirizzo IP serve a:
 	è utile anche se si può fare a meno
 	stabilire una connessione con il server
 
+IP
+	La V6 cambierà il modo in cui Internet funziona
+	La V4 non è più in uso
+	V4 consente di collegare fino a 1032 dispositivi
+	V6 aumenterà il numero di dispositivi collegati alla rete X
+
 Un esempio corretto di IP address
 	12.3456.78.9
 	www.google.com
 	192.68.45.23 X
 	123.78.56.34.90
 
+------ DIFFICILE
 Il DNS...
 	è un dispositivo che si collega al modem
 	trasferisce i file su Internet
@@ -55,3 +64,17 @@ TCP/IP è...
 	un tipo di rete
 	un protocollo utilizzato da Internet X
 	un indirizzo
+
+In un pacchetto inviato, sono sempre leggibili:
+	Solo indirizzo IP Destinatario
+	Solo indirizzo IP Mittente
+	Solo Indirizzo IP Destinatario e numero sequenza
+	Nessuna delle precedenti X
+
+In quale delle seguenti topologie gli host richiedono 2 schede di rete ciascuno?
+	ad anello X
+	a bus
+	a stella
+	Tutte
+
+

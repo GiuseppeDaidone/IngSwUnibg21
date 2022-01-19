@@ -1,8 +1,15 @@
+------ BASE
 Cosa vuol dire DBMS?
 	Database Management System X
 	Data Boss Main Sector
 	Databse Main System
 	Database Main Sector
+
+Una base dati in un sistema relazionale è composta da:
+	un insieme di tabelle X
+	un insieme di record
+	un insieme di campi
+	un insieme di chiavi
 
 La chiave primaria...
 	identifica una tabella in modo univoco
@@ -15,6 +22,13 @@ La chiave primaria di una tabella può essere NULL?
 	Si, solo se composta
 	No, solo quando la chiave è anche secondaria
 	No X
+
+------ MEDIO
+In una tabella I valori che compaiono in una colonna sono
+	rappresentano un oggetto ad esempio una persona
+	possono essere sia omogenei che disomogenei
+	disomogenei cioè di tipi diversi
+	omogenei cioè dello stesso tipo X
 
 Quali caratteristiche un DBMS deve avere per garantire la realizzazione di un DB EFFICACE?
 	Efficacia, autonomia, persistenza, sicurezza
@@ -38,6 +52,13 @@ Se un DB è INTEGRO, vuol dire che il DBMS provvede affinché...
 	i dati siano interamente conservati dopo l'inserimento
 	i dati non siano modificabili
 	non ci siano campi vuoti nella tabella
+
+------ DIFFICILE
+In una tabella, è possibile chiamare due campi con uguale nome ?
+	si sempre
+	solo se sono campi di tipo testo
+	no mai X
+	solo se non superano i 255 caratteri
 
 Per impedire la perdita dei dati, in seguito ad un guasto, il DBMS deve prevedere...
 	personale tecnico specializzato per la manitenzione
