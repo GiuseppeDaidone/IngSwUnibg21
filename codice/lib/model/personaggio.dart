@@ -23,17 +23,17 @@ class Personaggio with ChangeNotifier {
     notifyListeners();
   }
 
-  void decrSalute(int n, context) {
+  void decrSalute(int n, trueContext) {
     salute -= n;
     if (salute <= 0) {
       Navigator.push(
-        context,
+        trueContext,
         MaterialPageRoute(
           builder: (context) {
             return ChangeNotifierProvider<Partita>(
-              create: (_) => Provider.of<Partita>(context),
+              create: (_) => Provider.of<Partita>(trueContext),
               builder: (context, partita) {
-                return const PaginaFinale(
+                return PaginaFinale(
                   isDead: true,
                 );
               },

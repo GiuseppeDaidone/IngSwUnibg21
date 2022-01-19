@@ -1,6 +1,7 @@
 import 'package:codice/model/partita.dart';
 import 'package:codice/screens/pagina%20home/pagina_home.dart';
 import 'package:codice/screens/pagina%20inserimento%20nome/pagina_inserimento_nome.dart';
+import 'package:codice/theme/game_fonts.dart';
 import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -8,9 +9,10 @@ import 'package:provider/provider.dart';
 // PAGINA FINALE [PAG4]
 
 class PaginaFinale extends StatelessWidget {
-  const PaginaFinale({Key? key, required this.isDead}) : super(key: key);
+  PaginaFinale({Key? key, required this.isDead}) : super(key: key);
 
   final bool isDead;
+  final TextStyle textStyle = GameFonts().hallelujaFont();
 
   @override
   Widget build(BuildContext context) {
@@ -27,16 +29,16 @@ class PaginaFinale extends StatelessWidget {
 
             // TITOLO
             isDead
-                ? const Expanded(
+                ? Expanded(
                     child: Text(
                       "GAME OVER",
-                      style: TextStyle(fontSize: 50),
+                      style: GameFonts().hallelujaFont(size: 50),
                     ),
                   )
-                : const Expanded(
+                : Expanded(
                     child: Text(
                       "Congratulazioni Per Aver Completato Il Gioco",
-                      style: TextStyle(fontSize: 50),
+                      style: GameFonts().hallelujaFont(size: 50),
                     ),
                   ),
 
@@ -53,10 +55,10 @@ class PaginaFinale extends StatelessWidget {
                       child: Column(
                         children: [
                           // DESCRIZIONE BOX STATISTICHE
-                          const Text(
+                          Text(
                             "Statistiche Partita",
                             textAlign: TextAlign.start,
-                            style: TextStyle(fontSize: 30),
+                            style: GameFonts().hallelujaFont(size: 30),
                           ),
 
                           const SizedBox(
@@ -161,10 +163,13 @@ class PaginaFinale extends StatelessWidget {
                       );
                     },
                     child: SizedBox(
-                      height: size.height / 15,
-                      width: size.width / 10,
-                      child: const Center(
-                        child: Text("Torna alla home"),
+                      height: size.height / 13,
+                      width: size.width / 7,
+                      child: Center(
+                        child: Text(
+                          "Torna alla home",
+                          style: GameFonts().hallelujaFont(size: 20),
+                        ),
                       ),
                     ),
                   ),
@@ -180,23 +185,18 @@ class PaginaFinale extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) {
                             return const PaginaInserimentoNome();
-
-                            /* ChangeNotifierProvider<Partita>(
-                              create: (_) => Provider.of<Partita>(context),
-                              builder: (context, partita) {
-                                return const PaginaInserimentoNome();
-                              },
-                            );
- */
                           },
                         ),
                       );
                     },
                     child: SizedBox(
-                      height: size.height / 15,
-                      width: size.width / 10,
-                      child: const Center(
-                        child: Text("Gioca Ancora"),
+                      height: size.height / 13,
+                      width: size.width / 7,
+                      child: Center(
+                        child: Text(
+                          "Gioca Ancora",
+                          style: GameFonts().hallelujaFont(size: 20),
+                        ),
                       ),
                     ),
                   )

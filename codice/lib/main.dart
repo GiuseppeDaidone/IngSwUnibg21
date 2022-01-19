@@ -1,7 +1,5 @@
 import 'package:codice/screens/pagina%20home/pagina_home.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'model/partita.dart';
 
 // flutter run -d chrome --web-renderer html
 // flutter run --profile
@@ -9,14 +7,6 @@ import 'model/partita.dart';
 void main() {
   runApp(
     // Partita Provider
-    /* ChangeNotifierProvider<Partita>(
-      key: const ObjectKey("chiaveReset"),
-      lazy: false,
-      create: (_) => Partita(),
-      builder: (context, partita) {
-        return const MyApp();
-      },
-    ), */
     const MyApp(),
   );
 }

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:codice/model/amuleto.dart';
 import 'package:codice/model/oggetto.dart';
 import 'package:codice/model/personaggio.dart';
@@ -94,9 +92,3 @@ class OggettoListTile extends StatelessWidget {
     );
   }
 }
-
-
-
-
-// TODO: rendere funzionamento stanze esplorazione come quelle combattimento. Posso eseguire più di un azione in una stanza
-// quindi devo creare una funzione creaAzine() anche per esplorazione. Il dialogo di esplorazione deve essere costruito come dialogo combatitmento

@@ -15,13 +15,16 @@ class PulsanteInventario extends StatelessWidget {
       return SizedBox(
         // dimensioni pulsante
         height: size.height / 8,
-        width: size.width / 13,
+        width: size.width / 9,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             elevation: 5,
             primary: GameTheme.buttonColor,
           ),
-          child: const Text("Inventario"),
+          child: Text(
+            "Inventario",
+            style: GameFonts().hallelujaFont(size: 20),
+          ),
           onPressed: () {
             showDialog(
               context: context,

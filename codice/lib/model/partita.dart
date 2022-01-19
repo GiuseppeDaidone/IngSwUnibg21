@@ -53,7 +53,7 @@ class Partita with ChangeNotifier {
             return ChangeNotifierProvider<Partita>(
               create: (_) => Provider.of<Partita>(truecontext),
               builder: (context, partita) {
-                return const PaginaFinale(
+                return PaginaFinale(
                   isDead: false,
                 );
               },
