@@ -47,9 +47,12 @@ class StanzaEsplorazione extends Stanza {
       dialogoCorrente = esplorazione!.dialogoCorrente;
       // Se ho uno stato azione mostro le azioni disponibili
       if (esplorazione!.statoEsplorazione == StatoEsplorazione.AZIONE) {
+        print("kdjsak");
+
         azioniDisponibili = esplorazione!.azioniDisponibili;
+        print(azioniDisponibili);
       } else {
-        azioniDisponibili.clear();
+        //azioniDisponibili.clear();
       }
     }
   }
