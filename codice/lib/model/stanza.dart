@@ -14,7 +14,7 @@ abstract class Stanza {
   late Nemico? nemico;
   late Esplorazione? esplorazione;
 
-  Stanza({this.nemico});
+  Stanza();
 
   // Questo metodo viene chiamato quando la stanza è inserita dentro una mappa
   // In questo metodo:

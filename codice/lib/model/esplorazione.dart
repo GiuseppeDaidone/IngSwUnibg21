@@ -32,17 +32,13 @@ class Esplorazione {
 
   // questa funzione può venir chiamata quando viene premuto il gesture detector oppure uno dei pulsanti azione
   void prossimoDialogo(Partita partita) {
-    print(azioniDisponibili);
     // Controllo che ci sia ancora del dialogo
     if (indexDialogoCorrente + 1 < dialogoEsplorazione.length) {
-      print(azioniDisponibili);
       indexDialogoCorrente++;
       dialogoCorrente = dialogoEsplorazione[indexDialogoCorrente].keys.first;
       // Se il dialogo nuovo deve mostrare anche un'azione, mostro l'azione e cambio anche l'immagine sfondo
       if (dialogoEsplorazione[indexDialogoCorrente].values.first) {
-        print(azioniDisponibili);
         changeStatoEsplorazione(StatoEsplorazione.AZIONE);
-        print(azioniDisponibili);
         if (indexImmagineCorrente + 1 < immaginiSfondo.length) {
           indexImmagineCorrente++;
         }

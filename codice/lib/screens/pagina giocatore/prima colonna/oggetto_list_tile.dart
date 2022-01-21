@@ -22,9 +22,9 @@ class OggettoListTile extends StatelessWidget {
         // AMULETO
         if (oggetto is Amuleto) {
           if (!oggetto.isMalefico) {
-            personaggio.incrSalute(oggetto.getEffetto()!);
+          personaggio.incrSalute(oggetto.effetto!);
           } else {
-            personaggio.decrSalute(oggetto.getEffetto()!, context);
+          personaggio.decrSalute(oggetto.effetto!, context);
           }
 
           personaggio.eliminaOggetto(oggetto);
@@ -34,7 +34,7 @@ class OggettoListTile extends StatelessWidget {
         // SPADA
         else if (oggetto is Spada) {
           if (personaggio.oggettoEquipaggiato != null &&
-              personaggio.oggettoEquipaggiato!.getId() == oggetto.getId()) {
+              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
             personaggio.disequipaggiaOggetto();
           } else {
             personaggio.equipaggiaOggetto(oggetto);
@@ -44,7 +44,7 @@ class OggettoListTile extends StatelessWidget {
         // SCUDO
         else if (oggetto is Scudo) {
           if (personaggio.oggettoEquipaggiato != null &&
-              personaggio.oggettoEquipaggiato!.getId() == oggetto.getId()) {
+              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
             personaggio.disequipaggiaOggetto();
           } else {
             personaggio.equipaggiaOggetto(oggetto);
@@ -54,7 +54,7 @@ class OggettoListTile extends StatelessWidget {
         // ARCO
         else {
           if (personaggio.oggettoEquipaggiato != null &&
-              personaggio.oggettoEquipaggiato!.getId() == oggetto.getId()) {
+              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
             personaggio.disequipaggiaOggetto();
           } else {
             personaggio.equipaggiaOggetto(oggetto);
