@@ -31,7 +31,7 @@ class _SecondaColonnaState extends State<SecondaColonna> {
         _stanzaCorrente = partita.getStanzaCorrente();
         _azioniDisponibili = _stanzaCorrente.azioniDisponibili;
         _nemico = _stanzaCorrente.nemico;
-        var cc = TyperAnimatedText(_stanzaCorrente.dialogoCorrente);
+//        var cc = TyperAnimatedText(_stanzaCorrente.dialogoCorrente);
 
         return Stack(
           children: [
@@ -135,7 +135,11 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                                   partita.updateState();
                                 },
                                 isRepeatingAnimation: false,
-                                animatedTexts: [cc],
+                                animatedTexts: [
+                                  TypewriterAnimatedText(
+                                      _stanzaCorrente.dialogoCorrente,
+                                      speed: const Duration(milliseconds: 60))
+                                ],
                               ),
                             ),
                           ),
