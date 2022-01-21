@@ -4,6 +4,7 @@ import 'package:codice/model/nemico.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/model/stanza.dart';
 import 'package:codice/screens/pagina%20giocatore/seconda%20colonna/action_buttons_row.dart';
+import 'package:codice/theme/game_fonts.dart';
 import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -137,8 +138,12 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                                 isRepeatingAnimation: false,
                                 animatedTexts: [
                                   TypewriterAnimatedText(
-                                      _stanzaCorrente.dialogoCorrente,
-                                      speed: const Duration(milliseconds: 60))
+                                    _stanzaCorrente.dialogoCorrente,
+                                    speed: const Duration(milliseconds: 60),
+                                    textStyle: GameFonts().hallelujaFontBlack(
+                                      size: 20,
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
