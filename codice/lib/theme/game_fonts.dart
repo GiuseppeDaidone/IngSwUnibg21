@@ -12,4 +12,13 @@ class GameFonts {
       ),
     );
   }
+
+  TextStyle hallelujaFontBlack({double? size}) {
+    return GoogleFonts.gloriaHallelujah(
+      textStyle: TextStyle(
+        fontSize: size,
+      color: Colors.black,
+      ),
+    );
+  }
 }

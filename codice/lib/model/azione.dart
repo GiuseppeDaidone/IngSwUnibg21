@@ -1,10 +1,8 @@
-// Questa classe rappresenta l'azione disponibili nella pagina giocatore.
-// Ogni stanza può avere un numero diverso di queste azioni
-
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
-import 'package:codice/model/stanza_combattimento.dart';
-import 'package:flutter/cupertino.dart';
+
+// Questa classe rappresenta l'azione disponibili nella pagina giocatore.
+// Ogni stanza può avere un numero diverso di queste azioni
 
 class Azione {
   // Funzione da eseguire quando il giocatore sceglie questa azione

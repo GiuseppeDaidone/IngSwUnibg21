@@ -48,8 +48,6 @@ class StanzaEsplorazione extends Stanza {
       // Se ho uno stato azione mostro le azioni disponibili
       if (esplorazione!.statoEsplorazione == StatoEsplorazione.AZIONE) {
         azioniDisponibili = esplorazione!.azioniDisponibili;
-      } else {
-        azioniDisponibili.clear();
       }
     }
   }
