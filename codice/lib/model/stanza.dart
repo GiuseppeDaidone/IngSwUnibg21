@@ -11,8 +11,8 @@ abstract class Stanza {
   String immagineCorrente = "";
   String dialogoCorrente = "";
   late List<Azione> azioniDisponibili;
-  late Nemico? nemico;
-  late Esplorazione? esplorazione;
+  Nemico? nemico;
+  Esplorazione? esplorazione;
 
   Stanza();
 
