@@ -1,11 +1,10 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:codice/model/azione.dart';
-import 'package:codice/model/esplorazione.dart';
 import 'package:codice/model/nemico.dart';
 import 'package:codice/model/partita.dart';
-import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
-import 'package:codice/model/stanza_combattimento.dart';
 import 'package:codice/screens/pagina%20giocatore/seconda%20colonna/action_buttons_row.dart';
+import 'package:codice/theme/game_fonts.dart';
 import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -33,6 +32,8 @@ class _SecondaColonnaState extends State<SecondaColonna> {
         _stanzaCorrente = partita.getStanzaCorrente();
         _azioniDisponibili = _stanzaCorrente.azioniDisponibili;
         _nemico = _stanzaCorrente.nemico;
+//        var cc = TyperAnimatedText(_stanzaCorrente.dialogoCorrente);
+
         return Stack(
           children: [
             Container(
@@ -124,7 +125,27 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                               ),
                               width: size.width / 2,
                               height: size.height / 5,
-                              child: Text(_stanzaCorrente.dialogoCorrente),
+                              child: AnimatedTextKit(
+                                key: UniqueKey(),
+                                onTap: () {
+                                  _stanzaCorrente.increaseDialogoIndex(
+                                      false, partita,
+                                      context: context);
+
+                                  // Aggiorno lo stato di partita, dato che se aggiorno l'istanza Stanza non trigghera il notifylisteners di Partita da solo
+                                  partita.updateState();
+                                },
+                                isRepeatingAnimation: false,
+                                animatedTexts: [
+                                  TypewriterAnimatedText(
+                                    _stanzaCorrente.dialogoCorrente,
+                                    speed: const Duration(milliseconds: 60),
+                                    textStyle: GameFonts().hallelujaFontBlack(
+                                      size: 20,
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ],

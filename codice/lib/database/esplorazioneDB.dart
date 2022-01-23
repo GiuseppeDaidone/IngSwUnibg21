@@ -41,7 +41,8 @@ class EsplorazioneDB {
         )
       ],
       dialogoEsplorazione: [
-        {"Vedi un baule in fondo alla stanza lo vuoi aprire ?": false},
+        {"djakdkjajakdka": false},
+        {"cavallo salame": false},
         {"Secondo Dialogo": true},
       ],
       immaginiSfondo: ["images/dun.jpg", "images/homegif.gif"],
