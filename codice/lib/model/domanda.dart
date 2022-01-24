@@ -1,12 +1,19 @@
+import 'package:codice/model/nemico.dart';
+
 class Domanda {
   final String testoDomanda;
-  final Difficolta _difficolta;
+  final Difficolta difficolta;
   final String soluzione;
-  // 4 risposte per ciascuna domanda
   final List<String> risposte;
+  final Disciplina disciplina;
 
-  Domanda(this._difficolta, this.soluzione,
-      {required this.testoDomanda, required this.risposte});
+  Domanda(
+    this.difficolta,
+    this.soluzione, {
+    required this.testoDomanda,
+    required this.risposte,
+    required this.disciplina,
+  });
 }
 
 enum Difficolta {

@@ -6,7 +6,7 @@ class NemicoDB {
     // NEMICO 1
     Boss(
       immagineSfondo: "images/dun.jpg",
-      disciplina: Disciplina.MATEMATICA,
+      disciplina: Disciplina.RETI,
       // Immagini del nemico che cambiano in base all'azione svolta
       // Ogni nemico deve avere sempre 5 immagini poste nella lista sempre con lo stesso ordine
       // index: 0 -> nemico parla, 1 -> nemico racconta domanda, 2 -> nemico ride, 3 -> nemico piange, 4-> nemico sconfitto
