@@ -41,7 +41,38 @@ class CreazionePartita {
   // TODO: scrivere funzione che pesca le domande in base a livello e disciplina
   List<Domanda> creaDomandeNemico(
       LivelloNemico livello, Disciplina disciplina) {
-    return DomandeDB().listaDomande;
+    List<Domanda> listaDomande = DomandeDB().listaDomande;
+    List<Domanda> listaDomandeRitornate = [];
+
+    for (int i = 0; i < 3; i++) {
+      if (livello == LivelloNemico.BASSO) {
+        listaDomandeRitornate.addAll(listaDomande
+            .where(
+              (element) =>
+                  disciplina == element.disciplina &&
+                  element.difficolta == Difficolta.FACILE,
+            )
+            .toList());
+      } else if (livello == LivelloNemico.MEDIO) {
+        listaDomandeRitornate.addAll(listaDomande
+            .where(
+              (element) =>
+                  disciplina == element.disciplina &&
+                  element.difficolta == Difficolta.MEDIO,
+            )
+            .toList());
+      } else {
+        listaDomandeRitornate.addAll(listaDomande
+            .where(
+              (element) =>
+                  disciplina == element.disciplina &&
+                  element.difficolta == Difficolta.DIFFICILE,
+            )
+            .toList());
+      }
+    }
+
+    return listaDomandeRitornate;
   }
 
   // Quando una in cui è presente un combattimento viene creata, il costruttore chiama questa funzione genere il combattimento

@@ -160,7 +160,7 @@ abstract class Nemico {
 }
 
 // DISCIPLINE LEGATE ALLE DOMANDE ED AI NEMICI
-enum Disciplina { MATEMATICA, DATABASE, FISICA, EMBEDDED }
+enum Disciplina { RETI, DATABASE, INGSW }
 
 // Indica la difficoltà del nemico. In base a questo dipendono la difficoltà delle domande
 enum LivelloNemico { BASSO, MEDIO, ALTO }
