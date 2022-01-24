@@ -41,38 +41,47 @@ class CreazionePartita {
   // TODO: scrivere funzione che pesca le domande in base a livello e disciplina
   List<Domanda> creaDomandeNemico(
       LivelloNemico livello, Disciplina disciplina) {
+    // Lista di tutte le domande
     List<Domanda> listaDomande = DomandeDB().listaDomande;
-    List<Domanda> listaDomandeRitornate = [];
+    // Lista di domande della corretta disciplina
+    List<Domanda> listaDomandeSelezionate = [];
+    // Lista di domande che vengono ritornate
+    List<Domanda> listaDomandeReturn = [];
 
-    for (int i = 0; i < 3; i++) {
-      if (livello == LivelloNemico.BASSO) {
-        listaDomandeRitornate.addAll(listaDomande
-            .where(
-              (element) =>
-                  disciplina == element.disciplina &&
-                  element.difficolta == Difficolta.FACILE,
-            )
-            .toList());
-      } else if (livello == LivelloNemico.MEDIO) {
-        listaDomandeRitornate.addAll(listaDomande
-            .where(
-              (element) =>
-                  disciplina == element.disciplina &&
-                  element.difficolta == Difficolta.MEDIO,
-            )
-            .toList());
-      } else {
-        listaDomandeRitornate.addAll(listaDomande
-            .where(
-              (element) =>
-                  disciplina == element.disciplina &&
-                  element.difficolta == Difficolta.DIFFICILE,
-            )
-            .toList());
-      }
+    if (livello == LivelloNemico.BASSO) {
+      listaDomandeSelezionate.addAll(listaDomande
+          .where(
+            (element) =>
+                disciplina == element.disciplina &&
+                element.difficolta == Difficolta.FACILE,
+          )
+          .toList());
+    } else if (livello == LivelloNemico.MEDIO) {
+      listaDomandeSelezionate.addAll(listaDomande
+          .where(
+            (element) =>
+                disciplina == element.disciplina &&
+                element.difficolta == Difficolta.MEDIO,
+          )
+          .toList());
+    } else {
+      listaDomandeSelezionate.addAll(listaDomande
+          .where(
+            (element) =>
+                disciplina == element.disciplina &&
+                element.difficolta == Difficolta.DIFFICILE,
+          )
+          .toList());
     }
 
-    return listaDomandeRitornate;
+    for (int i = 0; i < 3; i++) {
+      listaDomandeReturn.add(
+        listaDomandeSelezionate[
+            Random().nextInt(listaDomandeSelezionate.length)],
+      );
+    }
+
+    return listaDomandeReturn;
   }
 
   // Quando una in cui è presente un combattimento viene creata, il costruttore chiama questa funzione genere il combattimento

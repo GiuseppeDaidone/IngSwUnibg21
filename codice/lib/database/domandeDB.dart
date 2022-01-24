@@ -560,19 +560,19 @@ class DomandeDB {
     ),
     Domanda(
       Difficolta.MEDIO,
-      "V6 aumenterà il numero di dispositivi collegati alla rete",
-      testoDomanda: "IP",
+      "IP V6 aumenterà il numero di dispositivi collegati alla rete",
+      testoDomanda: "Quale affermazione sull'indirizzo IP è corretta",
       risposte: [
-        "La V6 cambierà il modo in cui Internet funziona",
-        "La V4 non è più in uso",
-        "V4 consente di collegare fino a 1032 dispositivi"
-            "V6 aumenterà il numero di dispositivi collegati alla rete"
+        "IP V6 cambierà il modo in cui Internet funziona",
+        "IP V4 non è più in uso",
+        "IP V4 consente di collegare fino a 1032 dispositivi",
+        "IP V6 aumenterà il numero di dispositivi collegati alla rete"
       ],
       disciplina: Disciplina.RETI,
     ),
     Domanda(
       Difficolta.MEDIO,
-      "192.68.45.23 ",
+      "192.68.45.23",
       testoDomanda: "Un esempio corretto di IP address",
       risposte: [
         "12.3456.78.9",

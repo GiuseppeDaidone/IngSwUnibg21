@@ -24,16 +24,10 @@ class OggettoListTile extends StatelessWidget {
   final Partita partita;
   late final Stanza stanza = partita.getStanzaCorrente();
 
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      // Gestisco logica per quando un item viene cliccato
-      onTap: () {
-        // AMULETO
-        if (oggetto is Amuleto) {
-          oggetto.usa(personaggio, oggetto, context);
-          /*    if (!oggetto.isMalefico) {
+  void checkOggetto(context) {
+    if (oggetto is Amuleto) {
+      oggetto.usa(personaggio, oggetto, context);
+      /*    if (!oggetto.isMalefico) {
           personaggio.incrSalute(oggetto.effetto!);
           } else {
           personaggio.decrSalute(oggetto.effetto!, context);
@@ -41,99 +35,41 @@ class OggettoListTile extends StatelessWidget {
 
           personaggio.eliminaOggetto(oggetto);
           Navigator.pop(context); */
-        }
-
-        // SPADA
-        else if (oggetto is Spada) {
-          oggetto.usa(personaggio, oggetto, context);
-          /* if (personaggio.oggettoEquipaggiato != null &&
-              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
-            personaggio.disequipaggiaOggetto();
-          } else {
-            personaggio.equipaggiaOggetto(oggetto);
-          } */
-        }
-
-        // SCUDO
-        else if (oggetto is Scudo) {
-          oggetto.usa(personaggio, oggetto, context);
-          /* if (personaggio.oggettoEquipaggiato != null &&
-              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
-            personaggio.disequipaggiaOggetto();
-          } else {
-            personaggio.equipaggiaOggetto(oggetto);
-          } */
-        }
-
-        // ARCO
-        else {
-          oggetto.usa(personaggio, oggetto, context);
-          /* if (personaggio.oggettoEquipaggiato != null &&
-              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
-            personaggio.disequipaggiaOggetto();
-          } else {
-            personaggio.equipaggiaOggetto(oggetto);
-          } */
-        }
-      },
-
-  void checkOggetto(context) {
-    // AMULETO
-    if (oggetto is Amuleto) {
-      if (!oggetto.isMalefico) {
-        personaggio.incrSalute(oggetto.getEffetto()!);
-      } else {
-        personaggio.decrSalute(oggetto.getEffetto()!, context);
-      }
-
-      personaggio.eliminaOggetto(oggetto);
-      Navigator.pop(context);
     }
 
     // SPADA
     else if (oggetto is Spada) {
-      if (personaggio.oggettoEquipaggiato != null &&
-          personaggio.oggettoEquipaggiato!.getId() == oggetto.getId()) {
-        personaggio.disequipaggiaOggetto();
-      } else {
-        personaggio.equipaggiaOggetto(oggetto);
-      }
+      oggetto.usa(personaggio, oggetto, context);
+      /* if (personaggio.oggettoEquipaggiato != null &&
+              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
+            personaggio.disequipaggiaOggetto();
+          } else {
+            personaggio.equipaggiaOggetto(oggetto);
+          } */
     }
 
     // SCUDO
     else if (oggetto is Scudo) {
-      if (personaggio.oggettoEquipaggiato != null &&
-          personaggio.oggettoEquipaggiato!.getId() == oggetto.getId()) {
-        personaggio.disequipaggiaOggetto();
-      } else {
-        personaggio.equipaggiaOggetto(oggetto);
-      }
+      oggetto.usa(personaggio, oggetto, context);
+      /* if (personaggio.oggettoEquipaggiato != null &&
+              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
+            personaggio.disequipaggiaOggetto();
+          } else {
+            personaggio.equipaggiaOggetto(oggetto);
+          } */
     }
 
     // ARCO
     else {
-      // Controllo se è attualmente mostrata una domanda
-      if (stanza.nemico != null &&
-          stanza.nemico!.statoNemico == StatoNemico.DOMANDA) {
-        Domanda newDomanda = DomandeDB().getDomanda();
-        stanza.azioniDisponibili.clear();
-        stanza.nemico!.creazioneAzioni(newDomanda);
-        stanza.dialogoCorrente = newDomanda.testoDomanda;
-        personaggio.eliminaOggetto(oggetto);
-        Navigator.pop(context);
-        partita.updateState();
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(
-              "Puoi usare questo oggetto solamente durante una domanda",
-            ),
-          ),
-        );
-      }
+      oggetto.usa(personaggio, oggetto, context);
+      /* if (personaggio.oggettoEquipaggiato != null &&
+              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
+            personaggio.disequipaggiaOggetto();
+          } else {
+            personaggio.equipaggiaOggetto(oggetto);
+          } */
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
