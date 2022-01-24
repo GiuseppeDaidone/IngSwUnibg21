@@ -24,6 +24,59 @@ class OggettoListTile extends StatelessWidget {
   final Partita partita;
   late final Stanza stanza = partita.getStanzaCorrente();
 
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      // Gestisco logica per quando un item viene cliccato
+      onTap: () {
+        // AMULETO
+        if (oggetto is Amuleto) {
+          oggetto.usa(personaggio, oggetto, context);
+          /*    if (!oggetto.isMalefico) {
+          personaggio.incrSalute(oggetto.effetto!);
+          } else {
+          personaggio.decrSalute(oggetto.effetto!, context);
+          }
+
+          personaggio.eliminaOggetto(oggetto);
+          Navigator.pop(context); */
+        }
+
+        // SPADA
+        else if (oggetto is Spada) {
+          oggetto.usa(personaggio, oggetto, context);
+          /* if (personaggio.oggettoEquipaggiato != null &&
+              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
+            personaggio.disequipaggiaOggetto();
+          } else {
+            personaggio.equipaggiaOggetto(oggetto);
+          } */
+        }
+
+        // SCUDO
+        else if (oggetto is Scudo) {
+          oggetto.usa(personaggio, oggetto, context);
+          /* if (personaggio.oggettoEquipaggiato != null &&
+              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
+            personaggio.disequipaggiaOggetto();
+          } else {
+            personaggio.equipaggiaOggetto(oggetto);
+          } */
+        }
+
+        // ARCO
+        else {
+          oggetto.usa(personaggio, oggetto, context);
+          /* if (personaggio.oggettoEquipaggiato != null &&
+              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
+            personaggio.disequipaggiaOggetto();
+          } else {
+            personaggio.equipaggiaOggetto(oggetto);
+          } */
+        }
+      },
+
   void checkOggetto(context) {
     // AMULETO
     if (oggetto is Amuleto) {
@@ -80,6 +133,7 @@ class OggettoListTile extends StatelessWidget {
       }
     }
   }
+
 
   @override
   Widget build(BuildContext context) {

@@ -11,10 +11,10 @@ abstract class Stanza {
   String immagineCorrente = "";
   String dialogoCorrente = "";
   late List<Azione> azioniDisponibili;
-  late Nemico? nemico;
-  late Esplorazione? esplorazione;
+  Nemico? nemico;
+  Esplorazione? esplorazione;
 
-  Stanza({this.nemico});
+  Stanza();
 
   // Questo metodo viene chiamato quando la stanza è inserita dentro una mappa
   // In questo metodo:
