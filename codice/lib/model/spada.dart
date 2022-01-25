@@ -2,6 +2,7 @@
 
 import 'package:codice/model/oggetto.dart';
 import 'package:codice/model/personaggio.dart';
+import 'package:codice/model/stanza.dart';
 import 'package:flutter/cupertino.dart';
 
 class Spada extends Oggetto {
@@ -12,7 +13,8 @@ class Spada extends Oggetto {
         );
 
   @override
-  void usa(Personaggio personaggio, Oggetto oggetto, BuildContext context) {
+  void usa(Personaggio personaggio, Oggetto oggetto, BuildContext context,
+      Stanza stanza) {
     if (personaggio.oggettoEquipaggiato != null &&
         personaggio.oggettoEquipaggiato!.id == oggetto.id) {
       personaggio.disequipaggiaOggetto();

@@ -1,4 +1,5 @@
 import 'package:codice/model/personaggio.dart';
+import 'package:codice/model/stanza.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:uuid/uuid.dart';
 
@@ -15,7 +16,7 @@ abstract class Oggetto {
       this.effetto,
       required this.icon});
 
-  void usa(Personaggio p, Oggetto o, BuildContext context) {}
+  void usa(Personaggio p, Oggetto o, BuildContext context, Stanza stanza) {}
 }
 
 enum TipoOggetto { SPADA, SCUDO, AMULETO, ARCO }

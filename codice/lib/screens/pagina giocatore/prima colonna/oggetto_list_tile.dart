@@ -13,6 +13,7 @@ class OggettoListTile extends StatelessWidget {
       {Key? key,
       required this.oggetto,
       required this.personaggio,
+      required this.oldContext,
       required this.partita})
       : super(key: key);
 
@@ -20,25 +21,26 @@ class OggettoListTile extends StatelessWidget {
   final Personaggio personaggio;
   final Partita partita;
   late final Stanza stanza = partita.getStanzaCorrente();
+  final BuildContext oldContext;
 
-  void checkOggetto(context) {
+  void checkOggetto(oldContext) {
     if (oggetto is Amuleto) {
-      oggetto.usa(personaggio, oggetto, context);
+      oggetto.usa(personaggio, oggetto, oldContext, stanza);
     }
 
     // SPADA
     else if (oggetto is Spada) {
-      oggetto.usa(personaggio, oggetto, context);
+      oggetto.usa(personaggio, oggetto, oldContext, stanza);
     }
 
     // SCUDO
     else if (oggetto is Scudo) {
-      oggetto.usa(personaggio, oggetto, context);
+      oggetto.usa(personaggio, oggetto, oldContext, stanza);
     }
 
     // ARCO
     else {
-      oggetto.usa(personaggio, oggetto, context);
+      oggetto.usa(personaggio, oggetto, oldContext, stanza);
     }
   }
 
@@ -46,7 +48,7 @@ class OggettoListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       // Gestisco logica per quando un item viene cliccato
-      onTap: () => checkOggetto(context),
+      onTap: () => checkOggetto(oldContext),
       child: Card(
         elevation: 3,
         child: Container(

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:codice/database/domandeDB.dart';
 import 'package:codice/functions/creazione_partita.dart';
 import 'package:codice/model/domanda.dart';
@@ -125,10 +127,12 @@ abstract class Nemico {
             // RISPOSTA CORRETTA
             if (domanda.soluzione == domanda.risposte[i]) {
               changeStatoNemico(StatoNemico.TRISTE, context: context);
+              print("kk");
             }
 
             // RISPOSTA ERRATA
             else {
+              print("pp");
               // Se ho uno scudo non perdo salute ma non avanzo con le domande
               if (p!.oggettoEquipaggiato is Scudo) {
                 p.eliminaOggetto(p.oggettoEquipaggiato);
@@ -136,7 +140,12 @@ abstract class Nemico {
 
                 changeStatoNemico(StatoNemico.RISATA, context: context);
                 // Se sbaglio risposta aggiunto una nuova domanda alla lista
-                listaDomande.add(DomandeDB().getDomanda());
+                List<Domanda> listaDomande = DomandeDB()
+                    .listaDomande
+                    .where((element) => element.disciplina == disciplina)
+                    .toList();
+                listaDomande
+                    .add(listaDomande[Random().nextInt(listaDomande.length)]);
               }
 
               // Se ho una spada equipaggiata, subisco danni, ma la domanda viene contata corretta e non devo ripeterla

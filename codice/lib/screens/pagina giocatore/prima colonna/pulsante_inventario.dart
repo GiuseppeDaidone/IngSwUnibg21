@@ -30,7 +30,7 @@ class PulsanteInventario extends StatelessWidget {
             Partita p1 = Provider.of<Partita>(context, listen: false);
             showDialog(
               context: context,
-              builder: (context) {
+              builder: (context1) {
                 return AlertDialog(
                   backgroundColor: GameTheme.primaryColor,
                   content: SizedBox(
@@ -49,11 +49,12 @@ class PulsanteInventario extends StatelessWidget {
                           flex: 5,
                           child: ListView.builder(
                             itemCount: personaggio.listaOggetti.length,
-                            itemBuilder: (context, index) {
+                            itemBuilder: (context1, index) {
                               return OggettoListTile(
                                 partita: p1,
                                 oggetto: personaggio.listaOggetti[index],
                                 personaggio: personaggio,
+                                oldContext: context,
                               );
                             },
                           ),

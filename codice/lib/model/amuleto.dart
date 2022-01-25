@@ -1,5 +1,6 @@
 import 'package:codice/model/oggetto.dart';
 import 'package:codice/model/personaggio.dart';
+import 'package:codice/model/stanza.dart';
 import 'package:flutter/cupertino.dart';
 
 class Amuleto extends Oggetto {
@@ -13,7 +14,8 @@ class Amuleto extends Oggetto {
         );
 
   @override
-  void usa(Personaggio personaggio, Oggetto oggetto, BuildContext context) {
+  void usa(Personaggio personaggio, Oggetto oggetto, BuildContext context,
+      Stanza stanza) {
     if (!oggetto.isMalefico) {
       personaggio.incrSalute(oggetto.effetto!);
     } else {
