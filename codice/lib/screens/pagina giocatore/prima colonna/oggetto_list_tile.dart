@@ -1,7 +1,4 @@
-import 'package:codice/database/domandeDB.dart';
 import 'package:codice/model/amuleto.dart';
-import 'package:codice/model/domanda.dart';
-import 'package:codice/model/nemico.dart';
 import 'package:codice/model/oggetto.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/model/personaggio.dart';
@@ -27,47 +24,21 @@ class OggettoListTile extends StatelessWidget {
   void checkOggetto(context) {
     if (oggetto is Amuleto) {
       oggetto.usa(personaggio, oggetto, context);
-      /*    if (!oggetto.isMalefico) {
-          personaggio.incrSalute(oggetto.effetto!);
-          } else {
-          personaggio.decrSalute(oggetto.effetto!, context);
-          }
-
-          personaggio.eliminaOggetto(oggetto);
-          Navigator.pop(context); */
     }
 
     // SPADA
     else if (oggetto is Spada) {
       oggetto.usa(personaggio, oggetto, context);
-      /* if (personaggio.oggettoEquipaggiato != null &&
-              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
-            personaggio.disequipaggiaOggetto();
-          } else {
-            personaggio.equipaggiaOggetto(oggetto);
-          } */
     }
 
     // SCUDO
     else if (oggetto is Scudo) {
       oggetto.usa(personaggio, oggetto, context);
-      /* if (personaggio.oggettoEquipaggiato != null &&
-              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
-            personaggio.disequipaggiaOggetto();
-          } else {
-            personaggio.equipaggiaOggetto(oggetto);
-          } */
     }
 
     // ARCO
     else {
       oggetto.usa(personaggio, oggetto, context);
-      /* if (personaggio.oggettoEquipaggiato != null &&
-              personaggio.oggettoEquipaggiato!.id == oggetto.id) {
-            personaggio.disequipaggiaOggetto();
-          } else {
-            personaggio.equipaggiaOggetto(oggetto);
-          } */
     }
   }
 

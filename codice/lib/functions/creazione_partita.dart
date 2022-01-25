@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:codice/database/domandeDB.dart';
 import 'package:codice/database/esplorazioneDB.dart';
 import 'package:codice/database/nemicoDB.dart';
@@ -38,7 +37,6 @@ class CreazionePartita {
   }
 
   // Funzione che associa le domande ai nemici creati
-  // TODO: scrivere funzione che pesca le domande in base a livello e disciplina
   List<Domanda> creaDomandeNemico(
       LivelloNemico livello, Disciplina disciplina) {
     // Lista di tutte le domande
@@ -92,13 +90,22 @@ class CreazionePartita {
     // I dialoghi rimarranno sempre gli stessi per gli stessi nemici, ma le domande saranno prese a caso dal database
     if (indexStanza >= 0 && indexStanza <= 3) {
       return NemicoDB()
-          .listaNemici[Random().nextInt(NemicoDB().listaNemici.length)];
+          .listaNemici
+          .where((element) => element.livello == LivelloNemico.BASSO)
+          .toList()
+          .first;
     } else if (indexStanza >= 4 && indexStanza <= 6) {
       return NemicoDB()
-          .listaNemici[Random().nextInt(NemicoDB().listaNemici.length)];
+          .listaNemici
+          .where((element) => element.livello == LivelloNemico.MEDIO)
+          .toList()
+          .first;
     } else {
       return NemicoDB()
-          .listaNemici[Random().nextInt(NemicoDB().listaNemici.length)];
+          .listaNemici
+          .where((element) => element.livello == LivelloNemico.ALTO)
+          .toList()
+          .first;
     }
   }
 

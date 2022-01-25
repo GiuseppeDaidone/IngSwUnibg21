@@ -848,7 +848,7 @@
 									"font": "Arial;13;0",
 									"left": 591,
 									"top": 687,
-									"width": 109.67724609375,
+									"width": 109,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+Yy2OMBHIku4="
@@ -3012,7 +3012,7 @@
 									"font": "Arial;13;0",
 									"left": 449.5,
 									"top": 407,
-									"width": 83.6708984375,
+									"width": 83,
 									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+Y1B/Cy2oirs="
@@ -3585,7 +3585,7 @@
 									"font": "Arial;13;0",
 									"left": 377,
 									"top": 524.5,
-									"width": 80.05908203125,
+									"width": 79,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+Y1KNbzThyxw="
@@ -10656,7 +10656,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 989,
-											"top": 149,
+											"top": 141,
 											"width": 120.63720703125,
 											"height": 13,
 											"text": "«enum»"
@@ -10669,7 +10669,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 989,
-											"top": 164,
+											"top": 156,
 											"width": 120.63720703125,
 											"height": 13,
 											"text": "Disciplina"
@@ -10683,7 +10683,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -576,
-											"top": 208,
+											"top": 192,
 											"width": 119.90087890625,
 											"height": 13,
 											"text": "(from ClassDiagram)"
@@ -10697,14 +10697,14 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -576,
-											"top": 208,
+											"top": 192,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 984,
-									"top": 144,
+									"top": 136,
 									"width": 130.63720703125,
 									"height": 38,
 									"stereotypeLabel": {
@@ -10741,10 +10741,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 989,
-											"top": 187,
+											"top": 179,
 											"width": 120.63720703125,
 											"height": 13,
-											"text": "+matematica",
+											"text": "+ing. software",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10758,18 +10758,35 @@
 											},
 											"font": "Arial;13;0",
 											"left": 989,
-											"top": 202,
+											"top": 194,
 											"width": 120.63720703125,
 											"height": 13,
 											"text": "+database",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF+jYvJpQtzHBM=",
+											"_parent": {
+												"$ref": "AAAAAAF+Y14Y7UcMa3o="
+											},
+											"model": {
+												"$ref": "AAAAAAF+jYvJfQthYuw="
+											},
+											"font": "Arial;13;0",
+											"left": 989,
+											"top": 209,
+											"width": 120.63720703125,
+											"height": 13,
+											"text": "+reti",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 984,
-									"top": 182,
+									"top": 174,
 									"width": 130.63720703125,
-									"height": 38
+									"height": 53
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -10782,7 +10799,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 984,
-									"top": 220,
+									"top": 227,
 									"width": 130.63720703125,
 									"height": 10
 								},
@@ -10798,7 +10815,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": -288,
-									"top": 104,
+									"top": 96,
 									"width": 10,
 									"height": 10
 								},
@@ -10814,7 +10831,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": -288,
-									"top": 104,
+									"top": 96,
 									"width": 10,
 									"height": 10
 								}
@@ -10822,9 +10839,9 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 984,
-							"top": 144,
+							"top": 136,
 							"width": 130.63720703125,
-							"height": 97,
+							"height": 101,
 							"showProperty": false,
 							"nameCompartment": {
 								"$ref": "AAAAAAF+Y14Y7UcHy58="
@@ -15073,7 +15090,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF+Y14Y7kebwL0="
 							},
-							"name": "tipoIncantesimo"
+							"name": "tipoIncantesimo",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -16014,8 +16032,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF+Y14Y8Efwxdg="
 							},
-							"name": "matematica",
-							"type": ""
+							"name": "ing. software"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -16025,6 +16042,14 @@
 							},
 							"name": "database",
 							"type": ""
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF+jYvJfQthYuw=",
+							"_parent": {
+								"$ref": "AAAAAAF+Y14Y8Efwxdg="
+							},
+							"name": "reti"
 						}
 					]
 				},
@@ -19471,9 +19496,9 @@
 														"$ref": "AAAAAAF+Y7VqQVd4u3M="
 													},
 													"font": "Arial;13;0",
-													"left": 152.72998046875,
+													"left": 150.55908203125,
 													"top": 29,
-													"width": 108.67529296875,
+													"width": 96.291015625,
 													"height": 13,
 													"text": "SequenceDiagram"
 												},
@@ -19486,7 +19511,7 @@
 													"font": "Arial;13;1",
 													"left": 133,
 													"top": 29,
-													"width": 14.72998046875,
+													"width": 12.55908203125,
 													"height": 13,
 													"text": "sd"
 												}
