@@ -22,7 +22,7 @@ class Personaggio with ChangeNotifier {
     notifyListeners();
   }
 
-  void decrSalute(int n, trueContext) {
+  void decrSalute(int n, {trueContext}) {
     _salute -= n;
     if (_salute <= 0) {
       print("dead");
