@@ -35,56 +35,107 @@ class NemicoDB {
               false
         },
         {"": true},
-        {
+        /*   {
           "Bravo viaggiatore, non ci sono molte persone brave come te, ti aiuterò a raggiungere la prossima stanza":
               false
-        },
+        }, */
       ],
       nome: "Ragnor",
     ),
 
-    /* // NEMICO 2
+    // NEMICO 2
     Boss(
       immagineSfondo: "images/nemico2sfondo.jpg",
       disciplina: Disciplina.DATABASE,
-      immaginiNemico: [],
+      immaginiNemico: [
+        "images/satyr_idleblink.gif",
+        "images/satyr_attacking.gif",
+        "images/satyr_taunt.gif",
+        "images/satyr_hurt.gif",
+        "images/satyr_dying.gif",
+      ],
       livello: LivelloNemico.MEDIO,
       dialogoCombattimento: [
-        {"": false},
-        {"": false},
-        {"": false},
-        {"": false},
-        {"": true},
-        {"": false},
-        {"": false},
-        {"": true},
-        {"": false},
-        {"": true},
-        {"": false},
+        {"Ehi, chi sei tu?! Che ci fai qui?!": false},
+        {
+          "Non dovresti stare da queste parti da solo, è un posto pericoloso":
+              false
+        },
+        {
+          "Io sono il Saruman il guardiano, custodisco questa stanza e permetto il passaggio solo a chi se lo merita":
+              false
+        },
+        {
+          "Se hai intenzione di passare farai bene a ripassare qualche concetto di Database":
+              false
+        },
+        {"Bene, possiamo iniziare con la prima domanda": false},
+        {"domanda1": true},
+        {
+          "bravo viaggiatore, ma non pensare che sia finita, questo era solo l'inizio":
+              false
+        },
+        {"Ora passiamo a qualcosa di più difficile": false},
+        {"domanda2": true},
+        {
+          "Cavolo, non mi sarei aspettato di trovare un viaggiatore così esperto, vediamo se sai anche la prossima":
+              false
+        },
+        {"domanda3": true},
+        /*  {
+          "Molto Bene! Hai dimostrato di avere delle ottime conoscenze in database, puoi procedere alla prossima stanza!":
+              false
+        }, */
       ],
-      nome: "Giorgio",
+      nome: "Saruman",
     ),
 
     // NEMICO 3
     Boss(
       immagineSfondo: "images/nemico3sfondo.jpg",
       disciplina: Disciplina.INGSW,
-      immaginiNemico: [],
+      immaginiNemico: [
+        "images/golem_idleblink.gif",
+        "images/golem_attacking.gif",
+        "images/golem_taunt.gif",
+        "images/golem_hurt.gif",
+        "images/golem_dying.gif",
+      ],
       livello: LivelloNemico.ALTO,
       dialogoCombattimento: [
-        {"": false},
-        {"": false},
-        {"": false},
-        {"": false},
-        {"": true},
-        {"": false},
-        {"": false},
-        {"": true},
-        {"": false},
-        {"": true},
-        {"": false},
+        {"Eh così infine ce l'hai fatta ad arrivare fin qui": false},
+        {
+          "Ho assistito al tuo percorso nelle altre stanze e so che non sei un viaggiatore qualunque":
+              false
+        },
+        {
+          "Il tuo viaggio sta volgendo al termine ma c'è ancora un ultimo ostacolo sul tuo percorso":
+              false
+        },
+        {
+          "Io sono Sauron e sono il capo supremo di questo mondo, vedo e conoscono qualsiasi cosa accada in qualsiasi stanza del reame":
+              false
+        },
+        {
+          "Se vuoi concludere il tuo viaggio ti servirà tirare fuori tutte le tue conoscenze in Ingegneria del Software, ti serviranno":
+              false
+        },
+        {"Ecco la prima domanda": false},
+        {"domanda1": true},
+        {
+          "Ben fatto, sapevo che non avresti avuto problemi con questa domanda, ora passiamo a qualcosa di più complesso":
+              false
+        },
+        {"domanda2": true},
+        {"Ok, è ora di fare sul serio": false},
+        {"Questa potrebbe essere la tua ultima domanda": false},
+        {"domanda3": true},
+        /*  {
+          "Notevole! Non sono in molti a raggiungere questa stanza e sono ancora meno le persone in grado di battermi. Il tuo viaggio è finito viaggiatore, forse un giorno ci rivedremo...":
+              false
+        }, */
       ],
-      nome: "Giorgio",
-    ) */
+      nome: "Sauron",
+    )
   ];
 }

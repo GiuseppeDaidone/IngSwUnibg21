@@ -24,7 +24,7 @@ class OggettiDB {
     Spada(name: "Spada di Isildur"),
     Scudo(name: "Scudo Della Contea"),
     Amuleto(name: "Pietra Argentea", isMalefico: true, effetto: 10),
-    Amuleto(name: "Collana Corrotta", isMalefico: true, effetto: 20),
+    Amuleto(name: "Collana Corrotta", isMalefico: true, effetto: 100),
     Amuleto(name: "Anello Fatato", isMalefico: false, effetto: 8),
     Amuleto(name: "Letroll", isMalefico: true, effetto: 99),
     Amuleto(name: "Renooo Jackos", isMalefico: false, effetto: 100),

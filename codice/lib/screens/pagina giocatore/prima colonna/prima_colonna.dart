@@ -58,7 +58,7 @@ class PrimaColonna extends StatelessWidget {
                     key: UniqueKey(),
                     animatedTexts: [
                       TypewriterAnimatedText(
-                        "HP: " + personaggio.salute.toString(),
+                        "HP: " + personaggio.getSalute().toString(),
                         speed: const Duration(milliseconds: 300),
                         textStyle: GameFonts().hallelujaFontBlack(size: 30),
                       )

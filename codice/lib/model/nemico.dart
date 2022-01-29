@@ -127,12 +127,10 @@ abstract class Nemico {
             // RISPOSTA CORRETTA
             if (domanda.soluzione == domanda.risposte[i]) {
               changeStatoNemico(StatoNemico.TRISTE, context: context);
-              print("kk");
             }
 
             // RISPOSTA ERRATA
             else {
-              print("pp");
               // Se ho uno scudo non perdo salute ma non avanzo con le domande
               if (p!.oggettoEquipaggiato is Scudo) {
                 p.eliminaOggetto(p.oggettoEquipaggiato);
@@ -140,12 +138,11 @@ abstract class Nemico {
 
                 changeStatoNemico(StatoNemico.RISATA, context: context);
                 // Se sbaglio risposta aggiunto una nuova domanda alla lista
-                List<Domanda> listaDomande = DomandeDB()
+                List<Domanda> lista = DomandeDB()
                     .listaDomande
                     .where((element) => element.disciplina == disciplina)
                     .toList();
-                listaDomande
-                    .add(listaDomande[Random().nextInt(listaDomande.length)]);
+                listaDomande.add(lista[Random().nextInt(lista.length)]);
               }
 
               // Se ho una spada equipaggiata, subisco danni, ma la domanda viene contata corretta e non devo ripeterla
@@ -157,7 +154,11 @@ abstract class Nemico {
               } else {
                 changeStatoNemico(StatoNemico.RISATA, context: context);
                 p.decrSalute(danno, context);
-                listaDomande.add(DomandeDB().getDomanda());
+                List<Domanda> lista = DomandeDB()
+                    .listaDomande
+                    .where((element) => element.disciplina == disciplina)
+                    .toList();
+                listaDomande.add(lista[Random().nextInt(lista.length)]);
               }
             }
           },

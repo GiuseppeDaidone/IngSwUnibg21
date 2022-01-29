@@ -6,25 +6,26 @@ import 'package:provider/provider.dart';
 
 class Personaggio with ChangeNotifier {
   Personaggio({required this.nome}) {
-    salute = 100;
+    _salute = 100;
   }
 
   Oggetto? oggettoEquipaggiato;
   final String nome;
-  late int salute;
+  late int _salute;
   List<Oggetto> listaOggetti = [];
 
   void incrSalute(int n) {
-    salute += n;
-    if (salute > 100) {
-      salute = 100;
+    _salute += n;
+    if (_salute > 100) {
+      _salute = 100;
     }
     notifyListeners();
   }
 
   void decrSalute(int n, trueContext) {
-    salute -= n;
-    if (salute <= 0) {
+    _salute -= n;
+    if (_salute <= 0) {
+      print("dead");
       Navigator.push(
         trueContext,
         MaterialPageRoute(
@@ -43,6 +44,8 @@ class Personaggio with ChangeNotifier {
     }
     notifyListeners();
   }
+
+  int getSalute() => _salute;
 
   void addOggetto(Oggetto o) {
     listaOggetti.add(o);
