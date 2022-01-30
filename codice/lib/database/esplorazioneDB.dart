@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:codice/database/oggettiDB.dart';
 import 'package:codice/model/azione.dart';
 import 'package:codice/model/esplorazione.dart';
@@ -7,9 +6,9 @@ import 'package:codice/model/stanza.dart';
 
 // NB: nel dialogo esplorazione metto true quando voglio cambiare immagine e mostrare un'azione all'utente
 class EsplorazioneDB {
-  Esplorazione getEsplorazione() {
+  /* Esplorazione getEsplorazione() {
     return listaEsplorazioni[Random().nextInt(listaEsplorazioni.length)];
-  }
+  } */
 
   List<Esplorazione> listaEsplorazioni = [
     // Stanza 1
