@@ -9,8 +9,6 @@ import 'package:codice/model/stanza.dart';
 import 'package:codice/model/stanza_combattimento.dart';
 import 'package:codice/model/stanza_esplorazione.dart';
 
-//    Random().nextInt(esplorazioniDisponibili.length)];
-
 class CreazionePartita {
   // Genero la mappa pescando in modo random le stanze dal database: stanzeDB
   List<Stanza> creaMappa() {

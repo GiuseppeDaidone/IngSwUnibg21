@@ -71,8 +71,10 @@ class PrimaColonna extends StatelessWidget {
 
           // ITEM EQUIPAGGIATO
           Provider.of<Personaggio>(context).oggettoEquipaggiato != null
-              ? ImageIcon(
-                  AssetImage(
+              ? Container(
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
+                  height: 30,
+                  child: Image.asset(
                     Provider.of<Personaggio>(context).oggettoEquipaggiato!.icon,
                   ),
                 )

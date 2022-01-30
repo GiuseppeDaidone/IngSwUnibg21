@@ -234,11 +234,11 @@ class EsplorazioneDB {
         // AZIONE 1
         Azione(
           f1: ({Stanza? s, Personaggio? p}) {
-            p!.decrSalute(9);
+            p!.decrSalute(15);
             p.addOggetto(OggettiDB().getOggetto());
             return;
           },
-          titoloPulsante: "Provi a prendere l'oggetto pungendoti",
+          titoloPulsante: "Prendi l'oggetto ma vieni morso",
         ),
 
         // AZIONE 2
@@ -248,15 +248,6 @@ class EsplorazioneDB {
           },
           titoloPulsante: "Lasci l'oggetto al suo posto",
         ),
-
-        // AZIONE 3
-        Azione(
-          f1: ({Stanza? s, Personaggio? p}) {
-            p!.addOggetto(OggettiDB().getOggetto());
-            return;
-          },
-          titoloPulsante: "Provi a fare un'acrobazia...",
-        )
       ],
       dialogoEsplorazione: [
         {
@@ -330,6 +321,7 @@ class EsplorazioneDB {
         Azione(
           f1: ({Stanza? s, Personaggio? p}) {
             p!.addOggetto(OggettiDB().getOggetto());
+            p.incrSalute(10);
             return;
           },
           titoloPulsante: "Si",
