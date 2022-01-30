@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:codice/database/oggettiDB.dart';
 import 'package:codice/model/azione.dart';
 import 'package:codice/model/esplorazione.dart';
@@ -165,7 +167,7 @@ class EsplorazioneDB {
       ],
       dialogoEsplorazione: [
         {
-          "Entri una stanza che da l'impressione sia sott'acqua, i coralli, le sfumature blu ed il profumo di brezza marina ti investono":
+          "Entri in una stanza che da l'impressione sia sott'acqua, i coralli, le sfumature blu ed il profumo di brezza marina ti investono":
               false
         },
         {"Ti avvicini ai coralli in fondo alla stanza": false},
@@ -175,6 +177,233 @@ class EsplorazioneDB {
         }
       ],
       immaginiSfondo: ["images/s5.jpg", "images/s5.jpg"],
+    ),
+
+    // Stanza 6
+    Esplorazione(
+      azioniDisponibili: [
+        // AZIONE 1
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            if (Random().nextInt(2) == 0) {
+              p!.addOggetto(OggettiDB().getOggetto());
+            }
+            return;
+          },
+          titoloPulsante:
+              "Provi a cercare la combinazione (50% prob. di successo)",
+        ),
+
+        // AZIONE 2
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            p!.decrSalute(5);
+            return;
+          },
+          titoloPulsante: "Tiri un pugno alla serratura",
+        ),
+
+        // AZIONE 3
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            return;
+          },
+          titoloPulsante: "Rimetti a posto il quadro e te ne vai",
+        )
+      ],
+      dialogoEsplorazione: [
+        {
+          "Entri in una stanza dall'aspetto antiquato, gran parte della mobilia è in legno ed è ricoperta da un leggero strato di polvere":
+              false
+        },
+        {
+          "Ti siedi sul divano e ti messi ad osservare i quadri appesi sopra il camino, noti che uno di essi è storto":
+              false
+        },
+        {
+          "Ti avvicini, provi a spostare il quadro e vedi che dietro è prensente una cassaforte, cosa vuoi fare?":
+              true
+        }
+      ],
+      immaginiSfondo: ["images/s6.jpg", "images/s6.jpg"],
+    ),
+
+    // Stanza 7
+    Esplorazione(
+      azioniDisponibili: [
+        // AZIONE 1
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            p!.decrSalute(9);
+            p.addOggetto(OggettiDB().getOggetto());
+            return;
+          },
+          titoloPulsante: "Provi a prendere l'oggetto pungendoti",
+        ),
+
+        // AZIONE 2
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            return;
+          },
+          titoloPulsante: "Lasci l'oggetto al suo posto",
+        ),
+
+        // AZIONE 3
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            p!.addOggetto(OggettiDB().getOggetto());
+            return;
+          },
+          titoloPulsante: "Provi a fare un'acrobazia...",
+        )
+      ],
+      dialogoEsplorazione: [
+        {
+          "Entri in una stanza e sei immediatamente spaventato da quello che vedi. Animali imbalsamati, pezzi di arti dentro dei vasi e ampolle contenenti liquidi di ogni tipo":
+              false
+        },
+        {
+          "Dai un occhiata al libro sul tavolo, ma le scritte sono incomprensibili, fai allora un giro della stanza":
+              false
+        },
+        {
+          "Vedi un grosso serpente stringere un oggetto brillante tra le sue squame, Cosa vuoi fare?":
+              true
+        }
+      ],
+      immaginiSfondo: ["images/s7.jpg", "images/s7.jpg"],
+    ),
+
+    // Stanza 8
+    Esplorazione(
+      azioniDisponibili: [
+        // AZIONE 1
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            p!.decrSalute(7);
+            return;
+          },
+          titoloPulsante:
+              "Fuggi dall'impianto di ventilazione ferendoti una gamba",
+        ),
+
+        // AZIONE 2
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            p!.decrSalute(15);
+            return;
+          },
+          titoloPulsante: "Affronti il mostro",
+        ),
+
+        // AZIONE 3
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            p!.incrSalute(10);
+            return;
+          },
+          titoloPulsante: "Chiedi al mostro la direzione per l'uscita...",
+        )
+      ],
+      dialogoEsplorazione: [
+        {
+          "Questa stanza è completamente diversa dalle altre, non ha nulla di accogliente e l'odore è terribile":
+              false
+        },
+        {
+          "Cerchi di muoverti evitando il sangue per terra e sui mobiletti":
+              false
+        },
+        {
+          "Ad un certo punto senti un ruggito provenire dal fondo del corridoio, ti sporgi e vedi una creatura senza testa correre verso la tua stanza. Cosa fai?":
+              true
+        }
+      ],
+      immaginiSfondo: ["images/s8.jpg", "images/s8.jpg"],
+    ),
+
+    // Stanza 9
+    Esplorazione(
+      azioniDisponibili: [
+        // AZIONE 1
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            p!.addOggetto(OggettiDB().getOggetto());
+            return;
+          },
+          titoloPulsante: "Si",
+        ),
+
+        // AZIONE 2
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            p!.addOggetto(OggettiDB().getOggetto());
+            return;
+          },
+          titoloPulsante: "No",
+        ),
+      ],
+      dialogoEsplorazione: [
+        {
+          "Entri in una stanza con il camino acceso da cui proviene un leggero tepore ed un odore di bosco":
+              false
+        },
+        {
+          "Ti siedi sul divanetto, sposti la coperta e sotto trovi un oggetto, decidi di raccoglierlo":
+              false
+        },
+        {
+          "Sei molto stanco, vuoi dormire prima di continuare con il viaggio ?":
+              true
+        }
+      ],
+      immaginiSfondo: ["images/s9.jpg", "images/s9.jpg"],
+    ),
+
+    // Stanza 10
+    Esplorazione(
+      azioniDisponibili: [
+        // AZIONE 1
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            p!.decrSalute(20);
+            p.addOggetto(OggettiDB().getOggetto());
+            return;
+          },
+          titoloPulsante: "Prendi l'oggetto cadendo e rompendoti un braccio",
+        ),
+
+        // AZIONE 2
+        Azione(
+            f1: ({Stanza? s, Personaggio? p}) {
+              return;
+            },
+            titoloPulsante: "Richiudi la botola e te ne vai"),
+
+        // AZIONE 3
+        Azione(
+          f1: ({Stanza? s, Personaggio? p}) {
+            return;
+          },
+          titoloPulsante: "Lanci un sassolino nella botola",
+        )
+      ],
+      dialogoEsplorazione: [
+        {
+          "Entri in una stanza che sembra essere dimora di un inventore. Strumenti da disegno e laboratorio ricoprono i tavoli":
+              false
+        },
+        {
+          "Cercando di non far caso alle creature immerse negli acquari, noti una botola al centro della stanza, provi ad aprirla":
+              false
+        },
+        {
+          "Non vedi il fondo, ma vedi un riflesso di un oggetto sul fondo del buco. Cosa vuoi fare?":
+              true
+        }
+      ],
+      immaginiSfondo: ["images/s10.jpg", "images/s10.jpg"],
     ),
   ];
 }
