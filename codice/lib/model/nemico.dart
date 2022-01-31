@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:codice/database/domandeDB.dart';
 import 'package:codice/functions/creazione_partita.dart';
 import 'package:codice/model/domanda.dart';
@@ -136,7 +138,11 @@ abstract class Nemico {
 
                 changeStatoNemico(StatoNemico.RISATA, context: context);
                 // Se sbaglio risposta aggiunto una nuova domanda alla lista
-                listaDomande.add(DomandeDB().getDomanda());
+                List<Domanda> lista = DomandeDB()
+                    .listaDomande
+                    .where((element) => element.disciplina == disciplina)
+                    .toList();
+                listaDomande.add(lista[Random().nextInt(lista.length)]);
               }
 
               // Se ho una spada equipaggiata, subisco danni, ma la domanda viene contata corretta e non devo ripeterla
@@ -144,11 +150,15 @@ abstract class Nemico {
                 p.eliminaOggetto(p.oggettoEquipaggiato);
                 p.equipaggiaOggetto(null);
                 changeStatoNemico(StatoNemico.TRISTE, context: context);
-                p.decrSalute(danno, context);
+                p.decrSalute(danno, trueContext: context);
               } else {
                 changeStatoNemico(StatoNemico.RISATA, context: context);
-                p.decrSalute(danno, context);
-                listaDomande.add(DomandeDB().getDomanda());
+                p.decrSalute(danno, trueContext: context);
+                List<Domanda> lista = DomandeDB()
+                    .listaDomande
+                    .where((element) => element.disciplina == disciplina)
+                    .toList();
+                listaDomande.add(lista[Random().nextInt(lista.length)]);
               }
             }
           },
@@ -160,7 +170,7 @@ abstract class Nemico {
 }
 
 // DISCIPLINE LEGATE ALLE DOMANDE ED AI NEMICI
-enum Disciplina { MATEMATICA, DATABASE, FISICA, EMBEDDED }
+enum Disciplina { RETI, DATABASE, INGSW }
 
 // Indica la difficoltà del nemico. In base a questo dipendono la difficoltà delle domande
 enum LivelloNemico { BASSO, MEDIO, ALTO }

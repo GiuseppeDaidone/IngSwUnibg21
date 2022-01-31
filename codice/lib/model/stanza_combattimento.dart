@@ -1,4 +1,5 @@
 import 'package:codice/functions/creazione_partita.dart';
+import 'package:codice/model/esplorazione.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/model/stanza.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,7 @@ class StanzaCombattimento extends Stanza {
   StanzaCombattimento() : super();
 
   @override
-  void setIndex(int idx) {
+  void setIndex(int idx, {Esplorazione? ed}) {
     index = idx;
     // creo il nemico
     nemico = CreazionePartita().creaNemico(index);

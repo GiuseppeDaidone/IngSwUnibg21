@@ -1,31 +1,30 @@
 import 'package:codice/model/oggetto.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/screens/pagina%20finale/pagina_finale.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class Personaggio with ChangeNotifier {
   Personaggio({required this.nome}) {
-    salute = 100;
+    _salute = 100;
   }
 
   Oggetto? oggettoEquipaggiato;
   final String nome;
-  late int salute;
+  late int _salute;
   List<Oggetto> listaOggetti = [];
 
   void incrSalute(int n) {
-    salute += n;
-    if (salute > 100) {
-      salute = 100;
+    _salute += n;
+    if (_salute > 100) {
+      _salute = 100;
     }
     notifyListeners();
   }
 
-  void decrSalute(int n, trueContext) {
-    salute -= n;
-    if (salute <= 0) {
+  void decrSalute(int n, {trueContext}) {
+    _salute -= n;
+    if (_salute <= 0) {
       Navigator.push(
         trueContext,
         MaterialPageRoute(
@@ -33,7 +32,7 @@ class Personaggio with ChangeNotifier {
             return ChangeNotifierProvider<Partita>(
               create: (_) => Provider.of<Partita>(trueContext),
               builder: (context, partita) {
-                return PaginaFinale(
+                return const PaginaFinale(
                   isDead: true,
                 );
               },
@@ -45,11 +44,13 @@ class Personaggio with ChangeNotifier {
     notifyListeners();
   }
 
+  int getSalute() => _salute;
+
   void addOggetto(Oggetto o) {
     listaOggetti.add(o);
   }
 
-  void equipaggiaOggetto(oggetto) {
+  void equipaggiaOggetto(Oggetto? oggetto) {
     oggettoEquipaggiato = oggetto;
     notifyListeners();
   }
@@ -63,6 +64,4 @@ class Personaggio with ChangeNotifier {
     listaOggetti.remove(oggetto);
     notifyListeners();
   }
-
-  int getSalute() => salute;
 }

@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 // flutter run -d chrome --web-renderer html
 // flutter run --profile
 
+// Calcolo complessità: flutter pub run dart_code_metrics:metrics analyze lib
+// File non utilizzati: flutter pub run dart_code_metrics:metrics check-unused-files lib
+
 void main() {
   runApp(
     // Partita Provider

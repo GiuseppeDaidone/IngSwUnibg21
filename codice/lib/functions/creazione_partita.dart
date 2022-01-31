@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:codice/database/domandeDB.dart';
 import 'package:codice/database/esplorazioneDB.dart';
 import 'package:codice/database/nemicoDB.dart';
@@ -14,34 +13,80 @@ class CreazionePartita {
   // Genero la mappa pescando in modo random le stanze dal database: stanzeDB
   List<Stanza> creaMappa() {
     List<Stanza> mappa = [];
+    List<Esplorazione> ed = EsplorazioneDB().listaEsplorazioni;
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 10; i++) {
       // Mappa Iniziale
       if (i == 0) {
         mappa.add(StanzaEsplorazione());
-        mappa.last.setIndex(i);
+        Esplorazione es = ed[Random().nextInt(ed.length)];
+        ed.remove(es);
+        mappa.last.setIndex(i, ed: es);
       }
 
       // Mappe Combattimento
       else if (i % 3 == 0) {
         mappa.add(StanzaCombattimento());
-        mappa.last.setIndex(i);
+        Esplorazione es = ed[Random().nextInt(ed.length)];
+        ed.remove(es);
+        mappa.last.setIndex(i, ed: es);
       }
 
       // Mappa Esplorazione
       else {
         mappa.add(StanzaEsplorazione());
-        mappa.last.setIndex(i);
+        Esplorazione es = ed[Random().nextInt(ed.length)];
+        ed.remove(es);
+        mappa.last.setIndex(i, ed: es);
       }
     }
     return mappa;
   }
 
   // Funzione che associa le domande ai nemici creati
-  // TODO: scrivere funzione che pesca le domande in base a livello e disciplina
   List<Domanda> creaDomandeNemico(
       LivelloNemico livello, Disciplina disciplina) {
-    return DomandeDB().listaDomande;
+    // Lista di tutte le domande
+    List<Domanda> listaDomande = DomandeDB().listaDomande;
+    // Lista di domande della corretta disciplina
+    List<Domanda> listaDomandeSelezionate = [];
+    // Lista di domande che vengono ritornate
+    List<Domanda> listaDomandeReturn = [];
+
+    if (livello == LivelloNemico.BASSO) {
+      listaDomandeSelezionate.addAll(listaDomande
+          .where(
+            (element) =>
+                disciplina == element.disciplina &&
+                element.difficolta == Difficolta.FACILE,
+          )
+          .toList());
+    } else if (livello == LivelloNemico.MEDIO) {
+      listaDomandeSelezionate.addAll(listaDomande
+          .where(
+            (element) =>
+                disciplina == element.disciplina &&
+                element.difficolta == Difficolta.MEDIO,
+          )
+          .toList());
+    } else {
+      listaDomandeSelezionate.addAll(listaDomande
+          .where(
+            (element) =>
+                disciplina == element.disciplina &&
+                element.difficolta == Difficolta.DIFFICILE,
+          )
+          .toList());
+    }
+
+    for (int i = 0; i < 3; i++) {
+      listaDomandeReturn.add(
+        listaDomandeSelezionate[
+            Random().nextInt(listaDomandeSelezionate.length)],
+      );
+    }
+
+    return listaDomandeReturn;
   }
 
   // Quando una in cui è presente un combattimento viene creata, il costruttore chiama questa funzione genere il combattimento
@@ -52,17 +97,22 @@ class CreazionePartita {
     // I dialoghi rimarranno sempre gli stessi per gli stessi nemici, ma le domande saranno prese a caso dal database
     if (indexStanza >= 0 && indexStanza <= 3) {
       return NemicoDB()
-          .listaNemici[Random().nextInt(NemicoDB().listaNemici.length)];
+          .listaNemici
+          .where((element) => element.livello == LivelloNemico.BASSO)
+          .toList()
+          .first;
     } else if (indexStanza >= 4 && indexStanza <= 6) {
       return NemicoDB()
-          .listaNemici[Random().nextInt(NemicoDB().listaNemici.length)];
+          .listaNemici
+          .where((element) => element.livello == LivelloNemico.MEDIO)
+          .toList()
+          .first;
     } else {
       return NemicoDB()
-          .listaNemici[Random().nextInt(NemicoDB().listaNemici.length)];
+          .listaNemici
+          .where((element) => element.livello == LivelloNemico.ALTO)
+          .toList()
+          .first;
     }
-  }
-
-  Esplorazione creaEsplorazione() {
-    return EsplorazioneDB().getEsplorazione();
   }
 }

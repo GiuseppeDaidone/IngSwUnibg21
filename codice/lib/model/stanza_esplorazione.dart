@@ -1,5 +1,4 @@
 import 'package:codice/database/oggettiDB.dart';
-import 'package:codice/functions/creazione_partita.dart';
 import 'package:codice/model/esplorazione.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/model/stanza.dart';
@@ -9,10 +8,10 @@ class StanzaEsplorazione extends Stanza {
   StanzaEsplorazione() : super();
 
   @override
-  void setIndex(int idx) {
+  void setIndex(int idx, {Esplorazione? ed}) {
     index = idx;
     // imposto il primo dialogo
-    esplorazione = CreazionePartita().creaEsplorazione();
+    esplorazione = ed;
     azioniDisponibili = esplorazione!.azioniDisponibili;
     dialogoCorrente = esplorazione!
         .dialogoEsplorazione[esplorazione!.indexDialogoCorrente].keys.first;
@@ -48,8 +47,6 @@ class StanzaEsplorazione extends Stanza {
       // Se ho uno stato azione mostro le azioni disponibili
       if (esplorazione!.statoEsplorazione == StatoEsplorazione.AZIONE) {
         azioniDisponibili = esplorazione!.azioniDisponibili;
-      } else {
-        azioniDisponibili.clear();
       }
     }
   }

@@ -20,7 +20,10 @@ class ActionButton extends StatelessWidget {
           primary: GameTheme.buttonColor,
         ),
         onPressed: onPressed,
-        child: Text(nomePulsante),
+        child: Text(
+          nomePulsante,
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }

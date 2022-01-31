@@ -1,6 +1,8 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/screens/pagina%20giocatore/prima%20colonna/pulsante_inventario.dart';
 import 'package:codice/screens/pagina%20giocatore/prima%20colonna/pulsante_menu.dart';
+import 'package:codice/theme/game_fonts.dart';
 import 'package:codice/theme/game_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -47,13 +49,20 @@ class PrimaColonna extends StatelessWidget {
                   // Nome personaggio
                   Text(
                     personaggio.nome,
-                    style: const TextStyle(fontSize: 25),
+                    style: GameFonts().hallelujaFontBlack(size: 30),
                   ),
 
                   // Salute Attuale
-                  Text(
-                    "HP: " + personaggio.salute.toString(),
-                    style: const TextStyle(fontSize: 15),
+                  AnimatedTextKit(
+                    isRepeatingAnimation: false,
+                    key: UniqueKey(),
+                    animatedTexts: [
+                      TypewriterAnimatedText(
+                        "HP: " + personaggio.getSalute().toString(),
+                        speed: const Duration(milliseconds: 300),
+                        textStyle: GameFonts().hallelujaFontBlack(size: 30),
+                      )
+                    ],
                   ),
                 ],
               ),
@@ -62,8 +71,10 @@ class PrimaColonna extends StatelessWidget {
 
           // ITEM EQUIPAGGIATO
           Provider.of<Personaggio>(context).oggettoEquipaggiato != null
-              ? ImageIcon(
-                  AssetImage(
+              ? Container(
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
+                  height: 30,
+                  child: Image.asset(
                     Provider.of<Personaggio>(context).oggettoEquipaggiato!.icon,
                   ),
                 )
