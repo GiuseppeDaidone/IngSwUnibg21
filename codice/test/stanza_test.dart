@@ -1,3 +1,4 @@
+import 'package:codice/database/esplorazioneDB.dart';
 import 'package:codice/model/esplorazione.dart';
 import 'package:codice/model/stanza_esplorazione.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -7,7 +8,7 @@ void main(List<String> args) {
     StanzaEsplorazione stanzaEsplorazione = StanzaEsplorazione();
     // testSetIndex
     test("Controllo che setIndex crei l'eplorazione e l'oggetto", () {
-      stanzaEsplorazione.setIndex(5);
+      stanzaEsplorazione.setIndex(5, EsplorazioneDB().listaEsplorazioni[0]);
 
       expect(stanzaEsplorazione.esplorazione, isNot(null));
       expect(stanzaEsplorazione.oggetto, isNot(null));
@@ -17,7 +18,7 @@ void main(List<String> args) {
     test(
         "controllo che lo stato iniziale dell'esplorazione impostato da setIndex sia dialogo",
         () {
-      stanzaEsplorazione.setIndex(5);
+      stanzaEsplorazione.setIndex(5, EsplorazioneDB().listaEsplorazioni[0]);
       expect(stanzaEsplorazione.esplorazione!.statoEsplorazione,
           StatoEsplorazione.DIALOGO);
     });

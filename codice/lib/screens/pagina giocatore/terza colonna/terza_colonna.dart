@@ -46,6 +46,7 @@ class _TerzaColonnaState extends State<TerzaColonna> {
                   activeStepBorderColor: GameTheme.buttonColor,
                   activeStepBorderWidth: 10,
                   direction: Axis.vertical,
+                  enableStepTapping: false,
                   images: [
                     for (int i = 0; i < partita.mappa.length; i++)
                       AssetImage(partita.mappa[i].immagineCorrente),

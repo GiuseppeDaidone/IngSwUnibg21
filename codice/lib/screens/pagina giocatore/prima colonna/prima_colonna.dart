@@ -58,7 +58,7 @@ class PrimaColonna extends StatelessWidget {
                     key: UniqueKey(),
                     animatedTexts: [
                       TypewriterAnimatedText(
-                        "HP: " + personaggio.salute.toString(),
+                        "HP: " + personaggio.getSalute().toString(),
                         speed: const Duration(milliseconds: 300),
                         textStyle: GameFonts().hallelujaFontBlack(size: 30),
                       )
@@ -71,8 +71,10 @@ class PrimaColonna extends StatelessWidget {
 
           // ITEM EQUIPAGGIATO
           Provider.of<Personaggio>(context).oggettoEquipaggiato != null
-              ? ImageIcon(
-                  AssetImage(
+              ? Container(
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
+                  height: 30,
+                  child: Image.asset(
                     Provider.of<Personaggio>(context).oggettoEquipaggiato!.icon,
                   ),
                 )

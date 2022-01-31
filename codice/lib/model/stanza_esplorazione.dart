@@ -9,10 +9,10 @@ class StanzaEsplorazione extends Stanza {
   StanzaEsplorazione() : super();
 
   @override
-  void setIndex(int idx) {
+  void setIndex(int idx, Esplorazione ed) {
     index = idx;
     // imposto il primo dialogo
-    esplorazione = CreazionePartita().creaEsplorazione();
+    esplorazione = ed;
     azioniDisponibili = esplorazione!.azioniDisponibili;
     dialogoCorrente = esplorazione!
         .dialogoEsplorazione[esplorazione!.indexDialogoCorrente].keys.first;

@@ -62,9 +62,10 @@ class OggettoListTile extends StatelessWidget {
             child: Row(
               children: [
                 // ICONA OGGETTO
-                ImageIcon(
-                  AssetImage(oggetto.icon),
-                  size: 20,
+                Container(
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
+                  height: 20,
+                  child: Image.asset(oggetto.icon),
                 ),
 
                 const SizedBox(width: 30),

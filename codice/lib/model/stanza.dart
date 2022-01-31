@@ -22,7 +22,7 @@ abstract class Stanza {
   // - Viene associato il primo dialogo al dialogo corrente
   // - Viene associata la prima immagine dello sfondo
   // - altre funzioni in base al tipo di stanza
-  void setIndex(int idx) {}
+  void setIndex(int idx, Esplorazione ed) {}
 
   // metodo per far avanzare il testo dentro la textbox
   void increaseDialogoIndex(bool isPulsanteRisposta, Partita partita,

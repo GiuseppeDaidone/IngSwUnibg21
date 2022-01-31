@@ -13,24 +13,31 @@ class CreazionePartita {
   // Genero la mappa pescando in modo random le stanze dal database: stanzeDB
   List<Stanza> creaMappa() {
     List<Stanza> mappa = [];
+    List<Esplorazione> ed = EsplorazioneDB().listaEsplorazioni;
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 10; i++) {
       // Mappa Iniziale
       if (i == 0) {
         mappa.add(StanzaEsplorazione());
-        mappa.last.setIndex(i);
+        Esplorazione es = ed[Random().nextInt(ed.length)];
+        ed.remove(es);
+        mappa.last.setIndex(i, es);
       }
 
       // Mappe Combattimento
       else if (i % 3 == 0) {
         mappa.add(StanzaCombattimento());
-        mappa.last.setIndex(i);
+        Esplorazione es = ed[Random().nextInt(ed.length)];
+        ed.remove(es);
+        mappa.last.setIndex(i, es);
       }
 
       // Mappa Esplorazione
       else {
         mappa.add(StanzaEsplorazione());
-        mappa.last.setIndex(i);
+        Esplorazione es = ed[Random().nextInt(ed.length)];
+        ed.remove(es);
+        mappa.last.setIndex(i, es);
       }
     }
     return mappa;
@@ -107,9 +114,5 @@ class CreazionePartita {
           .toList()
           .first;
     }
-  }
-
-  Esplorazione creaEsplorazione() {
-    return EsplorazioneDB().getEsplorazione();
   }
 }

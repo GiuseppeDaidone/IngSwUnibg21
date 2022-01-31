@@ -6,10 +6,6 @@ import 'package:codice/model/nemico.dart';
 // le risposte vanno da 2 a 4
 
 class DomandeDB {
-  Domanda getDomanda() {
-    return listaDomande[Random().nextInt(listaDomande.length)];
-  }
-
   List<Domanda> listaDomande = [
     Domanda(
       Difficolta.FACILE,

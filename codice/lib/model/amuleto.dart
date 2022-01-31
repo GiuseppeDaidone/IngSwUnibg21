@@ -1,7 +1,9 @@
 import 'package:codice/model/oggetto.dart';
+import 'package:codice/model/partita.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 
 class Amuleto extends Oggetto {
   Amuleto(
@@ -19,9 +21,10 @@ class Amuleto extends Oggetto {
     if (!oggetto.isMalefico) {
       personaggio.incrSalute(oggetto.effetto!);
     } else {
-      personaggio.decrSalute(oggetto.effetto!, context);
+      personaggio.decrSalute(oggetto.effetto!, trueContext: context);
     }
 
+    Provider.of<Partita>(context, listen: false).aumentaOggettiUtilizzati();
     personaggio.eliminaOggetto(oggetto);
     Navigator.pop(context);
   }
