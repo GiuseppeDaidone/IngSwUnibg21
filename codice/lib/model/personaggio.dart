@@ -25,7 +25,6 @@ class Personaggio with ChangeNotifier {
   void decrSalute(int n, {trueContext}) {
     _salute -= n;
     if (_salute <= 0) {
-      print("dead");
       Navigator.push(
         trueContext,
         MaterialPageRoute(

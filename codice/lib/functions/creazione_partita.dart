@@ -21,7 +21,7 @@ class CreazionePartita {
         mappa.add(StanzaEsplorazione());
         Esplorazione es = ed[Random().nextInt(ed.length)];
         ed.remove(es);
-        mappa.last.setIndex(i, es);
+        mappa.last.setIndex(i, ed: es);
       }
 
       // Mappe Combattimento
@@ -29,7 +29,7 @@ class CreazionePartita {
         mappa.add(StanzaCombattimento());
         Esplorazione es = ed[Random().nextInt(ed.length)];
         ed.remove(es);
-        mappa.last.setIndex(i, es);
+        mappa.last.setIndex(i, ed: es);
       }
 
       // Mappa Esplorazione
@@ -37,7 +37,7 @@ class CreazionePartita {
         mappa.add(StanzaEsplorazione());
         Esplorazione es = ed[Random().nextInt(ed.length)];
         ed.remove(es);
-        mappa.last.setIndex(i, es);
+        mappa.last.setIndex(i, ed: es);
       }
     }
     return mappa;

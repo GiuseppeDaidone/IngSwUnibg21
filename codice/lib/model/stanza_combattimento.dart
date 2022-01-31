@@ -9,7 +9,7 @@ class StanzaCombattimento extends Stanza {
   StanzaCombattimento() : super();
 
   @override
-  void setIndex(int idx, Esplorazione ed) {
+  void setIndex(int idx, {Esplorazione? ed}) {
     index = idx;
     // creo il nemico
     nemico = CreazionePartita().creaNemico(index);

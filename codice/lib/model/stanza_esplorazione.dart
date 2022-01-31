@@ -1,5 +1,4 @@
 import 'package:codice/database/oggettiDB.dart';
-import 'package:codice/functions/creazione_partita.dart';
 import 'package:codice/model/esplorazione.dart';
 import 'package:codice/model/partita.dart';
 import 'package:codice/model/stanza.dart';
@@ -9,7 +8,7 @@ class StanzaEsplorazione extends Stanza {
   StanzaEsplorazione() : super();
 
   @override
-  void setIndex(int idx, Esplorazione ed) {
+  void setIndex(int idx, {Esplorazione? ed}) {
     index = idx;
     // imposto il primo dialogo
     esplorazione = ed;
