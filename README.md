@@ -1,10 +1,10 @@
 PROGETTO ING. SOFTWARE 2021 DAIDONE, DRISSI, IANITCHII, MARCHESI
 
 I Documenti Principali sono nella folder principale di github e sono: 
-    - ProjectPlan
-    - Requirements Specification: Documento contenente i requirements
-    - Project Documentation: documentazione generale dello sviluppo e del prodotto
-    - Diagrams: file di staruml che contiene tutti i diagrammi necessari
+- ProjectPlan
+- Requirements Specification: Documento contenente i requirements
+- Project Documentation: documentazione generale dello sviluppo e del prodotto
+- Diagrams: file di staruml che contiene tutti i diagrammi necessari
 
 Per l'esecuzione del progetto è necessario avere Flutter e Dart installati ed inoltre serve avere flutter web abilitato.
 
