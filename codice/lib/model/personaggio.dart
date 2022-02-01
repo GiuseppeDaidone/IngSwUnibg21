@@ -1,8 +1,5 @@
 import 'package:codice/model/oggetto.dart';
-import 'package:codice/model/partita.dart';
-import 'package:codice/screens/pagina%20finale/pagina_finale.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Personaggio with ChangeNotifier {
   Personaggio({required this.nome}) {
@@ -22,25 +19,8 @@ class Personaggio with ChangeNotifier {
     notifyListeners();
   }
 
-  void decrSalute(int n, {trueContext}) {
+  void decrSalute(int n) {
     _salute -= n;
-    if (_salute <= 0) {
-      Navigator.push(
-        trueContext,
-        MaterialPageRoute(
-          builder: (context) {
-            return ChangeNotifierProvider<Partita>(
-              create: (_) => Provider.of<Partita>(trueContext),
-              builder: (context, partita) {
-                return const PaginaFinale(
-                  isDead: true,
-                );
-              },
-            );
-          },
-        ),
-      );
-    }
     notifyListeners();
   }
 

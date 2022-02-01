@@ -16,9 +16,7 @@ class PaginaFinale extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return WillPopScope(
-      onWillPop: () async => false,
-      child: Scaffold(
+    return  Scaffold(
         backgroundColor: Colors.green[300],
         body: Column(
           children: <Widget>[
@@ -204,7 +202,6 @@ class PaginaFinale extends StatelessWidget {
             )
           ],
         ),
-      ),
     );
   }
 }

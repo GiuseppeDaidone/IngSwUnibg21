@@ -150,10 +150,10 @@ abstract class Nemico {
                 p.eliminaOggetto(p.oggettoEquipaggiato);
                 p.equipaggiaOggetto(null);
                 changeStatoNemico(StatoNemico.TRISTE, context: context);
-                p.decrSalute(danno, trueContext: context);
+                p.decrSalute(danno);
               } else {
                 changeStatoNemico(StatoNemico.RISATA, context: context);
-                p.decrSalute(danno, trueContext: context);
+                p.decrSalute(danno);
                 List<Domanda> lista = DomandeDB()
                     .listaDomande
                     .where((element) => element.disciplina == disciplina)

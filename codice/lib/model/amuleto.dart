@@ -21,7 +21,7 @@ class Amuleto extends Oggetto {
     if (!oggetto.isMalefico) {
       personaggio.incrSalute(oggetto.effetto!);
     } else {
-      personaggio.decrSalute(oggetto.effetto!, trueContext: context);
+      personaggio.decrSalute(oggetto.effetto!);
     }
 
     Provider.of<Partita>(context, listen: false).aumentaOggettiUtilizzati();
