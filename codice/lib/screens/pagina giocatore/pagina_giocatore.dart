@@ -1,3 +1,4 @@
+import 'package:codice/model/partita.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/screens/pagina%20finale/pagina_finale.dart';
 import 'package:codice/screens/pagina%20giocatore/prima%20colonna/prima_colonna.dart';
@@ -23,28 +24,32 @@ class _PaginaGiocatoreState extends State<PaginaGiocatore> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
-      child: Consumer<Personaggio>(
-        builder: (context, personaggio, _) {
+      child: Consumer2<Personaggio, Partita>(
+        builder: (context, personaggio, partita, _) {
+          // controllo se il giocatore ha perso
           return personaggio.getSalute() <= 0
               ? const PaginaFinale(isDead: true)
-              : Scaffold(
-                  backgroundColor: GameTheme.secondaryColor,
-                  body: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const <Widget>[
-                      Expanded(
-                        child: PrimaColonna(),
+              // controllo se il giocatore ha finito il gioco
+              : partita.getIndexStanzaCorrente() == partita.mappa.length
+                  ? const PaginaFinale(isDead: false)
+                  : Scaffold(
+                      backgroundColor: GameTheme.secondaryColor,
+                      body: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const <Widget>[
+                          Expanded(
+                            child: PrimaColonna(),
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: SecondaColonna(),
+                          ),
+                          Expanded(
+                            child: TerzaColonna(),
+                          ),
+                        ],
                       ),
-                      Expanded(
-                        flex: 3,
-                        child: SecondaColonna(),
-                      ),
-                      Expanded(
-                        child: TerzaColonna(),
-                      ),
-                    ],
-                  ),
-                );
+                    );
         },
       ),
     );

@@ -111,7 +111,7 @@ abstract class Nemico {
         }
       } else {
         if (statoNemico == StatoNemico.SCONFITTO) {
-          partita.goStanzaSuccessiva(truecontext: context);
+          partita.goStanzaSuccessiva();
         }
         changeStatoNemico(StatoNemico.SCONFITTO);
       }

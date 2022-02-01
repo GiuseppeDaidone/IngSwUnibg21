@@ -19,7 +19,7 @@ class Scagnozzo extends Nemico {
   @override
   void setDannoNemico() {
     if (livello == LivelloNemico.BASSO) {
-      danno = 10;
+      danno = 50;
     } else if (livello == LivelloNemico.MEDIO) {
       danno = 20;
     } else {

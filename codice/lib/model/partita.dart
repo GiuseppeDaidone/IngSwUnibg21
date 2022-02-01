@@ -1,8 +1,6 @@
 import 'package:codice/functions/creazione_partita.dart';
 import 'package:codice/model/stanza.dart';
-import 'package:codice/screens/pagina%20finale/pagina_finale.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Partita with ChangeNotifier {
   late int _totDomandeSbagliate;
@@ -22,11 +20,8 @@ class Partita with ChangeNotifier {
 
   // SETTERS
   void updateState() => notifyListeners();
-
   void aumentaDomandeSbagliate() => _totDomandeSbagliate++;
-
   void aumentaDomandeRisposte() => _totDomandeRisposte++;
-
   void aumentaOggettiUtilizzati() => _oggettiUtilizzati++;
 
   // GETTERS
@@ -37,33 +32,14 @@ class Partita with ChangeNotifier {
   int getIndexStanzaCorrente() => _indexStanzaCorrente;
 
   // Recupero l'istanza della Stanza in cui mi trovo attualmente. Se è null allora la prendo dalla mappa
-  Stanza getStanzaCorrente() {
-    _stanzaCorrente ??= mappa[_indexStanzaCorrente];
-    return _stanzaCorrente!;
-  }
+  Stanza getStanzaCorrente() => _stanzaCorrente ??= mappa[_indexStanzaCorrente];
 
   // Aggiorno l'index alla stanza successiva e aggiorno l'istanza di _stanzaCorrente
-  // Se non esiste una stanza successiva allora sono a fondo mappa e quindi mostro la pagina finale
-  void goStanzaSuccessiva({truecontext}) {
-    if (_indexStanzaCorrente + 1 == mappa.length) {
-      Navigator.push(
-        truecontext,
-        MaterialPageRoute(
-          builder: (context) {
-            return ChangeNotifierProvider<Partita>(
-              create: (_) => Provider.of<Partita>(truecontext),
-              builder: (context, partita) {
-                return const PaginaFinale(
-                  isDead: false,
-                );
-              },
-            );
-          },
-        ),
-      );
-    } else {
-      _indexStanzaCorrente++;
+  void goStanzaSuccessiva() {
+    _indexStanzaCorrente++;
+    if (_indexStanzaCorrente < mappa.length) {
       _stanzaCorrente = mappa[_indexStanzaCorrente];
     }
+    notifyListeners();
   }
 }
