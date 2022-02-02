@@ -1,13 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:codice/model/azione.dart';
-import 'package:codice/model/nemico.dart';
-import 'package:codice/model/partita.dart';
-import 'package:codice/model/stanza.dart';
 import 'package:codice/screens/pagina%20giocatore/seconda%20colonna/action_buttons_row.dart';
 import 'package:codice/theme/game_fonts.dart';
-import 'package:codice/theme/game_theme.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:codice/utils/facade.dart';
 
 // CONTENUTO SECONDA COLONNA
 //
@@ -32,7 +27,6 @@ class _SecondaColonnaState extends State<SecondaColonna> {
         _stanzaCorrente = partita.getStanzaCorrente();
         _azioniDisponibili = _stanzaCorrente.azioniDisponibili;
         _nemico = _stanzaCorrente.nemico;
-//        var cc = TyperAnimatedText(_stanzaCorrente.dialogoCorrente);
 
         return Stack(
           children: [
@@ -51,8 +45,17 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                       onTap: () {
                         // Quando premo sulla parte centrale dello schermo vado avanti con il dialogo. A meno che non siano presenti delle
                         // azioni. Inoltre se il dialogo della stanza è finito vado alla stanza successiva
-                        _stanzaCorrente.increaseDialogoIndex(false, partita,
-                            context: context);
+
+                        if (_stanzaCorrente.increaseDialogoIndex(false, partita) ?? false) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              duration: Duration(milliseconds: 1000),
+                              content: Text("Per avanzare rispondere usando i pulsanti disponibili"),
+                            ),
+                          );
+
+                          return;
+                        }
 
                         // Aggiorno lo stato di partita, dato che se aggiorno l'istanza Stanza non trigghera il notifylisteners di Partita da solo
                         partita.updateState();
@@ -90,16 +93,13 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                                         bottom: 0,
                                         left: 50,
                                         child: Container(
-                                          margin:
-                                              const EdgeInsets.only(top: 20),
+                                          margin: const EdgeInsets.only(top: 20),
                                           decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(12),
+                                            borderRadius: BorderRadius.circular(12),
                                             image: DecorationImage(
                                               fit: BoxFit.fill,
                                               image: AssetImage(
-                                                _nemico!.immaginiNemico[_nemico!
-                                                    .indexImmagineCorrente],
+                                                _nemico!.immaginiNemico[_nemico!.indexImmagineCorrente],
                                               ),
                                             ),
                                           ),
@@ -128,9 +128,16 @@ class _SecondaColonnaState extends State<SecondaColonna> {
                               child: AnimatedTextKit(
                                 key: UniqueKey(),
                                 onTap: () {
-                                  _stanzaCorrente.increaseDialogoIndex(
-                                      false, partita,
-                                      context: context);
+                                  if (_stanzaCorrente.increaseDialogoIndex(false, partita) ?? false) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        duration: Duration(milliseconds: 1000),
+                                        content: Text("Per avanzare rispondere usando i pulsanti disponibili"),
+                                      ),
+                                    );
+
+                                    return;
+                                  }
 
                                   // Aggiorno lo stato di partita, dato che se aggiorno l'istanza Stanza non trigghera il notifylisteners di Partita da solo
                                   partita.updateState();

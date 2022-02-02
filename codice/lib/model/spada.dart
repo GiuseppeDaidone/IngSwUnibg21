@@ -1,9 +1,4 @@
-// ignore_for_file: avoid_renaming_method_parameters
-
-import 'package:codice/model/oggetto.dart';
-import 'package:codice/model/personaggio.dart';
-import 'package:codice/model/stanza.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:codice/utils/facade.dart';
 
 class Spada extends Oggetto {
   Spada({required String name})
@@ -13,10 +8,8 @@ class Spada extends Oggetto {
         );
 
   @override
-  void usa(Personaggio personaggio, Oggetto oggetto, BuildContext context,
-      Stanza stanza) {
-    if (personaggio.oggettoEquipaggiato != null &&
-        personaggio.oggettoEquipaggiato!.id == oggetto.id) {
+  void usa(Personaggio personaggio, Oggetto oggetto, Stanza stanza) {
+    if (personaggio.oggettoEquipaggiato != null && personaggio.oggettoEquipaggiato!.id == oggetto.id) {
       personaggio.disequipaggiaOggetto();
     } else {
       personaggio.equipaggiaOggetto(oggetto);

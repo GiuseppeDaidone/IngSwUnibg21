@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:codice/model/domanda.dart';
 import 'package:codice/model/nemico.dart';
 
@@ -12,66 +11,40 @@ class DomandeDB {
       "Database Management System",
       testoDomanda: "Cosa vuol dire DBMS?",
       disciplina: Disciplina.DATABASE,
-      risposte: [
-        "Database Management System",
-        "Data Boss Main Sector",
-        "Databse Main System",
-        "Database Main Sector"
-      ],
+      risposte: ["Database Management System", "Data Boss Main Sector", "Databse Main System", "Database Main Sector"],
     ),
     Domanda(
       Difficolta.FACILE,
       "un insieme di tabelle",
       testoDomanda: "Una base dati in un sistema relazionale è composta da:",
       disciplina: Disciplina.DATABASE,
-      risposte: [
-        "un insieme di tabelle",
-        "un insieme di record",
-        "un insieme di campi",
-        "un insieme di chiavi"
-      ],
+      risposte: ["un insieme di tabelle", "un insieme di record", "un insieme di campi", "un insieme di chiavi"],
     ),
     Domanda(
       Difficolta.FACILE,
       "identifica un record in modo univoco",
       testoDomanda: "La chiave primaria...",
       disciplina: Disciplina.DATABASE,
-      risposte: [
-        "identifica una tabella in modo univoco",
-        "identifica più record di una stessa tabella",
-        "identifica un record in modo univoco",
-        "non può essere composta"
-      ],
+      risposte: ["identifica una tabella in modo univoco", "identifica più record di una stessa tabella", "identifica un record in modo univoco", "non può essere composta"],
     ),
     Domanda(
       Difficolta.FACILE,
       "No",
       testoDomanda: "La chiave primaria di una tabella può essere NULL?",
       disciplina: Disciplina.DATABASE,
-      risposte: [
-        "Si",
-        "Si, solo se composta",
-        "No, solo quando la chiave è anche secondaria",
-        "No"
-      ],
+      risposte: ["Si", "Si, solo se composta", "No, solo quando la chiave è anche secondaria", "No"],
     ),
     Domanda(
       Difficolta.MEDIO,
       "omogenei cioè dello stesso tipo",
       testoDomanda: "In una tabella I valori che compaiono in una colonna sono",
       disciplina: Disciplina.DATABASE,
-      risposte: [
-        "rappresentano un oggetto ad esempio una persona",
-        "possono essere sia omogenei che disomogenei",
-        "disomogenei cioè di tipi diversi",
-        "omogenei cioè dello stesso tipo"
-      ],
+      risposte: ["rappresentano un oggetto ad esempio una persona", "possono essere sia omogenei che disomogenei", "disomogenei cioè di tipi diversi", "omogenei cioè dello stesso tipo"],
     ),
     Domanda(
       Difficolta.MEDIO,
       "Efficienza, persistenza, sicurezza, integrità",
-      testoDomanda:
-          "Quali caratteristiche un DBMS deve avere per garantire la realizzazione di un DB EFFICACE?",
+      testoDomanda: "Quali caratteristiche un DBMS deve avere per garantire la realizzazione di un DB EFFICACE?",
       disciplina: Disciplina.DATABASE,
       risposte: [
         "Efficacia, autonomia, persistenza, sicurezza",
@@ -85,93 +58,54 @@ class DomandeDB {
       "Conservare i dati a lungo",
       testoDomanda: "Se un DB è PERSISTENTE, vuol dire che il DBMS permette di",
       disciplina: Disciplina.DATABASE,
-      risposte: [
-        "Impedire la cancellazione dei dati",
-        "Conservare i dati non più utili",
-        "Conservare i dati a lungo",
-        "Recuperare i dati precedentemente eliminati"
-      ],
+      risposte: ["Impedire la cancellazione dei dati", "Conservare i dati non più utili", "Conservare i dati a lungo", "Recuperare i dati precedentemente eliminati"],
     ),
     Domanda(
       Difficolta.MEDIO,
       "entrambe le precedenti",
       testoDomanda: "Se un DB è SICURO, vuol dire che il DBMS impedisce...",
       disciplina: Disciplina.DATABASE,
-      risposte: [
-        "l'accesso al DB da parte di personale non autorizzato",
-        "la perdita dei dati, in seguito ad un guasto",
-        "entrambe le precedenti"
-      ],
+      risposte: ["l'accesso al DB da parte di personale non autorizzato", "la perdita dei dati, in seguito ad un guasto", "entrambe le precedenti"],
     ),
     Domanda(
       Difficolta.MEDIO,
       "i dati abbiano sempre un significato coerente",
-      testoDomanda:
-          "Se un DB è INTEGRO, vuol dire che il DBMS provvede affinché...",
+      testoDomanda: "Se un DB è INTEGRO, vuol dire che il DBMS provvede affinché...",
       disciplina: Disciplina.DATABASE,
-      risposte: [
-        "i dati abbiano sempre un significato coerente",
-        "i dati siano interamente conservati dopo l'inserimento",
-        "i dati non siano modificabili",
-        "non ci siano campi vuoti nella tabella"
-      ],
+      risposte: ["i dati abbiano sempre un significato coerente", "i dati siano interamente conservati dopo l'inserimento", "i dati non siano modificabili", "non ci siano campi vuoti nella tabella"],
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "no mai",
-      testoDomanda:
-          "In una tabella, è possibile chiamare due campi con uguale nome ?",
+      testoDomanda: "In una tabella, è possibile chiamare due campi con uguale nome ?",
       disciplina: Disciplina.DATABASE,
-      risposte: [
-        "si sempre",
-        "solo se sono campi di tipo testo",
-        "no mai",
-        "solo se non superano i 255 caratteri"
-      ],
+      risposte: ["si sempre", "solo se sono campi di tipo testo", "no mai", "solo se non superano i 255 caratteri"],
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "backup e ripristino",
-      testoDomanda:
-          "Per impedire la perdita dei dati, in seguito ad un guasto, il DBMS deve prevedere...",
+      testoDomanda: "Per impedire la perdita dei dati, in seguito ad un guasto, il DBMS deve prevedere...",
       disciplina: Disciplina.DATABASE,
-      risposte: [
-        "personale tecnico specializzato per la manitenzione",
-        "autenticazione con password",
-        "backup e ripristino",
-        "un antivirus sempre aggiornato"
-      ],
+      risposte: ["personale tecnico specializzato per la manitenzione", "autenticazione con password", "backup e ripristino", "un antivirus sempre aggiornato"],
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "Concettuale, logica, implementazione",
       testoDomanda: "Quali sono le fasi di progettazione di un DB?",
       disciplina: Disciplina.DATABASE,
-      risposte: [
-        "Concettuale, strutturale, implementazione",
-        "Concettuale, logica, implementazione",
-        "Relazionale, logica, implementazione",
-        "Concettuale, logica, strutturale"
-      ],
+      risposte: ["Concettuale, strutturale, implementazione", "Concettuale, logica, implementazione", "Relazionale, logica, implementazione", "Concettuale, logica, strutturale"],
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "Associazione N:M",
-      testoDomanda:
-          "Ogni istanza della 1° entità si può associare ad una o più istanza della 2° entità e viceversa",
+      testoDomanda: "Ogni istanza della 1° entità si può associare ad una o più istanza della 2° entità e viceversa",
       disciplina: Disciplina.DATABASE,
-      risposte: [
-        "Associazione 1:1",
-        "Associazione N:M",
-        "Associazione 1:N",
-        "Associazione N:1"
-      ],
+      risposte: ["Associazione 1:1", "Associazione N:M", "Associazione 1:N", "Associazione N:1"],
     ),
     Domanda(
       Difficolta.FACILE,
       "Falso",
-      testoDomanda:
-          "La fase di manutenzione del software inizia prima della consegna al cliente",
+      testoDomanda: "La fase di manutenzione del software inizia prima della consegna al cliente",
       risposte: ["Vero", "Falso"],
       disciplina: Disciplina.INGSW,
     ),
@@ -185,29 +119,21 @@ class DomandeDB {
     Domanda(
       Difficolta.FACILE,
       "interni ed esterni",
-      testoDomanda:
-          "Nella definizione di qualità del software è necessario considerare fattori...",
-      risposte: [
-        "interni e del cliente",
-        "di utilizzo e di costo",
-        "interni ed esterni",
-        "esterni e del cliente"
-      ],
+      testoDomanda: "Nella definizione di qualità del software è necessario considerare fattori...",
+      risposte: ["interni e del cliente", "di utilizzo e di costo", "interni ed esterni", "esterni e del cliente"],
       disciplina: Disciplina.INGSW,
     ),
     Domanda(
       Difficolta.FACILE,
       "Falso",
-      testoDomanda:
-          "La validazione dei requisiti risponde alla domanda “come lo deve risolvere il sistema?",
+      testoDomanda: "La validazione dei requisiti risponde alla domanda “come lo deve risolvere il sistema?",
       risposte: ["Vero", "Falso"],
       disciplina: Disciplina.INGSW,
     ),
     Domanda(
       Difficolta.FACILE,
       "Vero",
-      testoDomanda:
-          "La specifica dei requisiti risponde alla domanda “che cosa deve fare il sistema?”",
+      testoDomanda: "La specifica dei requisiti risponde alla domanda “che cosa deve fare il sistema?”",
       risposte: ["Vero", "Falso"],
       disciplina: Disciplina.INGSW,
     ),
@@ -221,8 +147,7 @@ class DomandeDB {
     Domanda(
       Difficolta.FACILE,
       "waterfall",
-      testoDomanda:
-          "Il primo modello di ingegneria del software nel 1970 era...",
+      testoDomanda: "Il primo modello di ingegneria del software nel 1970 era...",
       risposte: ["ciclico", "a spirale", "waterfall", "incrementale"],
       disciplina: Disciplina.INGSW,
     ),
@@ -256,12 +181,7 @@ class DomandeDB {
       Difficolta.FACILE,
       "Object Management Group (OMG)",
       testoDomanda: "Quale consorzio gestisce lo standard Uml?",
-      risposte: [
-        "Object Management Group (OMG)",
-        "Intel",
-        "MontaVista Software",
-        "Tutte le opzioni precedenti sono corrette"
-      ],
+      risposte: ["Object Management Group (OMG)", "Intel", "MontaVista Software", "Tutte le opzioni precedenti sono corrette"],
       disciplina: Disciplina.INGSW,
     ),
     Domanda(
@@ -279,8 +199,7 @@ class DomandeDB {
     Domanda(
       Difficolta.MEDIO,
       "Falso",
-      testoDomanda:
-          "Aggiungere persone ad un progetto software porta sempre a velocizzarlo",
+      testoDomanda: "Aggiungere persone ad un progetto software porta sempre a velocizzarlo",
       risposte: ["Vero", "Falso"],
       disciplina: Disciplina.INGSW,
     ),
@@ -299,14 +218,8 @@ class DomandeDB {
     Domanda(
       Difficolta.MEDIO,
       "requisiti di sistema",
-      testoDomanda:
-          "Secondo il livello di dettaglio i requisiti software possono essere classificati in:",
-      risposte: [
-        "requisiti funzionali",
-        "requisiti di sistema",
-        "requisiti",
-        "requisiti non funzionali"
-      ],
+      testoDomanda: "Secondo il livello di dettaglio i requisiti software possono essere classificati in:",
+      risposte: ["requisiti funzionali", "requisiti di sistema", "requisiti", "requisiti non funzionali"],
       disciplina: Disciplina.INGSW,
     ),
     Domanda(
@@ -319,8 +232,7 @@ class DomandeDB {
     Domanda(
       Difficolta.MEDIO,
       "manutenzione",
-      testoDomanda:
-          "La fase che accompagna il software dal rilascio alla sua fine viene detta",
+      testoDomanda: "La fase che accompagna il software dal rilascio alla sua fine viene detta",
       risposte: ["integrazione", "test", "avviamento", "manutenzione"],
       disciplina: Disciplina.INGSW,
     ),
@@ -340,24 +252,14 @@ class DomandeDB {
       Difficolta.MEDIO,
       "il software viene realizzato in versioni successive",
       testoDomanda: "Cosa significa sviluppo incrementale ?",
-      risposte: [
-        "applicare il modello di sviluppo a cascata",
-        "sviluppare il software senza effettuare il testing",
-        "il software viene realizzato in versioni successive",
-        "altro"
-      ],
+      risposte: ["applicare il modello di sviluppo a cascata", "sviluppare il software senza effettuare il testing", "il software viene realizzato in versioni successive", "altro"],
       disciplina: Disciplina.INGSW,
     ),
     Domanda(
       Difficolta.MEDIO,
       "forme di sviluppo sw meno strutturate",
       testoDomanda: "Cosa sono le metodologie agili ?",
-      risposte: [
-        "forme di sviluppo sw molto strutturate",
-        "forme di sviluppo sw meno strutturate",
-        "forme di sviluppo sw senza errori",
-        "forme di sviluppo sw che cambiano velocemente"
-      ],
+      risposte: ["forme di sviluppo sw molto strutturate", "forme di sviluppo sw meno strutturate", "forme di sviluppo sw senza errori", "forme di sviluppo sw che cambiano velocemente"],
       disciplina: Disciplina.INGSW,
     ),
     Domanda(
@@ -375,16 +277,14 @@ class DomandeDB {
     Domanda(
       Difficolta.DIFFICILE,
       "document",
-      testoDomanda:
-          "I classici modelli di sviluppo software sono ..........-driven",
+      testoDomanda: "I classici modelli di sviluppo software sono ..........-driven",
       risposte: ["software", "test", "requirements", "document"],
       disciplina: Disciplina.INGSW,
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "che il sistema rispetti i requisiti di sistema e delle richieste dell'utente",
-      testoDomanda:
-          "Le attività di V&V del modello waterfall servono per verificare...",
+      testoDomanda: "Le attività di V&V del modello waterfall servono per verificare...",
       risposte: [
         "che il sistema rispetti i requisiti di sistema e delle richieste dell'utente",
         "solamente che il sistema sia costruito nel modo corretto",
@@ -397,25 +297,14 @@ class DomandeDB {
       Difficolta.DIFFICILE,
       "molto frequente",
       testoDomanda: "L'interazione tra team nei progetti SCRUM è...",
-      risposte: [
-        "sempre di basso livello, con poche comunicazioni",
-        "molto frequente",
-        "quasi del tutto assente",
-        "inutile, perchè i team lavorano con ritmi diversi"
-      ],
+      risposte: ["sempre di basso livello, con poche comunicazioni", "molto frequente", "quasi del tutto assente", "inutile, perchè i team lavorano con ritmi diversi"],
       disciplina: Disciplina.INGSW,
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "definizione del preventivo",
-      testoDomanda:
-          "Nella fase di specifica dei requisiti possiamo riconoscere le attività (indica quella errata):",
-      risposte: [
-        "analisi del problema",
-        "definizione delle funzionalità",
-        "definizione del preventivo",
-        "redazione di un documento SRS"
-      ],
+      testoDomanda: "Nella fase di specifica dei requisiti possiamo riconoscere le attività (indica quella errata):",
+      risposte: ["analisi del problema", "definizione delle funzionalità", "definizione del preventivo", "redazione di un documento SRS"],
       disciplina: Disciplina.INGSW,
     ),
     Domanda(
@@ -434,43 +323,27 @@ class DomandeDB {
       Difficolta.DIFFICILE,
       "E' la fase di realizzazione del software",
       testoDomanda: "Descrivi la fase di Implementazione",
-      risposte: [
-        "E' la fase di controllo del software",
-        "E' la fase di manutenzione del software",
-        "E' la fase di realizzazione del software",
-        "Nessuna delle precedenti"
-      ],
+      risposte: ["E' la fase di controllo del software", "E' la fase di manutenzione del software", "E' la fase di realizzazione del software", "Nessuna delle precedenti"],
       disciplina: Disciplina.INGSW,
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "viene stabilita l'architettura software",
       testoDomanda: "Descrivi la fase di Progettazione",
-      risposte: [
-        "viene stabilito il budget di un progetto",
-        "viene stabilita l'architettura software",
-        "viene realizzata l'architettura dell'hardware",
-        "viene realizzata l'architettura software"
-      ],
+      risposte: ["viene stabilito il budget di un progetto", "viene stabilita l'architettura software", "viene realizzata l'architettura dell'hardware", "viene realizzata l'architettura software"],
       disciplina: Disciplina.INGSW,
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "viene sperimentato il software",
       testoDomanda: "Descrivi la fase di Verifica",
-      risposte: [
-        "viene progettato il software",
-        "viene implementato il software",
-        "viene sperimentato il software",
-        "altro"
-      ],
+      risposte: ["viene progettato il software", "viene implementato il software", "viene sperimentato il software", "altro"],
       disciplina: Disciplina.INGSW,
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "Elicitation, Specification, Validation, Negotiation",
-      testoDomanda:
-          "Quali sono i 4 step di un processo di Requirements Engineering?",
+      testoDomanda: "Quali sono i 4 step di un processo di Requirements Engineering?",
       risposte: [
         "Definition, Specification, Verification, Internchange",
         "Definition, Documentation, Validation, Negotiation",
@@ -482,8 +355,7 @@ class DomandeDB {
     Domanda(
       Difficolta.FACILE,
       "LAN",
-      testoDomanda:
-          "Qual è la TIPOLOGIA di rete più adatta ad una rete scolastica?",
+      testoDomanda: "Qual è la TIPOLOGIA di rete più adatta ad una rete scolastica?",
       risposte: ["WAN", "LAN", "WMAN", "Nessuna delle precedenti"],
       disciplina: Disciplina.RETI,
     ),
@@ -491,12 +363,7 @@ class DomandeDB {
       Difficolta.FACILE,
       "se si guasta un computer, la rete continua a funzionare",
       testoDomanda: "In una rete con TOPOLOGIA a BUS...",
-      risposte: [
-        "se si guasta un computer, la rete continua a funzionare",
-        "se si interrompe il BUS, la rete è comunque funzionante",
-        "nessuna delle precedenti",
-        "sono entrambe vere"
-      ],
+      risposte: ["se si guasta un computer, la rete continua a funzionare", "se si interrompe il BUS, la rete è comunque funzionante", "nessuna delle precedenti", "sono entrambe vere"],
       disciplina: Disciplina.RETI,
     ),
     Domanda(
@@ -527,12 +394,7 @@ class DomandeDB {
       Difficolta.MEDIO,
       "Bridge, Hub, Router e Switch",
       testoDomanda: "Gli apparati HW di una rete sono:",
-      risposte: [
-        "Switch, Hub e Modem",
-        "Hub, Router e Switch",
-        "Bridge, Hub, Router e Switch",
-        "Solo il Router"
-      ],
+      risposte: ["Switch, Hub e Modem", "Hub, Router e Switch", "Bridge, Hub, Router e Switch", "Solo il Router"],
       disciplina: Disciplina.RETI,
     ),
     Domanda(
@@ -546,12 +408,7 @@ class DomandeDB {
       Difficolta.MEDIO,
       "individuare un computer nella rete",
       testoDomanda: "Un indirizzo IP serve a:",
-      risposte: [
-        "navigare in Internet",
-        "individuare un computer nella rete",
-        "è utile anche se si può fare a meno",
-        "stabilire una connessione con il server"
-      ],
+      risposte: ["navigare in Internet", "individuare un computer nella rete", "è utile anche se si può fare a meno", "stabilire una connessione con il server"],
       disciplina: Disciplina.RETI,
     ),
     Domanda(
@@ -570,55 +427,34 @@ class DomandeDB {
       Difficolta.MEDIO,
       "192.68.45.23",
       testoDomanda: "Un esempio corretto di IP address",
-      risposte: [
-        "12.3456.78.9",
-        "www.google.com",
-        "192.68.45.23",
-        "123.78.56.34.90"
-      ],
+      risposte: ["12.3456.78.9", "www.google.com", "192.68.45.23", "123.78.56.34.90"],
       disciplina: Disciplina.RETI,
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "trasforma i nomi di dominio in indirizzi IP",
       testoDomanda: "Il DNS...",
-      risposte: [
-        "è un dispositivo che si collega al modem",
-        "trasferisce i file su Internet",
-        "trasforma i nomi di dominio in indirizzi IP",
-        "aumenta la velocità di navigazione"
-      ],
+      risposte: ["è un dispositivo che si collega al modem", "trasferisce i file su Internet", "trasforma i nomi di dominio in indirizzi IP", "aumenta la velocità di navigazione"],
       disciplina: Disciplina.RETI,
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "un protocollo utilizzato da Internet",
       testoDomanda: "TCP/IP è...",
-      risposte: [
-        "un tipo di servizio di Internet",
-        "un tipo di rete",
-        "un protocollo utilizzato da Internet",
-        "un indirizzo"
-      ],
+      risposte: ["un tipo di servizio di Internet", "un tipo di rete", "un protocollo utilizzato da Internet", "un indirizzo"],
       disciplina: Disciplina.RETI,
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "Nessuna delle precedenti",
       testoDomanda: "In un pacchetto inviato, sono sempre leggibili:",
-      risposte: [
-        "Solo indirizzo IP Destinatario",
-        "Solo indirizzo IP Mittente",
-        "Solo Indirizzo IP Destinatario e numero sequenza",
-        "Nessuna delle precedenti"
-      ],
+      risposte: ["Solo indirizzo IP Destinatario", "Solo indirizzo IP Mittente", "Solo Indirizzo IP Destinatario e numero sequenza", "Nessuna delle precedenti"],
       disciplina: Disciplina.RETI,
     ),
     Domanda(
       Difficolta.DIFFICILE,
       "ad anello",
-      testoDomanda:
-          "In quale delle seguenti topologie gli host richiedono 2 schede di rete ciascuno?",
+      testoDomanda: "In quale delle seguenti topologie gli host richiedono 2 schede di rete ciascuno?",
       risposte: ["ad anello", "a bus", "a stella", "Tutte"],
       disciplina: Disciplina.RETI,
     )

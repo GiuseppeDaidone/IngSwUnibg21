@@ -1,8 +1,5 @@
-import 'package:codice/model/esplorazione.dart';
-import 'package:codice/model/nemico.dart';
-import 'package:codice/model/oggetto.dart';
-import 'package:codice/model/partita.dart';
 import 'azione.dart';
+import 'package:codice/utils/facade.dart';
 
 abstract class Stanza {
   late int index;
@@ -25,6 +22,5 @@ abstract class Stanza {
   void setIndex(int idx, {Esplorazione? ed}) {}
 
   // metodo per far avanzare il testo dentro la textbox
-  void increaseDialogoIndex(bool isPulsanteRisposta, Partita partita,
-      {context}) {}
+  bool? increaseDialogoIndex(bool isPulsanteRisposta, Partita partita) {}
 }

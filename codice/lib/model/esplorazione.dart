@@ -2,10 +2,7 @@ import 'package:codice/model/partita.dart';
 import 'azione.dart';
 
 class Esplorazione {
-  Esplorazione(
-      {required this.immaginiSfondo,
-      required this.dialogoEsplorazione,
-      required this.azioniDisponibili});
+  Esplorazione({required this.immaginiSfondo, required this.dialogoEsplorazione, required this.azioniDisponibili});
 
   final List<String> immaginiSfondo;
   final List<Map<String, bool>> dialogoEsplorazione;
@@ -43,10 +40,7 @@ class Esplorazione {
           indexImmagineCorrente++;
         }
       }
-    }
-
-    // Se non è disponibile altro dialogo cambio pagina
-    else {
+    } else {
       partita.goStanzaSuccessiva();
     }
   }
