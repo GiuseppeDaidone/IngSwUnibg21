@@ -1,8 +1,5 @@
 import 'package:codice/database/oggettiDB.dart';
-import 'package:codice/model/esplorazione.dart';
-import 'package:codice/model/partita.dart';
-import 'package:codice/model/stanza.dart';
-import 'package:flutter/material.dart';
+import 'package:codice/utils/facade.dart';
 
 class StanzaEsplorazione extends Stanza {
   StanzaEsplorazione() : super();

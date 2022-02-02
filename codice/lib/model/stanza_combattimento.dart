@@ -1,9 +1,5 @@
 import 'package:codice/functions/creazione_partita.dart';
-import 'package:codice/model/esplorazione.dart';
-import 'package:codice/model/partita.dart';
-import 'package:codice/model/stanza.dart';
-import 'package:flutter/material.dart';
-import 'nemico.dart';
+import 'package:codice/utils/facade.dart';
 
 class StanzaCombattimento extends Stanza {
   StanzaCombattimento() : super();

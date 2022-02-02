@@ -1,9 +1,6 @@
-import 'package:codice/model/oggetto.dart';
-import 'package:codice/model/partita.dart';
 import 'package:codice/model/partita_stats.dart';
-import 'package:codice/model/personaggio.dart';
-import 'package:codice/model/stanza.dart';
 import 'package:get_it/get_it.dart';
+import 'package:codice/utils/facade.dart';
 
 class Amuleto extends Oggetto {
   Amuleto({required String name, required bool isMalefico, required int effetto})

@@ -12,62 +12,61 @@ class PulsanteInventario extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Consumer<Personaggio>(builder: (context, personaggio, _) {
-      return SizedBox(
-        // dimensioni pulsante
-        height: size.height / 8,
-        width: size.width / 9,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            elevation: 5,
-            primary: GameTheme.buttonColor,
-          ),
-          child: Text(
-            "Inventario",
-            style: GameFonts().hallelujaFont(size: 20),
-          ),
-          onPressed: () {
-            Partita p1 = Provider.of<Partita>(context, listen: false);
-            showDialog(
-              context: context,
-              builder: (context1) {
-                return AlertDialog(
-                  backgroundColor: GameTheme.primaryColor,
-                  content: SizedBox(
-                    // Dimensioni Dialog
-                    height: size.height / 3,
-                    width: size.width / 5,
-                    child: Column(
-                      children: [
-                        Flexible(
-                          child: Text(
-                            "Il tuo Inventario",
-                            style: GameFonts().hallelujaFont(),
+    return Consumer2<Personaggio, Partita>(
+      builder: (context, personaggio, partita, _) {
+        return SizedBox(
+          // dimensioni pulsante
+          height: size.height / 8,
+          width: size.width / 9,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              elevation: 5,
+              primary: GameTheme.buttonColor,
+            ),
+            child: Text(
+              "Inventario",
+              style: GameFonts().hallelujaFont(size: 20),
+            ),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => MultiProvider(
+                  providers: [ChangeNotifierProvider<Partita>(create: (_) => partita), ChangeNotifierProvider<Personaggio>(create: (_) => personaggio)],
+                  child: AlertDialog(
+                    backgroundColor: GameTheme.primaryColor,
+                    content: SizedBox(
+                      // Dimensioni Dialog
+                      height: size.height / 3,
+                      width: size.width / 5,
+                      child: Column(
+                        children: [
+                          Flexible(
+                            child: Text(
+                              "Il tuo Inventario",
+                              style: GameFonts().hallelujaFont(),
+                            ),
                           ),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: ListView.builder(
-                            itemCount: personaggio.listaOggetti.length,
-                            itemBuilder: (context1, index) {
-                              return OggettoListTile(
-                                partita: p1,
-                                oggetto: personaggio.listaOggetti[index],
-                                personaggio: personaggio,
-                                oldContext: context,
-                              );
-                            },
+                          Expanded(
+                            flex: 5,
+                            child: ListView.builder(
+                              itemCount: personaggio.listaOggetti.length,
+                              itemBuilder: (context, index) {
+                                return OggettoListTile(
+                                  oggetto: personaggio.listaOggetti[index],
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                );
-              },
-            );
-          },
-        ),
-      );
-    });
+                ),
+              );
+            },
+          ),
+        );
+      },
+    );
   }
 }

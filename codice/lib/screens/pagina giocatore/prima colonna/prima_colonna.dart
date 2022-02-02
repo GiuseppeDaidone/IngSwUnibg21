@@ -1,11 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:codice/model/personaggio.dart';
 import 'package:codice/screens/pagina%20giocatore/prima%20colonna/pulsante_inventario.dart';
 import 'package:codice/screens/pagina%20giocatore/prima%20colonna/pulsante_menu.dart';
 import 'package:codice/theme/game_fonts.dart';
-import 'package:codice/theme/game_theme.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:codice/utils/facade.dart';
 
 // CONTENUTO PRIMA COLONNA
 //

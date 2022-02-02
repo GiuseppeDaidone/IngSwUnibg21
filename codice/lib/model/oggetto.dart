@@ -11,7 +11,7 @@ abstract class Oggetto {
 
   Oggetto({required this.name, this.isMalefico = false, this.effetto, required this.icon});
 
-  void usa(Personaggio p, Oggetto o, Stanza stanza) {}
+  void usa(Personaggio personaggio, Oggetto oggetto, Stanza stanza) {}
 }
 
 enum TipoOggetto { SPADA, SCUDO, AMULETO, ARCO }

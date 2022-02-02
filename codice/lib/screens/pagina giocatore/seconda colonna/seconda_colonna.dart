@@ -1,13 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:codice/model/azione.dart';
-import 'package:codice/model/nemico.dart';
-import 'package:codice/model/partita.dart';
-import 'package:codice/model/stanza.dart';
 import 'package:codice/screens/pagina%20giocatore/seconda%20colonna/action_buttons_row.dart';
 import 'package:codice/theme/game_fonts.dart';
-import 'package:codice/theme/game_theme.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:codice/utils/facade.dart';
 
 // CONTENUTO SECONDA COLONNA
 //

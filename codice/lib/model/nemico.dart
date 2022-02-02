@@ -1,29 +1,20 @@
-import 'dart:math';
-
-import 'package:codice/database/domandeDB.dart';
 import 'package:codice/functions/creazione_partita.dart';
-import 'package:codice/model/domanda.dart';
-import 'package:codice/model/partita.dart';
 import 'package:codice/model/partita_stats.dart';
-import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/scudo.dart';
 import 'package:codice/model/spada.dart';
-import 'package:codice/model/stanza.dart';
 import 'package:get_it/get_it.dart';
-import 'package:provider/provider.dart';
 import 'azione.dart';
-
-// In questa classe sono contenute le informazioni sul nemico e le sue azioni disponibili
+import 'package:codice/utils/facade.dart';
 
 abstract class Nemico {
-  Nemico(
-      {required this.nome,
-      required this.immaginiNemico,
-      required this.livello,
-      required this.disciplina,
-      required this.immagineSfondo,
-      required this.dialogoCombattimento})
-      : listaDomande = CreazionePartita().creaDomandeNemico(livello, disciplina);
+  Nemico({
+    required this.nome,
+    required this.immaginiNemico,
+    required this.livello,
+    required this.disciplina,
+    required this.immagineSfondo,
+    required this.dialogoCombattimento,
+  }) : listaDomande = CreazionePartita().creaDomandeNemico(livello, disciplina);
 
   final String nome;
   final List<String> immaginiNemico;

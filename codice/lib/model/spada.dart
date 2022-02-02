@@ -1,6 +1,4 @@
-import 'package:codice/model/oggetto.dart';
-import 'package:codice/model/personaggio.dart';
-import 'package:codice/model/stanza.dart';
+import 'package:codice/utils/facade.dart';
 
 class Spada extends Oggetto {
   Spada({required String name})

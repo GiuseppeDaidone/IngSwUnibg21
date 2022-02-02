@@ -14,3 +14,6 @@ Dentro la cartella codice si trova il progetto di flutter e tutte le immagini/gi
 Dentro la cartella docs si trovano tutti i file generati durante la fase di sviluppo del prodotto. In particolare dentro la cartella
 docs/Design si trovano i file contenenti le prime specifiche/requisiti della UI definiti prima della creazione del prototipo.
 
+TODO: 
+- creare un parser che trasforma i dati nelle classi database in dei json
+- leggere le informazioni da un json al posto delle classi DB
