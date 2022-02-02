@@ -9,12 +9,7 @@ import 'package:provider/provider.dart';
 import 'action_button.dart';
 
 class ActionButtonsRow extends StatefulWidget {
-  const ActionButtonsRow(
-      {Key? key,
-      required this.stanzaCorrente,
-      required this.azioniDisponibili,
-      required this.partita})
-      : super(key: key);
+  const ActionButtonsRow({Key? key, required this.stanzaCorrente, required this.azioniDisponibili, required this.partita}) : super(key: key);
 
   final Stanza stanzaCorrente;
   final List<Azione> azioniDisponibili;
@@ -29,8 +24,7 @@ class _ActionButtonsRowState extends State<ActionButtonsRow> {
   Widget build(BuildContext context) {
     bool flag = false;
     if (widget.stanzaCorrente.nemico == null) {
-      if (widget.stanzaCorrente.esplorazione!.statoEsplorazione ==
-          StatoEsplorazione.AZIONE) {
+      if (widget.stanzaCorrente.esplorazione!.statoEsplorazione == StatoEsplorazione.AZIONE) {
         flag = true;
       }
     } else {
@@ -54,8 +48,9 @@ class _ActionButtonsRowState extends State<ActionButtonsRow> {
 
                       // Ogni volta che un pulsante risposta viene premuto vado al dialogo successivo
                       widget.stanzaCorrente.increaseDialogoIndex(
-                          true, widget.partita,
-                          context: context);
+                        true,
+                        widget.partita,
+                      );
 
                       // Aggiorno la pagina
                       widget.partita.updateState();

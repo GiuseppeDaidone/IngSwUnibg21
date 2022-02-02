@@ -1,8 +1,10 @@
 import 'package:codice/model/partita.dart';
+import 'package:codice/model/partita_stats.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/screens/pagina%20giocatore/pagina_giocatore.dart';
 import 'package:codice/theme/game_fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 
 class TextFieldNome extends StatefulWidget {
@@ -56,6 +58,7 @@ class _TextFieldNomeState extends State<TextFieldNome> {
               )
             ],
             builder: (context, personaggio) {
+              GetIt.instance<PartitaStats>().resetStats();
               return const PaginaGiocatore();
             },
           );

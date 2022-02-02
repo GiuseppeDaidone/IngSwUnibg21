@@ -28,10 +28,10 @@ class _PaginaGiocatoreState extends State<PaginaGiocatore> {
         builder: (context, personaggio, partita, _) {
           // controllo se il giocatore ha perso
           return personaggio.getSalute() <= 0
-              ? const PaginaFinale(isDead: true)
+              ? PaginaFinale(isDead: true)
               // controllo se il giocatore ha finito il gioco
               : partita.getIndexStanzaCorrente() == partita.mappa.length
-                  ? const PaginaFinale(isDead: false)
+                  ? PaginaFinale(isDead: false)
                   : Scaffold(
                       backgroundColor: GameTheme.secondaryColor,
                       body: Row(

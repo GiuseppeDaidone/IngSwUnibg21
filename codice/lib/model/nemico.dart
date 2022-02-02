@@ -4,10 +4,12 @@ import 'package:codice/database/domandeDB.dart';
 import 'package:codice/functions/creazione_partita.dart';
 import 'package:codice/model/domanda.dart';
 import 'package:codice/model/partita.dart';
+import 'package:codice/model/partita_stats.dart';
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/scudo.dart';
 import 'package:codice/model/spada.dart';
 import 'package:codice/model/stanza.dart';
+import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 import 'azione.dart';
 
@@ -21,8 +23,7 @@ abstract class Nemico {
       required this.disciplina,
       required this.immagineSfondo,
       required this.dialogoCombattimento})
-      : listaDomande =
-            CreazionePartita().creaDomandeNemico(livello, disciplina);
+      : listaDomande = CreazionePartita().creaDomandeNemico(livello, disciplina);
 
   final String nome;
   final List<String> immaginiNemico;
@@ -51,7 +52,7 @@ abstract class Nemico {
   void setDannoNemico() {}
 
   // Questa funzione gestisce il cambiamento di stato del nemico
-  void changeStatoNemico(StatoNemico st, {context}) {
+  void changeStatoNemico(StatoNemico st) {
     switch (st) {
       case StatoNemico.TRISTE:
         statoNemico = st;
@@ -65,8 +66,8 @@ abstract class Nemico {
         statoNemico = st;
         indexImmagineCorrente = 1;
         dialogoCorrente = listaDomande[indexDomandaCorrente].testoDomanda;
-        creazioneAzioni(listaDomande[indexDomandaCorrente], context: context);
-        Provider.of<Partita>(context, listen: false).aumentaDomandeRisposte();
+        creazioneAzioni(listaDomande[indexDomandaCorrente]);
+        GetIt.instance<PartitaStats>().aumentaDomandeRisposte();
         break;
 
       case StatoNemico.SCONFITTO:
@@ -79,7 +80,7 @@ abstract class Nemico {
         statoNemico = st;
         indexImmagineCorrente = 2;
         dialogoCorrente = "RISPOSTA ERRATA!";
-        Provider.of<Partita>(context, listen: false).aumentaDomandeSbagliate();
+        GetIt.instance<PartitaStats>().aumentaDomandeSbagliate();
         azioniDisponibili.clear();
         break;
 
@@ -91,10 +92,10 @@ abstract class Nemico {
   }
 
   // Questa funzione vine chiamata quando voglio avanzare con lo stato del nemico
-  void prossimoDialogo(Partita partita, context) {
+  void prossimoDialogo(Partita partita) {
     // Se ho sbagliato la domanda precedente il nemico ne chiede un'altra
     if (statoNemico == StatoNemico.RISATA) {
-      changeStatoNemico(StatoNemico.DOMANDA, context: context);
+      changeStatoNemico(StatoNemico.DOMANDA);
       indexDomandaCorrente++;
     } else {
       // Controllo che ci sia ancora del dialogo
@@ -102,7 +103,7 @@ abstract class Nemico {
         indexDialogoCorrente++;
         // Se il dialogo nuovo deve mostrare anche domanda, mostro creo le azioni, le mostro e cambio l'immagine nemico
         if (dialogoCombattimento[indexDialogoCorrente].values.first) {
-          changeStatoNemico(StatoNemico.DOMANDA, context: context);
+          changeStatoNemico(StatoNemico.DOMANDA);
           indexDomandaCorrente++;
         }
         // Cambio solo il dialogo
@@ -119,14 +120,14 @@ abstract class Nemico {
   }
 
   // Questa funzione trasforma le risposte alle domande in pulsanti premibili. Ad ogni pulsante associa anche l'evento per quando viene premuto
-  void creazioneAzioni(Domanda domanda, {context}) {
+  void creazioneAzioni(Domanda domanda) {
     for (int i = 0; i < domanda.risposte.length; i++) {
       azioniDisponibili.add(
         Azione(
           f1: ({Stanza? s, Personaggio? p}) {
             // RISPOSTA CORRETTA
             if (domanda.soluzione == domanda.risposte[i]) {
-              changeStatoNemico(StatoNemico.TRISTE, context: context);
+              changeStatoNemico(StatoNemico.TRISTE);
             }
 
             // RISPOSTA ERRATA
@@ -135,13 +136,11 @@ abstract class Nemico {
               if (p!.oggettoEquipaggiato is Scudo) {
                 p.eliminaOggetto(p.oggettoEquipaggiato);
                 p.equipaggiaOggetto(null);
+                GetIt.instance<PartitaStats>().aumentaOggettiUtilizzati();
+                changeStatoNemico(StatoNemico.RISATA);
 
-                changeStatoNemico(StatoNemico.RISATA, context: context);
                 // Se sbaglio risposta aggiunto una nuova domanda alla lista
-                List<Domanda> lista = DomandeDB()
-                    .listaDomande
-                    .where((element) => element.disciplina == disciplina)
-                    .toList();
+                List<Domanda> lista = DomandeDB().listaDomande.where((element) => element.disciplina == disciplina).toList();
                 listaDomande.add(lista[Random().nextInt(lista.length)]);
               }
 
@@ -149,15 +148,13 @@ abstract class Nemico {
               else if (p.oggettoEquipaggiato is Spada) {
                 p.eliminaOggetto(p.oggettoEquipaggiato);
                 p.equipaggiaOggetto(null);
-                changeStatoNemico(StatoNemico.TRISTE, context: context);
+                GetIt.instance<PartitaStats>().aumentaOggettiUtilizzati();
+                changeStatoNemico(StatoNemico.TRISTE);
                 p.decrSalute(danno);
               } else {
-                changeStatoNemico(StatoNemico.RISATA, context: context);
+                changeStatoNemico(StatoNemico.RISATA);
                 p.decrSalute(danno);
-                List<Domanda> lista = DomandeDB()
-                    .listaDomande
-                    .where((element) => element.disciplina == disciplina)
-                    .toList();
+                List<Domanda> lista = DomandeDB().listaDomande.where((element) => element.disciplina == disciplina).toList();
                 listaDomande.add(lista[Random().nextInt(lista.length)]);
               }
             }

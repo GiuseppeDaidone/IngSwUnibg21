@@ -1,4 +1,6 @@
+import 'package:codice/model/partita_stats.dart';
 import 'package:codice/screens/pagina%20home/pagina_home.dart';
+import 'package:codice/utils/partita_stats_locator.dart';
 import 'package:flutter/material.dart';
 
 // flutter run -d chrome --web-renderer html
@@ -8,8 +10,9 @@ import 'package:flutter/material.dart';
 // File non utilizzati: flutter pub run dart_code_metrics:metrics check-unused-files lib
 
 void main() {
+  // imposto il locator per rendere visibile l'oggetto PartitaStats()
+  PartitaStatsLocator().setup();
   runApp(
-    // Partita Provider
     const MyApp(),
   );
 }

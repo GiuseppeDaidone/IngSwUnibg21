@@ -1,6 +1,5 @@
 import 'package:codice/model/personaggio.dart';
 import 'package:codice/model/stanza.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:uuid/uuid.dart';
 
 abstract class Oggetto {
@@ -10,13 +9,9 @@ abstract class Oggetto {
   final bool isMalefico;
   final int? effetto;
 
-  Oggetto(
-      {required this.name,
-      this.isMalefico = false,
-      this.effetto,
-      required this.icon});
+  Oggetto({required this.name, this.isMalefico = false, this.effetto, required this.icon});
 
-  void usa(Personaggio p, Oggetto o, BuildContext context, Stanza stanza) {}
+  void usa(Personaggio p, Oggetto o, Stanza stanza) {}
 }
 
 enum TipoOggetto { SPADA, SCUDO, AMULETO, ARCO }

@@ -22,26 +22,19 @@ class StanzaCombattimento extends Stanza {
   }
 
   @override
-  void increaseDialogoIndex(bool isPulsanteRisposta, Partita partita,
-      {context}) {
+  bool? increaseDialogoIndex(
+    bool isPulsanteRisposta,
+    Partita partita,
+  ) {
     if (!isPulsanteRisposta && nemico!.statoNemico == StatoNemico.DOMANDA) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          duration: Duration(milliseconds: 1000),
-          content:
-              Text("Per avanzare rispondere usando i pulsanti disponibili"),
-        ),
-      );
-      return;
+      return true;
     }
 
     // Se ho appena risposto ad una domanda mostro la risata/tristezza del nemico
-    else if (isPulsanteRisposta &&
-        (nemico!.statoNemico == StatoNemico.TRISTE ||
-            nemico!.statoNemico == StatoNemico.RISATA)) {
+    else if (isPulsanteRisposta && (nemico!.statoNemico == StatoNemico.TRISTE || nemico!.statoNemico == StatoNemico.RISATA)) {
       dialogoCorrente = nemico!.dialogoCorrente;
     } else {
-      nemico!.prossimoDialogo(partita, context);
+      nemico!.prossimoDialogo(partita);
       dialogoCorrente = nemico!.dialogoCorrente;
       // mostro le azioni per rispondere alla domanda se ho una domanda
       if (nemico!.statoNemico == StatoNemico.DOMANDA) {
@@ -50,5 +43,6 @@ class StanzaCombattimento extends Stanza {
         azioniDisponibili.clear();
       }
     }
+    return false;
   }
 }

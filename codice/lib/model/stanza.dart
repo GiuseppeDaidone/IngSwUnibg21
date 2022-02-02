@@ -25,6 +25,5 @@ abstract class Stanza {
   void setIndex(int idx, {Esplorazione? ed}) {}
 
   // metodo per far avanzare il testo dentro la textbox
-  void increaseDialogoIndex(bool isPulsanteRisposta, Partita partita,
-      {context}) {}
+  bool? increaseDialogoIndex(bool isPulsanteRisposta, Partita partita) {}
 }
